@@ -6,26 +6,24 @@ import { Link as RouterLink } from 'react-router-dom';
 import { Box, Link, Stack, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
 
 // third-party
-import NumberFormat from 'react-number-format';
 
 // project import
 import Dot from 'components/@extended/Dot';
 
-function createData(trackingNo, name, fat, carbs, protein) {
-    return { trackingNo, name, fat, carbs, protein };
+function createData(climeNo, name, date, companyName, carbs, action) {
+    return { climeNo, name, date, companyName, carbs, action };
 }
 
 const rows = [
-    createData(84564564, 'Camera Lens', 40, 2, 40570),
-    createData(98764564, 'Laptop', 300, 0, 180139),
-    createData(98756325, 'Mobile', 355, 1, 90989),
-    createData(98652366, 'Handset', 50, 1, 10239),
-    createData(13286564, 'Computer Accessories', 100, 1, 83348),
-    createData(86739658, 'TV', 99, 0, 410780),
-    createData(13256498, 'Keyboard', 125, 2, 70999),
-    createData(98753263, 'Mouse', 89, 2, 10570),
-    createData(98753275, 'Desktop', 185, 1, 98063),
-    createData(98753291, 'Chair', 100, 0, 14001)
+    createData(105, 'Margie Cunningham', 'Oct 11 2022', 'Digiqt Technolabs', 2, 'View'),
+    createData(106, 'Verna Sharp', 'Oct 10 2022', 'Digiqt Technolabs', 1, 'View'),
+    createData(107, 'Tyrone Rodriguez', 'Oct 10 2022', 'Digiqt ', 0, 'View'),
+    createData(108, 'Roxanne Rivera', 'Oct 10 2022', 'Digiqt Technolabs', 1, 'View'),
+    createData(109, 'Omar Glover', 'Oct 10 2022', 'Digiqt ', 1, 'View'),
+    createData(110, 'Minnie Garrett', 'Oct 9 2022', 'Digiqt Technolabs', 1, 'View'),
+    createData(111, 'Ian Ingram', 'Oct 9 2022', 'Digiqt Technolabs', 0, 'View'),
+    createData(112, 'Audrey Fox', 'Oct 9 2022', 'Technolabs', 0, 'View'),
+    createData(113, 'Jon Curry', 'Oct 8 2022', 'Technolabs', 2, 'View')
 ];
 
 function descendingComparator(a, b, orderBy) {
@@ -58,22 +56,28 @@ function stableSort(array, comparator) {
 
 const headCells = [
     {
-        id: 'trackingNo',
+        id: 'climeNo',
         align: 'left',
         disablePadding: false,
-        label: 'Tracking No.'
+        label: 'Clime No.'
     },
     {
         id: 'name',
         align: 'left',
         disablePadding: true,
-        label: 'Product Name'
+        label: 'Name'
     },
     {
-        id: 'fat',
+        id: 'date',
         align: 'right',
         disablePadding: false,
-        label: 'Total Order'
+        label: 'Date'
+    },
+    {
+        id: 'companyName',
+        align: 'right',
+        disablePadding: false,
+        label: 'Company name'
     },
     {
         id: 'carbs',
@@ -83,16 +87,16 @@ const headCells = [
         label: 'Status'
     },
     {
-        id: 'protein',
+        id: 'action',
         align: 'right',
         disablePadding: false,
-        label: 'Total Amount'
+        label: 'Action'
     }
 ];
 
 // ==============================|| ORDER TABLE - HEADER ||============================== //
 
-function OrderTableHead({ order, orderBy }) {
+function RecentClaims({ order, orderBy }) {
     return (
         <TableHead>
             <TableRow>
@@ -102,6 +106,7 @@ function OrderTableHead({ order, orderBy }) {
                         align={headCell.align}
                         padding={headCell.disablePadding ? 'none' : 'normal'}
                         sortDirection={orderBy === headCell.id ? order : false}
+                        sx={{ textAlign: 'center' }}
                     >
                         {headCell.label}
                     </TableCell>
@@ -111,7 +116,7 @@ function OrderTableHead({ order, orderBy }) {
     );
 }
 
-OrderTableHead.propTypes = {
+RecentClaims.propTypes = {
     order: PropTypes.string,
     orderBy: PropTypes.string
 };
@@ -141,7 +146,7 @@ const OrderStatus = ({ status }) => {
     }
 
     return (
-        <Stack direction="row" spacing={1} alignItems="center">
+        <Stack direction="row" spacing={1} alignItems="center" justifyContent="center">
             <Dot color={color} />
             <Typography>{title}</Typography>
         </Stack>
@@ -156,10 +161,10 @@ OrderStatus.propTypes = {
 
 export default function OrderTable() {
     const [order] = useState('asc');
-    const [orderBy] = useState('trackingNo');
+    const [orderBy] = useState('climeNo');
     const [selected] = useState([]);
 
-    const isSelected = (trackingNo) => selected.indexOf(trackingNo) !== -1;
+    const isSelected = (climeNo) => selected.indexOf(climeNo) !== -1;
 
     return (
         <Box>
@@ -184,10 +189,10 @@ export default function OrderTable() {
                         }
                     }}
                 >
-                    <OrderTableHead order={order} orderBy={orderBy} />
+                    <RecentClaims order={order} orderBy={orderBy} />
                     <TableBody>
                         {stableSort(rows, getComparator(order, orderBy)).map((row, index) => {
-                            const isItemSelected = isSelected(row.trackingNo);
+                            const isItemSelected = isSelected(row.climeNo);
                             const labelId = `enhanced-table-checkbox-${index}`;
 
                             return (
@@ -197,21 +202,22 @@ export default function OrderTable() {
                                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                                     aria-checked={isItemSelected}
                                     tabIndex={-1}
-                                    key={row.trackingNo}
+                                    key={row.climeNo}
                                     selected={isItemSelected}
                                 >
                                     <TableCell component="th" id={labelId} scope="row" align="left">
                                         <Link color="secondary" component={RouterLink} to="">
-                                            {row.trackingNo}
+                                            {row.climeNo}
                                         </Link>
                                     </TableCell>
-                                    <TableCell align="left">{row.name}</TableCell>
-                                    <TableCell align="right">{row.fat}</TableCell>
-                                    <TableCell align="left">
+                                    <TableCell align="center">{row.name}</TableCell>
+                                    <TableCell align="center">{row.date}</TableCell>
+                                    <TableCell align="center">{row.companyName}</TableCell>
+                                    <TableCell align="center">
                                         <OrderStatus status={row.carbs} />
                                     </TableCell>
-                                    <TableCell align="right">
-                                        <NumberFormat value={row.protein} displayType="text" thousandSeparator prefix="$" />
+                                    <TableCell align="center">
+                                        <Link>{row.action}</Link>
                                     </TableCell>
                                 </TableRow>
                             );
