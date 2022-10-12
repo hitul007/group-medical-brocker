@@ -3,27 +3,29 @@ import { useState } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 
 // material-ui
-import { Box, Link, Stack, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
+import { Button, InputAdornment, Stack, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField } from '@mui/material';
 
-// third-party
+import { FilterOutlined, SearchOutlined } from '@ant-design/icons';
 
-// project import
-import Dot from 'components/@extended/Dot';
-
-function createData(climeNo, name, date, companyName, carbs, action) {
-    return { climeNo, name, date, companyName, carbs, action };
+function createData(no, name, healthId, emailId, contactNo, claims) {
+    return { no, name, healthId, emailId, contactNo, claims };
 }
 
 const rows = [
-    createData(105, 'Margie Cunningham', 'Oct 11 2022', 'Digiqt Technolabs', 2, 'View'),
-    createData(106, 'Verna Sharp', 'Oct 10 2022', 'Digiqt Technolabs', 1, 'View'),
-    createData(107, 'Tyrone Rodriguez', 'Oct 10 2022', 'Digiqt ', 0, 'View'),
-    createData(108, 'Roxanne Rivera', 'Oct 10 2022', 'Digiqt Technolabs', 1, 'View'),
-    createData(109, 'Omar Glover', 'Oct 10 2022', 'Digiqt ', 1, 'View'),
-    createData(110, 'Minnie Garrett', 'Oct 9 2022', 'Digiqt Technolabs', 1, 'View'),
-    createData(111, 'Ian Ingram', 'Oct 9 2022', 'Digiqt Technolabs', 0, 'View'),
-    createData(112, 'Audrey Fox', 'Oct 9 2022', 'Technolabs', 0, 'View'),
-    createData(113, 'Jon Curry', 'Oct 8 2022', 'Technolabs', 2, 'View')
+    createData(1, 'Ravi Fadadu', '12-3456-7890-1234', 'ravi@digiqt.com', '+91 97123 66941', '0'),
+    createData(2, 'Ravi Fadadu', '12-3456-7890-1234', 'ravi@digiqt.com', '+91 97123 66941', '1'),
+    createData(3, 'Ravi Fadadu', '12-3456-7890-1234', 'ravi@digiqt.com', '+91 97123 66941', '1'),
+    createData(4, 'Ravi Fadadu', '12-3456-7890-1234', 'ravi@digiqt.com', '+91 97123 66941', '0'),
+    createData(5, 'Ravi Fadadu', '12-3456-7890-1234', 'ravi@digiqt.com', '+91 97123 66941', '0'),
+    createData(6, 'Ravi Fadadu', '12-3456-7890-1234', 'ravi@digiqt.com', '+91 97123 66941', '1'),
+    createData(7, 'Ravi Fadadu', '12-3456-7890-1234', 'ravi@digiqt.com', '+91 97123 66941', '3'),
+    createData(8, 'Ravi Fadadu', '12-3456-7890-1234', 'ravi@digiqt.com', '+91 97123 66941', '5'),
+    createData(9, 'Ravi Fadadu', '12-3456-7890-1234', 'ravi@digiqt.com', '+91 97123 66941', '0'),
+    createData(10, 'Ravi Fadadu', '12-3456-7890-1234', 'ravi@digiqt.com', '+91 97123 66941', '0'),
+    createData(11, 'Ravi Fadadu', '12-3456-7890-1234', 'ravi@digiqt.com', '+91 97123 66941', '0'),
+    createData(12, 'Ravi Fadadu', '12-3456-7890-1234', 'ravi@digiqt.com', '+91 97123 66941', '10'),
+    createData(13, 'Ravi Fadadu', '12-3456-7890-1234', 'ravi@digiqt.com', '+91 97123 66941', '8'),
+    createData(14, 'Ravi Fadadu', '12-3456-7890-1234', 'ravi@digiqt.com', '+91 97123 66941', '3')
 ];
 
 function descendingComparator(a, b, orderBy) {
@@ -56,40 +58,40 @@ function stableSort(array, comparator) {
 
 const headCells = [
     {
-        id: 'climeNo',
-        align: 'left',
+        id: 'no',
+        align: 'center',
         disablePadding: false,
         label: 'Clime No.'
     },
     {
         id: 'name',
-        align: 'left',
-        disablePadding: true,
+        align: 'center',
+        disablePadding: false,
         label: 'Name'
     },
     {
-        id: 'date',
-        align: 'right',
+        id: 'healthId',
+        align: 'center',
         disablePadding: false,
-        label: 'Date'
+        label: 'Health Id'
     },
     {
-        id: 'companyName',
-        align: 'right',
+        id: 'emailId',
+        align: 'center',
         disablePadding: false,
-        label: 'Company name'
+        label: 'Email Id'
     },
     {
-        id: 'carbs',
-        align: 'left',
+        id: 'contactNo',
+        align: 'center',
         disablePadding: false,
-        label: 'Status'
+        label: 'Contact No'
     },
     {
-        id: 'action',
-        align: 'right',
+        id: 'claims',
+        align: 'center',
         disablePadding: false,
-        label: 'Action'
+        label: 'Claims'
     }
 ];
 
@@ -120,45 +122,9 @@ RecentClaims.propTypes = {
     orderBy: PropTypes.string
 };
 
-// ==============================|| ORDER TABLE - STATUS ||============================== //
-
-const OrderStatus = ({ status }) => {
-    let color;
-    let title;
-
-    switch (status) {
-        case 0:
-            color = 'warning';
-            title = 'Pending';
-            break;
-        case 1:
-            color = 'success';
-            title = 'Approved';
-            break;
-        case 2:
-            color = 'error';
-            title = 'Rejected';
-            break;
-        default:
-            color = 'primary';
-            title = 'None';
-    }
-
-    return (
-        <Stack direction="row" spacing={1} alignItems="center" justifyContent="center">
-            <Dot color={color} />
-            <Typography>{title}</Typography>
-        </Stack>
-    );
-};
-
-OrderStatus.propTypes = {
-    status: PropTypes.number
-};
-
 // ==============================|| ORDER TABLE ||============================== //
 
-export default function OrderTable() {
+export default function Employees() {
     const [order] = useState('asc');
     const [orderBy] = useState('climeNo');
     const [selected] = useState([]);
@@ -166,7 +132,25 @@ export default function OrderTable() {
     const isSelected = (climeNo) => selected.indexOf(climeNo) !== -1;
 
     return (
-        <Box>
+        <>
+            <Stack sx={{ mt: 2, mb: 1 }} direction="row" justifyContent="flex-end" spacing={2}>
+                <Button sx={{ maxWidth: '100px' }} variant="outlined" startIcon={<FilterOutlined />}>
+                    Filter
+                </Button>
+                <TextField
+                    id="outlined-basic"
+                    placeholder="Search name or health Id"
+                    variant="outlined"
+                    InputProps={{
+                        endAdornment: (
+                            <InputAdornment position="start">
+                                <SearchOutlined />
+                            </InputAdornment>
+                        )
+                    }}
+                    sx={{ maxWidth: '250px' }}
+                />
+            </Stack>
             <TableContainer
                 sx={{
                     width: '100%',
@@ -204,19 +188,25 @@ export default function OrderTable() {
                                     key={row.climeNo}
                                     selected={isItemSelected}
                                 >
-                                    <TableCell component="th" id={labelId} scope="row" align="left">
-                                        <Link color="secondary" component={RouterLink} to="">
-                                            {row.climeNo}
-                                        </Link>
-                                    </TableCell>
-                                    <TableCell align="center">{row.name}</TableCell>
-                                    <TableCell align="center">{row.date}</TableCell>
-                                    <TableCell align="center">{row.companyName}</TableCell>
-                                    <TableCell align="center">
-                                        <OrderStatus status={row.carbs} />
+                                    <TableCell component="th" id={labelId} scope="row" align="center" sx={{ color: '#919191' }}>
+                                        {row.no}
                                     </TableCell>
                                     <TableCell align="center">
-                                        <Link>{row.action}</Link>
+                                        <RouterLink to="/companies/employees" style={{ color: '#919191', textDecoration: 'none' }}>
+                                            {row.name}
+                                        </RouterLink>
+                                    </TableCell>
+                                    <TableCell sx={{ color: '#919191' }} align="center">
+                                        {row.healthId}
+                                    </TableCell>
+                                    <TableCell sx={{ color: '#919191' }} align="center">
+                                        {row.emailId}
+                                    </TableCell>
+                                    <TableCell sx={{ color: '#919191' }} align="center">
+                                        {row.contactNo}
+                                    </TableCell>
+                                    <TableCell sx={{ color: '#919191' }} align="center">
+                                        {row.claims}
                                     </TableCell>
                                 </TableRow>
                             );
@@ -224,6 +214,6 @@ export default function OrderTable() {
                     </TableBody>
                 </Table>
             </TableContainer>
-        </Box>
+        </>
     );
 }

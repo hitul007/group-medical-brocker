@@ -1,29 +1,36 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
 
 // material-ui
-import { Box, Link, Stack, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
+import {
+    Button,
+    InputAdornment,
+    Stack,
+    Table,
+    TableBody,
+    TableCell,
+    TableContainer,
+    TableHead,
+    TableRow,
+    TextField,
+    Typography
+} from '@mui/material';
 
+import { FilterOutlined, SearchOutlined } from '@ant-design/icons';
 // third-party
 
 // project import
 import Dot from 'components/@extended/Dot';
 
-function createData(climeNo, name, date, companyName, carbs, action) {
-    return { climeNo, name, date, companyName, carbs, action };
+function createData(climeNo, name, healthid, Climeamount, hosName, date, carbs) {
+    return { climeNo, name, healthid, Climeamount, hosName, date, carbs };
 }
 
 const rows = [
-    createData(105, 'Margie Cunningham', 'Oct 11 2022', 'Digiqt Technolabs', 2, 'View'),
-    createData(106, 'Verna Sharp', 'Oct 10 2022', 'Digiqt Technolabs', 1, 'View'),
-    createData(107, 'Tyrone Rodriguez', 'Oct 10 2022', 'Digiqt ', 0, 'View'),
-    createData(108, 'Roxanne Rivera', 'Oct 10 2022', 'Digiqt Technolabs', 1, 'View'),
-    createData(109, 'Omar Glover', 'Oct 10 2022', 'Digiqt ', 1, 'View'),
-    createData(110, 'Minnie Garrett', 'Oct 9 2022', 'Digiqt Technolabs', 1, 'View'),
-    createData(111, 'Ian Ingram', 'Oct 9 2022', 'Digiqt Technolabs', 0, 'View'),
-    createData(112, 'Audrey Fox', 'Oct 9 2022', 'Technolabs', 0, 'View'),
-    createData(113, 'Jon Curry', 'Oct 8 2022', 'Technolabs', 2, 'View')
+    createData(105, 'Margie Cunningham', '00-1111-2222-3333', '$ 50.000', 'XYZ', '05/11/2022 to 12/11/2022', 2),
+    createData(106, 'Verna Sharp', '00-1111-2222-3333', '$ 50.000', 'XYZ', '05/11/2022 to 12/11/2022', 1),
+    createData(107, 'Tyrone Rodriguez', '00-1111-2222-3333', '$ 50.000 ', 'XYZ', '05/11/2022 to 12/11/2022', 0),
+    createData(108, 'Roxanne Rivera', '00-1111-2222-3333', '$ 50.000', 'XYZ', '05/11/2022 to 12/11/2022', 1)
 ];
 
 function descendingComparator(a, b, orderBy) {
@@ -68,28 +75,34 @@ const headCells = [
         label: 'Name'
     },
     {
+        id: 'healthid',
+        align: 'right',
+        disablePadding: false,
+        label: 'Health Id'
+    },
+    {
+        id: 'Climeamount',
+        align: 'right',
+        disablePadding: false,
+        label: 'Clime Amount'
+    },
+    {
         id: 'date',
         align: 'right',
         disablePadding: false,
-        label: 'Date'
+        label: 'Hospital Name'
     },
     {
-        id: 'companyName',
+        id: 'date',
         align: 'right',
         disablePadding: false,
-        label: 'Company name'
+        label: 'Hospitalized Date'
     },
     {
-        id: 'carbs',
+        id: 'hosName',
         align: 'left',
         disablePadding: false,
         label: 'Status'
-    },
-    {
-        id: 'action',
-        align: 'right',
-        disablePadding: false,
-        label: 'Action'
     }
 ];
 
@@ -129,19 +142,19 @@ const OrderStatus = ({ status }) => {
     switch (status) {
         case 0:
             color = 'warning';
-            title = 'Pending';
+            title = 'Open';
             break;
         case 1:
             color = 'success';
-            title = 'Approved';
+            title = 'Passed';
             break;
         case 2:
             color = 'error';
             title = 'Rejected';
             break;
         default:
-            color = 'primary';
-            title = 'None';
+            color = 'warning';
+            title = 'Open';
     }
 
     return (
@@ -158,7 +171,7 @@ OrderStatus.propTypes = {
 
 // ==============================|| ORDER TABLE ||============================== //
 
-export default function OrderTable() {
+export default function Claims() {
     const [order] = useState('asc');
     const [orderBy] = useState('climeNo');
     const [selected] = useState([]);
@@ -166,7 +179,25 @@ export default function OrderTable() {
     const isSelected = (climeNo) => selected.indexOf(climeNo) !== -1;
 
     return (
-        <Box>
+        <>
+            <Stack sx={{ mt: 2, mb: 1 }} direction="row" justifyContent="flex-end" spacing={2}>
+                <Button sx={{ maxWidth: '100px' }} variant="outlined" startIcon={<FilterOutlined />}>
+                    Filter
+                </Button>
+                <TextField
+                    id="outlined-basic"
+                    placeholder="Search name or health Id"
+                    variant="outlined"
+                    InputProps={{
+                        endAdornment: (
+                            <InputAdornment position="start">
+                                <SearchOutlined />
+                            </InputAdornment>
+                        )
+                    }}
+                    sx={{ maxWidth: '250px' }}
+                />
+            </Stack>
             <TableContainer
                 sx={{
                     width: '100%',
@@ -204,19 +235,26 @@ export default function OrderTable() {
                                     key={row.climeNo}
                                     selected={isItemSelected}
                                 >
-                                    <TableCell component="th" id={labelId} scope="row" align="left">
-                                        <Link color="secondary" component={RouterLink} to="">
-                                            {row.climeNo}
-                                        </Link>
+                                    <TableCell sx={{ color: '#919191' }} component="th" id={labelId} scope="row" align="center">
+                                        {row.climeNo}
                                     </TableCell>
-                                    <TableCell align="center">{row.name}</TableCell>
-                                    <TableCell align="center">{row.date}</TableCell>
-                                    <TableCell align="center">{row.companyName}</TableCell>
-                                    <TableCell align="center">
+                                    <TableCell sx={{ color: '#919191' }} align="center">
+                                        {row.name}
+                                    </TableCell>
+                                    <TableCell sx={{ color: '#919191' }} align="center">
+                                        {row.healthid}
+                                    </TableCell>
+                                    <TableCell sx={{ color: '#919191' }} align="center">
+                                        {row.Climeamount}
+                                    </TableCell>
+                                    <TableCell sx={{ color: '#919191' }} align="center">
+                                        {row.hosName}
+                                    </TableCell>
+                                    <TableCell sx={{ color: '#919191' }} align="center">
+                                        {row.date}
+                                    </TableCell>
+                                    <TableCell sx={{ color: '#919191' }} align="center">
                                         <OrderStatus status={row.carbs} />
-                                    </TableCell>
-                                    <TableCell align="center">
-                                        <Link>{row.action}</Link>
                                     </TableCell>
                                 </TableRow>
                             );
@@ -224,6 +262,6 @@ export default function OrderTable() {
                     </TableBody>
                 </Table>
             </TableContainer>
-        </Box>
+        </>
     );
 }

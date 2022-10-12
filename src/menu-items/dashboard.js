@@ -38,7 +38,7 @@ const dashboard = {
             id: 'claims',
             title: 'Claims',
             type: 'item',
-            url: '/dashboard/default',
+            url: '/claims',
             icon: icons.FileDoneOutlined,
             breadcrumbs: false
         },
@@ -46,7 +46,7 @@ const dashboard = {
             id: 'Hospitals',
             title: 'Hospitals',
             type: 'item',
-            url: '/dashboard/default',
+            url: '/hospitals',
             icon: icons.MedicineBoxOutlined,
             breadcrumbs: false
         },

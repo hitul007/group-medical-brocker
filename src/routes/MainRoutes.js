@@ -4,6 +4,10 @@ import { lazy } from 'react';
 import Loadable from 'components/Loadable';
 import MainLayout from 'layout/MainLayout';
 import Companies from 'pages/Companies/Companies';
+import Details from 'pages/Companies/Details/Details';
+import EmployeesDetails from 'pages/Companies/Details/Employees/EmployeesDetails';
+import Allclaims from 'pages/Claims/Allclaims';
+import Hospitals from 'pages/Hospitals/Hospitals';
 
 // render - dashboard
 const DashboardDefault = Loadable(lazy(() => import('pages/dashboard')));
@@ -16,7 +20,7 @@ const Typography = Loadable(lazy(() => import('pages/components-overview/Typogra
 const Color = Loadable(lazy(() => import('pages/components-overview/Color')));
 const Shadow = Loadable(lazy(() => import('pages/components-overview/Shadow')));
 const AntIcons = Loadable(lazy(() => import('pages/components-overview/AntIcons')));
-
+const Claimsdialog = Loadable(lazy(() => import('../pages/Claims/Claimsdialog')));
 // ==============================|| MAIN ROUTING ||============================== //
 
 const MainRoutes = {
@@ -59,7 +63,33 @@ const MainRoutes = {
         //new pages routes
         {
             path: 'companies',
-            element: <Companies />
+            //  element: <Companies />
+            children: [
+                {
+                    path: '',
+                    element: <Companies />
+                },
+                {
+                    path: 'employees',
+                    element: <EmployeesDetails />
+                },
+                {
+                    path: 'details',
+                    element: <Details />
+                }
+            ]
+        },
+        {
+            path: 'claim',
+            element: <Claimsdialog />
+        },
+        {
+            path: 'claims',
+            element: <Allclaims />
+        },
+        {
+            path: 'hospitals',
+            element: <Hospitals />
         }
     ]
 };
