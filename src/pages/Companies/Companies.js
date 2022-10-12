@@ -1,7 +1,8 @@
-import { Box, Button, Grid, Link, Stack, Typography } from '@mui/material';
+import { Box, Button, Grid, Stack, Typography } from '@mui/material';
 import MainCard from 'components/MainCard';
 
 import { GlobalOutlined, MessageOutlined, PhoneOutlined, PlusOutlined, VerticalLeftOutlined } from '@ant-design/icons';
+import { Link } from 'react-router-dom';
 
 function Companies() {
     return (
@@ -17,9 +18,12 @@ function Companies() {
                     <MainCard contentSX={{ p: 2.75 }}>
                         <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 2 }}>
                             <Typography variant="h4">Company Name </Typography>
-                            <Link sx={{ cursor: 'pointer' }}>
+                            {/* <Button component={Link} to="/companies/details" variant="text">
                                 <VerticalLeftOutlined style={{ fontSize: '25px', color: '#08c' }} />
-                            </Link>
+                            </Button> */}
+                            <Button component={Link} to="/companies/details" variant="text">
+                                <VerticalLeftOutlined style={{ fontSize: '25px', color: '#08c' }} />
+                            </Button>
                         </Stack>
                         <Stack direction="column" spacing={1}>
                             <Box sx={{ display: 'flex', gap: '0.5rem' }}>
@@ -37,7 +41,7 @@ function Companies() {
                             <Box sx={{ display: 'flex', gap: '0.5rem' }}>
                                 <GlobalOutlined style={{ fontSize: '16px', color: '#ddd' }} />
                                 <Typography variant="caption">
-                                    <Link sx={{ color: '#919191' }}>www.digiqt.com</Link>
+                                    <Link style={{ color: '#919191', textDecoration: 'none' }}>www.digiqt.com</Link>
                                 </Typography>
                             </Box>
                         </Stack>
@@ -47,9 +51,9 @@ function Companies() {
                     <MainCard contentSX={{ p: 2.75 }}>
                         <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 2 }}>
                             <Typography variant="h4">Company Name </Typography>
-                            <Link sx={{ cursor: 'pointer' }}>
+                            <Button component={Link} to="/companies/details" variant="text">
                                 <VerticalLeftOutlined style={{ fontSize: '25px', color: '#08c' }} />
-                            </Link>
+                            </Button>
                         </Stack>
                         <Stack direction="column" spacing={1}>
                             <Box sx={{ display: 'flex', gap: '0.5rem' }}>
@@ -67,7 +71,7 @@ function Companies() {
                             <Box sx={{ display: 'flex', gap: '0.5rem' }}>
                                 <GlobalOutlined style={{ fontSize: '16px', color: '#ddd' }} />
                                 <Typography variant="caption">
-                                    <Link sx={{ color: '#919191' }}>www.digiqt.com</Link>
+                                    <Link style={{ color: '#919191', textDecoration: 'none' }}>www.digiqt.com</Link>
                                 </Typography>
                             </Box>
                         </Stack>
@@ -77,9 +81,9 @@ function Companies() {
                     <MainCard contentSX={{ p: 2.75 }}>
                         <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 2 }}>
                             <Typography variant="h4">Company Name </Typography>
-                            <Link sx={{ cursor: 'pointer' }}>
+                            <Button component={Link} to="/companies/details" variant="text">
                                 <VerticalLeftOutlined style={{ fontSize: '25px', color: '#08c' }} />
-                            </Link>
+                            </Button>
                         </Stack>
                         <Stack direction="column" spacing={1}>
                             <Box sx={{ display: 'flex', gap: '0.5rem' }}>
@@ -97,7 +101,7 @@ function Companies() {
                             <Box sx={{ display: 'flex', gap: '0.5rem' }}>
                                 <GlobalOutlined style={{ fontSize: '16px', color: '#ddd' }} />
                                 <Typography variant="caption">
-                                    <Link sx={{ color: '#919191' }}>www.digiqt.com</Link>
+                                    <Link style={{ color: '#919191', textDecoration: 'none' }}>www.digiqt.com</Link>
                                 </Typography>
                             </Box>
                         </Stack>
@@ -107,9 +111,9 @@ function Companies() {
                     <MainCard contentSX={{ p: 2.75 }}>
                         <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 2 }}>
                             <Typography variant="h4">Company Name </Typography>
-                            <Link sx={{ cursor: 'pointer' }}>
+                            <Button component={Link} to="/companies/details" variant="text">
                                 <VerticalLeftOutlined style={{ fontSize: '25px', color: '#08c' }} />
-                            </Link>
+                            </Button>
                         </Stack>
                         <Stack direction="column" spacing={1}>
                             <Box sx={{ display: 'flex', gap: '0.5rem' }}>
@@ -127,7 +131,7 @@ function Companies() {
                             <Box sx={{ display: 'flex', gap: '0.5rem' }}>
                                 <GlobalOutlined style={{ fontSize: '16px', color: '#ddd' }} />
                                 <Typography variant="caption">
-                                    <Link sx={{ color: '#919191' }}>www.digiqt.com</Link>
+                                    <Link style={{ color: '#919191', textDecoration: 'none' }}>www.digiqt.com</Link>
                                 </Typography>
                             </Box>
                         </Stack>
@@ -137,9 +141,9 @@ function Companies() {
                     <MainCard contentSX={{ p: 2.75 }}>
                         <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 2 }}>
                             <Typography variant="h4">Company Name </Typography>
-                            <Link sx={{ cursor: 'pointer' }}>
+                            <Button component={Link} to="/companies/details" variant="text">
                                 <VerticalLeftOutlined style={{ fontSize: '25px', color: '#08c' }} />
-                            </Link>
+                            </Button>
                         </Stack>
                         <Stack direction="column" spacing={1}>
                             <Box sx={{ display: 'flex', gap: '0.5rem' }}>
@@ -157,7 +161,7 @@ function Companies() {
                             <Box sx={{ display: 'flex', gap: '0.5rem' }}>
                                 <GlobalOutlined style={{ fontSize: '16px', color: '#ddd' }} />
                                 <Typography variant="caption">
-                                    <Link sx={{ color: '#919191' }}>www.digiqt.com</Link>
+                                    <Link style={{ color: '#919191', textDecoration: 'none' }}>www.digiqt.com</Link>
                                 </Typography>
                             </Box>
                         </Stack>
@@ -167,9 +171,9 @@ function Companies() {
                     <MainCard contentSX={{ p: 2.75 }}>
                         <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 2 }}>
                             <Typography variant="h4">Company Name </Typography>
-                            <Link sx={{ cursor: 'pointer' }}>
+                            <Button component={Link} to="/companies/details" variant="text">
                                 <VerticalLeftOutlined style={{ fontSize: '25px', color: '#08c' }} />
-                            </Link>
+                            </Button>
                         </Stack>
                         <Stack direction="column" spacing={1}>
                             <Box sx={{ display: 'flex', gap: '0.5rem' }}>
@@ -187,7 +191,7 @@ function Companies() {
                             <Box sx={{ display: 'flex', gap: '0.5rem' }}>
                                 <GlobalOutlined style={{ fontSize: '16px', color: '#ddd' }} />
                                 <Typography variant="caption">
-                                    <Link sx={{ color: '#919191' }}>www.digiqt.com</Link>
+                                    <Link style={{ color: '#919191', textDecoration: 'none' }}>www.digiqt.com</Link>
                                 </Typography>
                             </Box>
                         </Stack>
@@ -197,9 +201,9 @@ function Companies() {
                     <MainCard contentSX={{ p: 2.75 }}>
                         <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 2 }}>
                             <Typography variant="h4">Company Name </Typography>
-                            <Link sx={{ cursor: 'pointer' }}>
+                            <Button component={Link} to="/companies/details" variant="text">
                                 <VerticalLeftOutlined style={{ fontSize: '25px', color: '#08c' }} />
-                            </Link>
+                            </Button>
                         </Stack>
                         <Stack direction="column" spacing={1}>
                             <Box sx={{ display: 'flex', gap: '0.5rem' }}>
@@ -217,7 +221,7 @@ function Companies() {
                             <Box sx={{ display: 'flex', gap: '0.5rem' }}>
                                 <GlobalOutlined style={{ fontSize: '16px', color: '#ddd' }} />
                                 <Typography variant="caption">
-                                    <Link sx={{ color: '#919191' }}>www.digiqt.com</Link>
+                                    <Link style={{ color: '#919191', textDecoration: 'none' }}>www.digiqt.com</Link>
                                 </Typography>
                             </Box>
                         </Stack>
