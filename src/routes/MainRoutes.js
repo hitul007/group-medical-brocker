@@ -6,6 +6,8 @@ import MainLayout from 'layout/MainLayout';
 import Companies from 'pages/Companies/Companies';
 import Details from 'pages/Companies/Details/Details';
 import EmployeesDetails from 'pages/Companies/Details/Employees/EmployeesDetails';
+import Allclaims from 'pages/Claims/Allclaims';
+import Hospitals from 'pages/Hospitals/Hospitals';
 
 // render - dashboard
 const DashboardDefault = Loadable(lazy(() => import('pages/dashboard')));
@@ -80,6 +82,14 @@ const MainRoutes = {
         {
             path: 'claim',
             element: <Claimsdialog />
+        },
+        {
+            path: 'claims',
+            element: <Allclaims />
+        },
+        {
+            path: 'hospitals',
+            element: <Hospitals />
         }
     ]
 };

@@ -96,7 +96,7 @@ const headCells = [
         id: 'date',
         align: 'right',
         disablePadding: false,
-        label: 'Hospitals Date'
+        label: 'Hospitalized Date'
     },
     {
         id: 'hosName',
