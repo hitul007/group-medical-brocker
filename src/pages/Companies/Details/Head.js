@@ -10,11 +10,12 @@ import {
     ListItemText,
     Popover,
     Stack,
-    Typography
+    Typography,
+    Button
 } from '@mui/material';
 import * as React from 'react';
 
-import { DeleteOutlined, EditOutlined, EllipsisOutlined, TeamOutlined } from '@ant-design/icons';
+import { PlusOutlined, DeleteOutlined, EditOutlined, EllipsisOutlined, TeamOutlined } from '@ant-design/icons';
 
 function Head() {
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -44,6 +45,9 @@ function Head() {
                 </Box>
             </Stack>
             <Box>
+                <Button variant="contained" startIcon={<PlusOutlined />} sx={{ mr: 2 }}>
+                    Employee
+                </Button>
                 <IconButton aria-label="delete" onClick={handleClick} sx={{ transform: 'rotate(90deg)' }}>
                     <EllipsisOutlined />
                 </IconButton>
