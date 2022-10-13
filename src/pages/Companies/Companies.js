@@ -15,13 +15,10 @@ function Companies() {
             </Box>
             <Grid container rowSpacing={4.5} columnSpacing={2.75}>
                 <Grid item xs={12} sm={12} md={3} lg={3}>
-                    <MainCard contentSX={{ p: 2.75 }}>
+                    <MainCard content>
                         <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 2 }}>
-                            <Typography variant="h4">Company Name </Typography>
-                            {/* <Button component={Link} to="/companies/details" variant="text">
-                                <VerticalLeftOutlined style={{ fontSize: '25px', color: '#08c' }} />
-                            </Button> */}
-                            <Button component={Link} to="/companies/details" variant="text">
+                            <Typography variant="h4">Digiqt Technolabs</Typography>
+                            <Button component={Link} to="/companies/details" variant="text" sx={{ marginRight: '-1rem' }}>
                                 <VerticalLeftOutlined style={{ fontSize: '25px', color: '#08c' }} />
                             </Button>
                         </Stack>
@@ -48,10 +45,10 @@ function Companies() {
                     </MainCard>
                 </Grid>
                 <Grid item xs={12} sm={12} md={3} lg={3}>
-                    <MainCard contentSX={{ p: 2.75 }}>
+                    <MainCard content>
                         <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 2 }}>
                             <Typography variant="h4">Company Name </Typography>
-                            <Button component={Link} to="/companies/details" variant="text">
+                            <Button component={Link} to="/companies/details" variant="text" sx={{ marginRight: '-1rem' }}>
                                 <VerticalLeftOutlined style={{ fontSize: '25px', color: '#08c' }} />
                             </Button>
                         </Stack>
@@ -78,10 +75,10 @@ function Companies() {
                     </MainCard>
                 </Grid>
                 <Grid item xs={12} sm={12} md={3} lg={3}>
-                    <MainCard contentSX={{ p: 2.75 }}>
+                    <MainCard content>
                         <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 2 }}>
                             <Typography variant="h4">Company Name </Typography>
-                            <Button component={Link} to="/companies/details" variant="text">
+                            <Button component={Link} to="/companies/details" variant="text" sx={{ marginRight: '-1rem' }}>
                                 <VerticalLeftOutlined style={{ fontSize: '25px', color: '#08c' }} />
                             </Button>
                         </Stack>
@@ -108,10 +105,10 @@ function Companies() {
                     </MainCard>
                 </Grid>
                 <Grid item xs={12} sm={12} md={3} lg={3}>
-                    <MainCard contentSX={{ p: 2.75 }}>
+                    <MainCard content>
                         <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 2 }}>
                             <Typography variant="h4">Company Name </Typography>
-                            <Button component={Link} to="/companies/details" variant="text">
+                            <Button component={Link} to="/companies/details" variant="text" sx={{ marginRight: '-1rem' }}>
                                 <VerticalLeftOutlined style={{ fontSize: '25px', color: '#08c' }} />
                             </Button>
                         </Stack>
@@ -138,10 +135,10 @@ function Companies() {
                     </MainCard>
                 </Grid>
                 <Grid item xs={12} sm={12} md={3} lg={3}>
-                    <MainCard contentSX={{ p: 2.75 }}>
+                    <MainCard content>
                         <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 2 }}>
                             <Typography variant="h4">Company Name </Typography>
-                            <Button component={Link} to="/companies/details" variant="text">
+                            <Button component={Link} to="/companies/details" variant="text" sx={{ marginRight: '-1rem' }}>
                                 <VerticalLeftOutlined style={{ fontSize: '25px', color: '#08c' }} />
                             </Button>
                         </Stack>
@@ -168,10 +165,10 @@ function Companies() {
                     </MainCard>
                 </Grid>
                 <Grid item xs={12} sm={12} md={3} lg={3}>
-                    <MainCard contentSX={{ p: 2.75 }}>
+                    <MainCard content>
                         <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 2 }}>
                             <Typography variant="h4">Company Name </Typography>
-                            <Button component={Link} to="/companies/details" variant="text">
+                            <Button component={Link} to="/companies/details" variant="text" sx={{ marginRight: '-1rem' }}>
                                 <VerticalLeftOutlined style={{ fontSize: '25px', color: '#08c' }} />
                             </Button>
                         </Stack>
@@ -198,10 +195,10 @@ function Companies() {
                     </MainCard>
                 </Grid>
                 <Grid item xs={12} sm={12} md={3} lg={3}>
-                    <MainCard contentSX={{ p: 2.75 }}>
+                    <MainCard content>
                         <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 2 }}>
                             <Typography variant="h4">Company Name </Typography>
-                            <Button component={Link} to="/companies/details" variant="text">
+                            <Button component={Link} to="/companies/details" variant="text" sx={{ marginRight: '-1rem' }}>
                                 <VerticalLeftOutlined style={{ fontSize: '25px', color: '#08c' }} />
                             </Button>
                         </Stack>
