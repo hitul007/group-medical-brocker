@@ -1,6 +1,6 @@
+import React, { useState, useEffect } from 'react';
 import { Box, Breadcrumbs, Button, Typography, Tab } from '@mui/material';
 import MainCard from 'components/MainCard';
-import * as React from 'react';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
@@ -12,13 +12,16 @@ import Overview from './Overview';
 import Employees from './Employees';
 import Claims from './Claims';
 import Claimdialog from 'pages/Claims/Claimsdialog';
-import { useLocation } from 'react-router-dom';
 function Details() {
-    const location = useLocation();
     const [value, setValue] = React.useState('1');
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
+    };
+
+    const handleClickOpen = () => {
+        setIsModalOpen(true);
     };
 
     return (
@@ -30,9 +33,10 @@ function Details() {
                     </Link>
                     <Typography color="text.primary">Digiqt Technolabs</Typography>
                 </Breadcrumbs>
-                <Button variant="outlined" startIcon={<PlusOutlined />} onClick={<Claimdialog />}>
+                <Button variant="outlined" startIcon={<PlusOutlined />} onClick={() => handleClickOpen()}>
                     Add Claims
                 </Button>
+                <Claimdialog modalOpen={isModalOpen} setModalOpen={setIsModalOpen}></Claimdialog>
             </Box>
             <Box>
                 <MainCard contentSX={{ p: 2.75 }}>

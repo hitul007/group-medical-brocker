@@ -1,3 +1,4 @@
+import React, { useMemo } from 'react';
 import { CloseOutlined } from '@ant-design/icons';
 import {
     Box,
@@ -20,29 +21,18 @@ import Stepper from '@mui/material/Stepper';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import React, { useMemo } from 'react';
 import { useDropzone } from 'react-dropzone';
 import success from '../../assets/images/icons/successfully.svg';
-const Claimdialog = () => {
-    const [state, setState] = React.useState({
-        open: false
-    });
+
+const Claimdialog = ({ modalOpen, setModalOpen }) => {
     const steps = ['Basic Information', 'Claim Document', 'Quick Review'];
 
-    const NotaskClickOpen = () => {
-        setState((prevState) => ({ ...prevState, open: true }));
-    };
-
-    const NotaskhandleClose = () => {
-        setState((prevState) => ({ ...prevState, open: false }));
+    const handleClose = () => {
+        setModalOpen(false);
     };
 
     const [activeStep, setActiveStep] = React.useState(0);
     const [skipped, setSkipped] = React.useState(new Set());
-
-    const isStepOptional = (step) => {
-        return step === 1;
-    };
 
     const isStepSkipped = (step) => {
         return skipped.has(step);
@@ -109,13 +99,9 @@ const Claimdialog = () => {
     const [value, setValue] = React.useState(null);
     return (
         <>
-            <Button variant="outlined" onClick={NotaskClickOpen}>
-                claim
-            </Button>
-
             <Dialog
-                open={state.open}
-                onClose={NotaskhandleClose}
+                open={modalOpen}
+                onClose={handleClose}
                 aria-labelledby="alert-dialog-title"
                 aria-describedby="alert-dialog-description"
                 fullWidth={true}
@@ -124,7 +110,7 @@ const Claimdialog = () => {
                 <Box>
                     <DialogTitle id="alert-dialog-title" sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
                         <Typography sx={{ fontWeight: '900', fontSize: '20px' }}> New Claim</Typography>
-                        <CloseOutlined onClick={NotaskhandleClose} />
+                        <CloseOutlined onClick={handleClose} />
                     </DialogTitle>
                 </Box>
                 <DialogContent
@@ -180,7 +166,18 @@ const Claimdialog = () => {
                                             <Box>
                                                 <Stack sx={{ paddingTop: '1rem', display: 'flex', flexDirection: 'row', gap: '3rem' }}>
                                                     <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
-                                                        <FormLabel id="demo-radio-buttons-group-label">Full Name</FormLabel>
+                                                        <FormLabel id="demo-radio-buttons-group-label">First Name</FormLabel>
+                                                        <TextField />
+                                                    </Box>
+                                                    <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
+                                                        <FormLabel id="demo-radio-buttons-group-label">Last Name</FormLabel>
+
+                                                        <TextField />
+                                                    </Box>
+                                                </Stack>
+                                                <Stack sx={{ paddingTop: '1rem', display: 'flex', flexDirection: 'row', gap: '3rem' }}>
+                                                    <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
+                                                        <FormLabel id="demo-radio-buttons-group-label">Insurance Id</FormLabel>
                                                         <TextField />
                                                     </Box>
                                                     <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
@@ -267,7 +264,18 @@ const Claimdialog = () => {
                                             <Box>
                                                 <Stack sx={{ paddingTop: '1rem', display: 'flex', flexDirection: 'row', gap: '3rem' }}>
                                                     <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
-                                                        <FormLabel id="demo-radio-buttons-group-label">Full Name</FormLabel>
+                                                        <FormLabel id="demo-radio-buttons-group-label">First Name</FormLabel>
+                                                        <TextField disabled={true} value="Rajvee Joshi" />
+                                                    </Box>
+                                                    <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
+                                                        <FormLabel id="demo-radio-buttons-group-label">Last Name</FormLabel>
+
+                                                        <TextField value="civil hospital" disabled />
+                                                    </Box>
+                                                </Stack>
+                                                <Stack sx={{ paddingTop: '1rem', display: 'flex', flexDirection: 'row', gap: '3rem' }}>
+                                                    <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
+                                                        <FormLabel id="demo-radio-buttons-group-label">Insurance Id</FormLabel>
                                                         <TextField disabled={true} value="Rajvee Joshi" />
                                                     </Box>
                                                     <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
@@ -328,7 +336,8 @@ const Claimdialog = () => {
                                                                 display: 'flex',
                                                                 backgroundColor: 'primary',
                                                                 width: 'max-content',
-                                                                padding: '5px'
+                                                                padding: '5px',
+                                                                backgroundColor: 'lightgray'
                                                             }}
                                                         >
                                                             <Typography>file.png</Typography>
@@ -344,12 +353,12 @@ const Claimdialog = () => {
                                 </Typography>
 
                                 <Box sx={{ display: 'flex', flexDirection: 'row', pt: '2rem' }}>
-                                    <Button variant="outlined" disabled={activeStep === 0} onClick={handleBack}>
+                                    <Button size="large" variant="outlined" disabled={activeStep === 0} onClick={handleBack}>
                                         Back
                                     </Button>
                                     <Box sx={{ flex: '1 1 auto' }} />
 
-                                    <Button variant="contained" color="primary" onClick={handleNext}>
+                                    <Button size="large" variant="contained" color="primary" onClick={handleNext}>
                                         {activeStep === steps.length - 1 ? 'Save' : 'Next'}
                                     </Button>
                                 </Box>

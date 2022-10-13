@@ -172,7 +172,9 @@ function Head() {
                                 </Box>
                             </Stack>
                             <Stack sx={{ display: 'flex', alignItems: 'end', paddingTop: '3rem' }}>
-                                <Button sx={{ backgroundColor: 'primary', color: 'black' }}>Create</Button>
+                                <Button color="primary" variant="contained" size="large">
+                                    Create
+                                </Button>
                             </Stack>
                         </Box>
                     </DialogContent>
