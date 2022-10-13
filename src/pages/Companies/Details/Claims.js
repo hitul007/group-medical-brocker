@@ -1,8 +1,10 @@
+import * as React from 'react';
 import PropTypes from 'prop-types';
-import { useState } from 'react';
 
 // material-ui
+import { useTheme } from '@mui/material/styles';
 import {
+    Box,
     Button,
     InputAdornment,
     Stack,
@@ -13,128 +15,84 @@ import {
     TableHead,
     TableRow,
     TextField,
-    Typography
+    Typography,
+    TableFooter,
+    TablePagination,
+    IconButton
 } from '@mui/material';
+import FirstPageIcon from '@mui/icons-material/FirstPage';
+import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
+import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
+import LastPageIcon from '@mui/icons-material/LastPage';
 
 import { FilterOutlined, SearchOutlined } from '@ant-design/icons';
-// third-party
-
 // project import
 import Dot from 'components/@extended/Dot';
+import MainCard from 'components/MainCard';
+function TablePaginationActions(props) {
+    const theme = useTheme();
+    const { count, page, rowsPerPage, onPageChange } = props;
+
+    const handleFirstPageButtonClick = (event) => {
+        onPageChange(event, 0);
+    };
+
+    const handleBackButtonClick = (event) => {
+        onPageChange(event, page - 1);
+    };
+
+    const handleNextButtonClick = (event) => {
+        onPageChange(event, page + 1);
+    };
+
+    const handleLastPageButtonClick = (event) => {
+        onPageChange(event, Math.max(0, Math.ceil(count / rowsPerPage) - 1));
+    };
+
+    return (
+        <Box sx={{ flexShrink: 0, ml: 2.5 }}>
+            <IconButton onClick={handleFirstPageButtonClick} disabled={page === 0} aria-label="first page">
+                {theme.direction === 'rtl' ? <LastPageIcon /> : <FirstPageIcon />}
+            </IconButton>
+            <IconButton onClick={handleBackButtonClick} disabled={page === 0} aria-label="previous page">
+                {theme.direction === 'rtl' ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
+            </IconButton>
+            <IconButton onClick={handleNextButtonClick} disabled={page >= Math.ceil(count / rowsPerPage) - 1} aria-label="next page">
+                {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
+            </IconButton>
+            <IconButton onClick={handleLastPageButtonClick} disabled={page >= Math.ceil(count / rowsPerPage) - 1} aria-label="last page">
+                {theme.direction === 'rtl' ? <FirstPageIcon /> : <LastPageIcon />}
+            </IconButton>
+        </Box>
+    );
+}
+
+TablePaginationActions.propTypes = {
+    count: PropTypes.number.isRequired,
+    onPageChange: PropTypes.func.isRequired,
+    page: PropTypes.number.isRequired,
+    rowsPerPage: PropTypes.number.isRequired
+};
 
 function createData(climeNo, name, healthid, Climeamount, hosName, date, carbs) {
     return { climeNo, name, healthid, Climeamount, hosName, date, carbs };
 }
 
 const rows = [
-    createData(105, 'Margie Cunningham', '00-1111-2222-3333', '$ 50.000', 'XYZ', '05/11/2022 to 12/11/2022', 2),
-    createData(106, 'Verna Sharp', '00-1111-2222-3333', '$ 50.000', 'XYZ', '05/11/2022 to 12/11/2022', 1),
-    createData(107, 'Tyrone Rodriguez', '00-1111-2222-3333', '$ 50.000 ', 'XYZ', '05/11/2022 to 12/11/2022', 0),
-    createData(108, 'Roxanne Rivera', '00-1111-2222-3333', '$ 50.000', 'XYZ', '05/11/2022 to 12/11/2022', 1)
-];
+    createData(1, 'Margie Cunningham', '00-1111-2222-3333', '$ 50.000', 'XYZ', '05/11/2022 to 12/11/2022', 2),
+    createData(2, 'Verna Sharp', '00-1111-2222-3333', '$ 50.000', 'XYZ', '05/11/2022 to 12/11/2022', 1),
+    createData(3, 'Tyrone Rodriguez', '00-1111-2222-3333', '$ 50.000 ', 'XYZ', '05/11/2022 to 12/11/2022', 0),
+    createData(4, 'Roxanne Rivera', '00-1111-2222-3333', '$ 50.000', 'XYZ', '05/11/2022 to 12/11/2022', 1),
+    createData(5, 'Margie Cunningham', '00-1111-2222-3333', '$ 50.000', 'XYZ', '05/11/2022 to 12/11/2022', 2),
+    createData(6, 'Verna Sharp', '00-1111-2222-3333', '$ 50.000', 'XYZ', '05/11/2022 to 12/11/2022', 1),
+    createData(7, 'Tyrone Rodriguez', '00-1111-2222-3333', '$ 50.000 ', 'XYZ', '05/11/2022 to 12/11/2022', 0),
+    createData(8, 'Roxanne Rivera', '00-1111-2222-3333', '$ 50.000', 'XYZ', '05/11/2022 to 12/11/2022', 1),
+    createData(9, 'Margie Cunningham', '00-1111-2222-3333', '$ 50.000', 'XYZ', '05/11/2022 to 12/11/2022', 2),
+    createData(10, 'Margie Cunningham', '00-1111-2222-3333', '$ 50.000', 'XYZ', '05/11/2022 to 12/11/2022', 2),
+    createData(11, 'Margie Cunningham', '00-1111-2222-3333', '$ 50.000', 'XYZ', '05/11/2022 to 12/11/2022', 2)
+].sort((a, b) => (a.healthid < b.healthid ? -1 : 1));
 
-function descendingComparator(a, b, orderBy) {
-    if (b[orderBy] < a[orderBy]) {
-        return -1;
-    }
-    if (b[orderBy] > a[orderBy]) {
-        return 1;
-    }
-    return 0;
-}
-
-function getComparator(order, orderBy) {
-    return order === 'desc' ? (a, b) => descendingComparator(a, b, orderBy) : (a, b) => -descendingComparator(a, b, orderBy);
-}
-
-function stableSort(array, comparator) {
-    const stabilizedThis = array.map((el, index) => [el, index]);
-    stabilizedThis.sort((a, b) => {
-        const order = comparator(a[0], b[0]);
-        if (order !== 0) {
-            return order;
-        }
-        return a[1] - b[1];
-    });
-    return stabilizedThis.map((el) => el[0]);
-}
-
-// ==============================|| ORDER TABLE - HEADER CELL ||============================== //
-
-const headCells = [
-    {
-        id: 'climeNo',
-        align: 'left',
-        disablePadding: false,
-        label: 'Clime No.'
-    },
-    {
-        id: 'name',
-        align: 'left',
-        disablePadding: true,
-        label: 'Name'
-    },
-    {
-        id: 'healthid',
-        align: 'right',
-        disablePadding: false,
-        label: 'Health Id'
-    },
-    {
-        id: 'Climeamount',
-        align: 'right',
-        disablePadding: false,
-        label: 'Clime Amount'
-    },
-    {
-        id: 'date',
-        align: 'right',
-        disablePadding: false,
-        label: 'Hospital Name'
-    },
-    {
-        id: 'date',
-        align: 'right',
-        disablePadding: false,
-        label: 'Hospitalized Date'
-    },
-    {
-        id: 'hosName',
-        align: 'left',
-        disablePadding: false,
-        label: 'Status'
-    }
-];
-
-// ==============================|| ORDER TABLE - HEADER ||============================== //
-
-function RecentClaims({ order, orderBy }) {
-    return (
-        <TableHead>
-            <TableRow>
-                {headCells.map((headCell) => (
-                    <TableCell
-                        key={headCell.id}
-                        align={headCell.align}
-                        padding={headCell.disablePadding ? 'none' : 'normal'}
-                        sortDirection={orderBy === headCell.id ? order : false}
-                        sx={{ textAlign: 'center' }}
-                    >
-                        {headCell.label}
-                    </TableCell>
-                ))}
-            </TableRow>
-        </TableHead>
-    );
-}
-
-RecentClaims.propTypes = {
-    order: PropTypes.string,
-    orderBy: PropTypes.string
-};
-
-// ==============================|| ORDER TABLE - STATUS ||============================== //
-
+// custom dot
 const OrderStatus = ({ status }) => {
     let color;
     let title;
@@ -168,19 +126,26 @@ const OrderStatus = ({ status }) => {
 OrderStatus.propTypes = {
     status: PropTypes.number
 };
-
-// ==============================|| ORDER TABLE ||============================== //
-
+//main com==================================================================================
 export default function Claims() {
-    const [order] = useState('asc');
-    const [orderBy] = useState('climeNo');
-    const [selected] = useState([]);
+    const [page, setPage] = React.useState(0);
+    const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
-    const isSelected = (climeNo) => selected.indexOf(climeNo) !== -1;
+    // Avoid a layout jump when reaching the last page with empty rows.
+    const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
+
+    const handleChangePage = (event, newPage) => {
+        setPage(newPage);
+    };
+
+    const handleChangeRowsPerPage = (event) => {
+        setRowsPerPage(parseInt(event.target.value, 10));
+        setPage(0);
+    };
 
     return (
         <>
-            <Stack sx={{ mt: 2, mb: 1 }} direction="row" justifyContent="flex-end" spacing={2}>
+            <Stack direction="row" justifyContent="flex-end" spacing={2} sx={{ mt: 2, mb: 3 }}>
                 <Button sx={{ maxWidth: '100px' }} variant="outlined" startIcon={<FilterOutlined />}>
                     Filter
                 </Button>
@@ -198,70 +163,80 @@ export default function Claims() {
                     sx={{ maxWidth: '250px' }}
                 />
             </Stack>
-            <TableContainer
-                sx={{
-                    width: '100%',
-                    overflowX: 'auto',
-                    position: 'relative',
-                    display: 'block',
-                    maxWidth: '100%',
-                    '& td, & th': { whiteSpace: 'nowrap' }
-                }}
-            >
-                <Table
-                    aria-labelledby="tableTitle"
+
+            <MainCard contentSX={{ p: 1 }}>
+                <TableContainer
                     sx={{
-                        '& .MuiTableCell-root:first-child': {
-                            pl: 2
-                        },
-                        '& .MuiTableCell-root:last-child': {
-                            pr: 3
-                        }
+                        width: '100%',
+                        overflowX: 'auto',
+                        position: 'relative',
+                        display: 'block',
+                        maxWidth: '100%',
+                        '& td, & th': { whiteSpace: 'nowrap' }
                     }}
                 >
-                    <RecentClaims order={order} orderBy={orderBy} />
-                    <TableBody>
-                        {stableSort(rows, getComparator(order, orderBy)).map((row, index) => {
-                            const isItemSelected = isSelected(row.climeNo);
-                            const labelId = `enhanced-table-checkbox-${index}`;
-
-                            return (
-                                <TableRow
-                                    hover
-                                    role="checkbox"
-                                    sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                                    aria-checked={isItemSelected}
-                                    tabIndex={-1}
-                                    key={row.climeNo}
-                                    selected={isItemSelected}
-                                >
-                                    <TableCell sx={{ color: '#919191' }} component="th" id={labelId} scope="row" align="center">
+                    <Table
+                        aria-labelledby="tableTitle"
+                        sx={{
+                            '& .MuiTableCell-root:first-child': {
+                                pl: 2
+                            },
+                            '& .MuiTableCell-root:last-child': {
+                                pr: 3
+                            }
+                        }}
+                    >
+                        <TableHead stickyHeader>
+                            <TableRow>
+                                <TableCell align="center">Clime No</TableCell>
+                                <TableCell align="center">Employee Name</TableCell>
+                                <TableCell align="center">Health Id</TableCell>
+                                <TableCell align="center">Clime Amount</TableCell>
+                                <TableCell align="center">Hospital Name</TableCell>
+                                <TableCell align="center">Hospitalized Date</TableCell>
+                                <TableCell align="center">Status</TableCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            {(rowsPerPage > 0 ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage) : rows).map((row) => (
+                                <TableRow key={row.climeNo}>
+                                    <TableCell component="th" scope="row" align="center">
                                         {row.climeNo}
                                     </TableCell>
-                                    <TableCell sx={{ color: '#919191' }} align="center">
-                                        {row.name}
-                                    </TableCell>
-                                    <TableCell sx={{ color: '#919191' }} align="center">
-                                        {row.healthid}
-                                    </TableCell>
-                                    <TableCell sx={{ color: '#919191' }} align="center">
-                                        {row.Climeamount}
-                                    </TableCell>
-                                    <TableCell sx={{ color: '#919191' }} align="center">
-                                        {row.hosName}
-                                    </TableCell>
-                                    <TableCell sx={{ color: '#919191' }} align="center">
-                                        {row.date}
-                                    </TableCell>
-                                    <TableCell sx={{ color: '#919191' }} align="center">
+                                    <TableCell align="center">{row.name}</TableCell>
+                                    <TableCell align="center">{row.healthid}</TableCell>
+                                    <TableCell align="center">{row.Climeamount}</TableCell>
+                                    <TableCell align="center">{row.hosName}</TableCell>
+                                    <TableCell align="center">{row.date}</TableCell>
+                                    <TableCell align="center">
                                         <OrderStatus status={row.carbs} />
                                     </TableCell>
                                 </TableRow>
-                            );
-                        })}
-                    </TableBody>
-                </Table>
-            </TableContainer>
+                            ))}
+                        </TableBody>
+                        <TableFooter>
+                            <TableRow>
+                                <TablePagination
+                                    rowsPerPageOptions={[10, 20, 25, { label: 'All', value: -1 }]}
+                                    colSpan={8}
+                                    count={rows.length}
+                                    rowsPerPage={rowsPerPage}
+                                    page={page}
+                                    SelectProps={{
+                                        inputProps: {
+                                            'aria-label': 'rows per page'
+                                        },
+                                        native: true
+                                    }}
+                                    onPageChange={handleChangePage}
+                                    onRowsPerPageChange={handleChangeRowsPerPage}
+                                    ActionsComponent={TablePaginationActions}
+                                />
+                            </TableRow>
+                        </TableFooter>
+                    </Table>
+                </TableContainer>
+            </MainCard>
         </>
     );
 }
