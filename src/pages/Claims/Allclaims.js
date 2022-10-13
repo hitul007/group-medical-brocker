@@ -1,5 +1,5 @@
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import * as React from 'react';
 
 // material-ui
 import FirstPageIcon from '@mui/icons-material/FirstPage';
@@ -20,15 +20,18 @@ import {
     TablePagination,
     TableRow,
     TextField,
-    Typography
+    Typography,
+    Button
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 
-import { SearchOutlined } from '@ant-design/icons';
+import { FilterOutlined, SearchOutlined, PlusOutlined } from '@ant-design/icons';
 // project import
+
 import Dot from 'components/@extended/Dot';
 import ClaimsFilter from 'components/ClaimsFilter';
 import MainCard from 'components/MainCard';
+import Claimdialog from 'pages/Claims/Claimsdialog';
 function TablePaginationActions(props) {
     const theme = useTheme();
     const { count, page, rowsPerPage, onPageChange } = props;
@@ -151,6 +154,10 @@ OrderStatus.propTypes = {
 export default function Allclaims() {
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
+    const [order] = useState('asc');
+    const [orderBy] = useState('climeNo');
+    const [selected] = useState([]);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     // Avoid a layout jump when reaching the last page with empty rows.
     const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
@@ -162,6 +169,10 @@ export default function Allclaims() {
     const handleChangeRowsPerPage = (event) => {
         setRowsPerPage(parseInt(event.target.value, 10));
         setPage(0);
+    };
+
+    const handleClickOpen = () => {
+        setIsModalOpen(true);
     };
 
     return (
@@ -183,6 +194,10 @@ export default function Allclaims() {
                         }}
                         sx={{ maxWidth: '250px' }}
                     />
+                    <Button variant="outlined" startIcon={<PlusOutlined />} onClick={() => handleClickOpen()}>
+                        Add Claims
+                    </Button>
+                    <Claimdialog modalOpen={isModalOpen} setModalOpen={setIsModalOpen}></Claimdialog>
                 </Stack>
             </Stack>
             <MainCard contentSX={{ p: 1 }}>

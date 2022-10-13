@@ -1,48 +1,38 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo } from 'react';
+import { CloseOutlined } from '@ant-design/icons';
 import {
+    Box,
     Button,
     Dialog,
     DialogContent,
     DialogTitle,
-    Box,
-    Typography,
-    TextField,
-    Stack,
     FormControl,
     FormControlLabel,
-    RadioGroup,
+    FormLabel,
     Radio,
-    FormLabel
+    RadioGroup,
+    Stack,
+    TextField,
+    Typography
 } from '@mui/material';
-import { CloseOutlined, CheckCircleOutlined } from '@ant-design/icons';
-import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
-import success from '../../assets/images/icons/successfully.svg';
+import Stepper from '@mui/material/Stepper';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { useDropzone } from 'react-dropzone';
-const Claimdialog = () => {
-    const [state, setState] = React.useState({
-        open: false
-    });
+import success from '../../assets/images/icons/successfully.svg';
+
+const Claimdialog = ({ modalOpen, setModalOpen }) => {
     const steps = ['Basic Information', 'Claim Document', 'Quick Review'];
 
-    const NotaskClickOpen = () => {
-        setState((prevState) => ({ ...prevState, open: true }));
-    };
-
-    const NotaskhandleClose = () => {
-        setState((prevState) => ({ ...prevState, open: false }));
+    const handleClose = () => {
+        setModalOpen(false);
     };
 
     const [activeStep, setActiveStep] = React.useState(0);
     const [skipped, setSkipped] = React.useState(new Set());
-
-    const isStepOptional = (step) => {
-        return step === 1;
-    };
 
     const isStepSkipped = (step) => {
         return skipped.has(step);
@@ -79,7 +69,10 @@ const Claimdialog = () => {
         color: '#bdbdbd',
         outline: 'none',
         transition: 'border .24s ease-in-out',
-        borderRadius: 4
+        borderRadius: 4,
+        width: '700px',
+        justifyContent: 'center',
+        height: '100%'
     };
 
     const focusedStyle = {
@@ -106,28 +99,18 @@ const Claimdialog = () => {
     const [value, setValue] = React.useState(null);
     return (
         <>
-            <Button variant="outlined" onClick={NotaskClickOpen}>
-                claim
-            </Button>
-
             <Dialog
-                open={state.open}
-                onClose={NotaskhandleClose}
+                open={modalOpen}
+                onClose={handleClose}
                 aria-labelledby="alert-dialog-title"
                 aria-describedby="alert-dialog-description"
-                sx={{
-                    '& .MuiDialog-container': {
-                        '& .MuiPaper-root': {
-                            width: '70%',
-                            maxWidth: 'xl' // Set your width here
-                        }
-                    }
-                }}
+                fullWidth={true}
+                maxWidth="md"
             >
                 <Box>
                     <DialogTitle id="alert-dialog-title" sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
                         <Typography sx={{ fontWeight: '900', fontSize: '20px' }}> New Claim</Typography>
-                        <CloseOutlined onClick={NotaskhandleClose} />
+                        <CloseOutlined onClick={handleClose} />
                     </DialogTitle>
                 </Box>
                 <DialogContent
@@ -136,10 +119,10 @@ const Claimdialog = () => {
                         flexDirection: 'column',
                         alignItems: 'center',
                         gap: '1rem',
-                        marginBottom: '3rem'
+                        marginBottom: '1rem'
                     }}
                 >
-                    <Box>
+                    <Box sx={{ width: '100%' }}>
                         <Stepper activeStep={activeStep}>
                             {steps.map((label, index) => {
                                 const stepProps = {};
@@ -165,151 +148,217 @@ const Claimdialog = () => {
                                         flexDirection: 'column',
                                         alignItems: 'center',
                                         gap: '1rem',
-                                        marginBottom: '1rem'
+                                        justifyContent: 'center',
+                                        height: '500px'
                                     }}
                                 >
                                     <img src={success} alt=" " />
-                                    <Typography sx={{ textalign: 'center', fontWeight: '900', fontSize: '35px' }}>
-                                        Claim Successfully Sended
+                                    <Typography sx={{ textalign: 'center', fontWeight: '900', fontSize: '40px' }}>
+                                        Claim Successfully Sended.
                                     </Typography>
                                 </Box>
                             </React.Fragment>
                         ) : (
                             <React.Fragment>
-                                {/*    <Box>
-                                    <Stack sx={{ paddingTop: '1rem', display: 'flex', flexDirection: 'row', gap: '3rem' }}>
-                                        <Box sx={{ display: 'flex', flexDirection: 'column', '& .MuiTextField-root': { width: '40ch' } }}>
-                                            <FormLabel id="demo-radio-buttons-group-label">Full Name</FormLabel>
-                                            <TextField width="100%" />
-                                        </Box>
-                                        <Box sx={{ display: 'flex', flexDirection: 'column', '& .MuiTextField-root': { width: '40ch' } }}>
-                                            <FormLabel id="demo-radio-buttons-group-label">Hospital Name</FormLabel>
+                                <Typography sx={{ mt: 2, mb: 1 }}>
+                                    {activeStep === 0 ? (
+                                        <React.Fragment>
+                                            <Box>
+                                                <Stack sx={{ paddingTop: '1rem', display: 'flex', flexDirection: 'row', gap: '3rem' }}>
+                                                    <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
+                                                        <FormLabel id="demo-radio-buttons-group-label">First Name</FormLabel>
+                                                        <TextField />
+                                                    </Box>
+                                                    <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
+                                                        <FormLabel id="demo-radio-buttons-group-label">Last Name</FormLabel>
 
-                                            <TextField />
-                                        </Box>
-                                    </Stack>
-                                    <Stack
-                                        sx={{ paddingTop: '1rem', display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}
-                                    >
-                                        <Box>
-                                            <FormControl sx={{ display: 'flex', flexDirection: 'column' }}>
-                                                <FormLabel id="demo-radio-buttons-group-label">Claim type</FormLabel>
-                                                <RadioGroup
-                                                    aria-labelledby="demo-radio-buttons-group-label"
-                                                    defaultValue="Cashless"
-                                                    name="radio-buttons-group"
-                                                    sx={{ display: 'flex', flexDirection: 'row' }}
-                                                >
-                                                    <FormControlLabel value="female" control={<Radio />} label="Cashless" />
-                                                    <FormControlLabel value="male" control={<Radio />} label="Reimbursement Claims" />
-                                                </RadioGroup>
-                                            </FormControl>
-                                        </Box>
-                                        <Box sx={{ display: 'flex', flexDirection: 'column', '& .MuiTextField-root': { width: '40ch' } }}>
-                                            <FormLabel id="demo-radio-buttons-group-label">Hospitalization Date</FormLabel>
-                                            <LocalizationProvider dateAdapter={AdapterDayjs}>
-                                                <DatePicker
-                                                    value={value}
-                                                    onChange={(newValue) => {
-                                                        setValue(newValue);
+                                                        <TextField />
+                                                    </Box>
+                                                </Stack>
+                                                <Stack sx={{ paddingTop: '1rem', display: 'flex', flexDirection: 'row', gap: '3rem' }}>
+                                                    <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
+                                                        <FormLabel id="demo-radio-buttons-group-label">Insurance Id</FormLabel>
+                                                        <TextField />
+                                                    </Box>
+                                                    <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
+                                                        <FormLabel id="demo-radio-buttons-group-label">Hospital Name</FormLabel>
+
+                                                        <TextField />
+                                                    </Box>
+                                                </Stack>
+                                                <Stack
+                                                    sx={{
+                                                        paddingTop: '1rem',
+                                                        display: 'flex',
+                                                        flexDirection: 'row',
+                                                        justifyContent: 'space-between',
+                                                        gap: '3rem'
                                                     }}
-                                                    renderInput={(params) => <TextField {...params} />}
-                                                />
-                                            </LocalizationProvider>
-                                        </Box>
-                                    </Stack>
-                                    <Stack sx={{ paddingTop: '1rem' }}>
-                                        <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                                            <FormLabel id="demo-radio-buttons-group-label">Claim Details</FormLabel>
-                                            <TextField multiline rows={4} />
-                                        </Box>
-                                    </Stack>
-                                                </Box>*/}
-                                <Box>
-                                    <Stack sx={{ paddingTop: '1rem' }}>
-                                        <div {...getRootProps({ style })}>
-                                            <TextField {...getInputProps()} />
-                                            <Typography>+ Upload Document</Typography>
-                                            <Typography>.jpeg,.Png,.Pdf</Typography>
-                                        </div>
-
-                                        <Typography>{files}</Typography>
-                                    </Stack>
-                                </Box>
-                                {/*  <Box>
-                                    <Stack sx={{ paddingTop: '1rem', display: 'flex', flexDirection: 'row', gap: '3rem' }}>
-                                        <Box sx={{ display: 'flex', flexDirection: 'column', '& .MuiTextField-root': { width: '40ch' } }}>
-                                            <FormLabel id="demo-radio-buttons-group-label">Full Name</FormLabel>
-                                            <TextField disabled={true} value="Rajvee Joshi" />
-                                        </Box>
-                                        <Box sx={{ display: 'flex', flexDirection: 'column', '& .MuiTextField-root': { width: '40ch' } }}>
-                                            <FormLabel id="demo-radio-buttons-group-label">Hospital Name</FormLabel>
-
-                                            <TextField disabled />
-                                        </Box>
-                                    </Stack>
-                                    <Stack
-                                        sx={{ paddingTop: '1rem', display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}
-                                    >
-                                        <Box>
-                                            <FormControl
-                                                sx={{ display: 'flex', flexDirection: 'column', '& .MuiTextField-root': { width: '40ch' } }}
-                                            >
-                                                <FormLabel id="demo-radio-buttons-group-label">Claim type</FormLabel>
-                                                <RadioGroup
-                                                    aria-labelledby="demo-radio-buttons-group-label"
-                                                    defaultValue="Cashless"
-                                                    name="radio-buttons-group"
-                                                    sx={{ display: 'flex', flexDirection: 'row' }}
                                                 >
-                                                    <FormControlLabel value="female" control={<Radio />} label="Cashless" />
-                                                    <FormControlLabel value="male" control={<Radio />} label="Reimbursement Claims" />
-                                                </RadioGroup>
-                                            </FormControl>
-                                        </Box>
-                                        <Box sx={{ display: 'flex', flexDirection: 'column', '& .MuiTextField-root': { width: '40ch' } }}>
-                                            <FormLabel id="demo-radio-buttons-group-label">Hospitalization Date</FormLabel>
-
-                                            <TextField disabled />
-                                        </Box>
-                                    </Stack>
-                                    <Stack sx={{ paddingTop: '1rem' }}>
-                                        <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                                            <FormLabel id="demo-radio-buttons-group-label">Claim Details</FormLabel>
-                                            <TextField disabled multiline rows={4} />
-                                        </Box>
-                                    </Stack>
-                                    <Stack sx={{ paddingTop: '1rem' }}>
-                                        <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                                            <FormLabel id="demo-radio-buttons-group-label">Document</FormLabel>
-                                            <Box
-                                                sx={{
-                                                    display: 'flex',
-                                                    backgroundColor: 'lightgray',
-                                                    width: 'max-content',
-                                                    padding: '5px'
-                                                }}
-                                            >
-                                                <Typography>file.png</Typography>
-                                                <Box>
-                                                    <CloseOutlined />
-                                                </Box>
+                                                    <Box sx={{ width: '50%' }}>
+                                                        <FormControl sx={{ display: 'flex', flexDirection: 'column' }}>
+                                                            <FormLabel id="demo-radio-buttons-group-label">Claim type</FormLabel>
+                                                            <RadioGroup
+                                                                aria-labelledby="demo-radio-buttons-group-label"
+                                                                defaultValue="Cashless"
+                                                                name="radio-buttons-group"
+                                                                sx={{ display: 'flex', flexDirection: 'row' }}
+                                                            >
+                                                                <FormControlLabel value="female" control={<Radio />} label="Cashless" />
+                                                                <FormControlLabel
+                                                                    value="male"
+                                                                    control={<Radio />}
+                                                                    label="Reimbursement Claims"
+                                                                />
+                                                            </RadioGroup>
+                                                        </FormControl>
+                                                    </Box>
+                                                    <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
+                                                        <FormLabel id="demo-radio-buttons-group-label">Hospitalization Date</FormLabel>
+                                                        <LocalizationProvider dateAdapter={AdapterDayjs}>
+                                                            <DatePicker
+                                                                value={value}
+                                                                onChange={(newValue) => {
+                                                                    setValue(newValue);
+                                                                }}
+                                                                renderInput={(params) => <TextField {...params} />}
+                                                            />
+                                                        </LocalizationProvider>
+                                                    </Box>
+                                                </Stack>
+                                                <Stack sx={{ paddingTop: '1rem' }}>
+                                                    <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                                                        <FormLabel id="demo-radio-buttons-group-label">Claim Details</FormLabel>
+                                                        <TextField multiline rows={4} />
+                                                    </Box>
+                                                </Stack>
                                             </Box>
-                                        </Box>
-                                    </Stack>
-                                            </Box>*/}
-                                <Box sx={{ display: 'flex', flexDirection: 'row', pt: '5rem' }}>
-                                    <Button
-                                        variant="outlined"
-                                        disabled={activeStep === 0}
-                                        onClick={handleBack}
-                                        sx={{ mr: 1, color: 'black', borderColor: 'black' }}
-                                    >
+                                        </React.Fragment>
+                                    ) : null}
+                                </Typography>
+                                <Typography sx={{ mt: 2, mb: 1 }}>
+                                    {activeStep === 1 ? (
+                                        <React.Fragment>
+                                            <Box>
+                                                <Stack
+                                                    justifyContent="center"
+                                                    alignItems="center"
+                                                    sx={{ paddingTop: '1rem', height: '300px' }}
+                                                >
+                                                    <div {...getRootProps({ style })}>
+                                                        <TextField {...getInputProps()} />
+                                                        <Typography>+ Upload Document</Typography>
+                                                        <Typography>.jpeg,.Png,.Pdf</Typography>
+                                                    </div>
+
+                                                    <Typography>{files}</Typography>
+                                                </Stack>
+                                            </Box>
+                                        </React.Fragment>
+                                    ) : null}
+                                </Typography>
+
+                                <Typography sx={{ mt: 2, mb: 1 }}>
+                                    {activeStep === 2 ? (
+                                        <React.Fragment>
+                                            <Box>
+                                                <Stack sx={{ paddingTop: '1rem', display: 'flex', flexDirection: 'row', gap: '3rem' }}>
+                                                    <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
+                                                        <FormLabel id="demo-radio-buttons-group-label">First Name</FormLabel>
+                                                        <TextField disabled={true} value="Rajvee Joshi" />
+                                                    </Box>
+                                                    <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
+                                                        <FormLabel id="demo-radio-buttons-group-label">Last Name</FormLabel>
+
+                                                        <TextField value="civil hospital" disabled />
+                                                    </Box>
+                                                </Stack>
+                                                <Stack sx={{ paddingTop: '1rem', display: 'flex', flexDirection: 'row', gap: '3rem' }}>
+                                                    <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
+                                                        <FormLabel id="demo-radio-buttons-group-label">Insurance Id</FormLabel>
+                                                        <TextField disabled={true} value="Rajvee Joshi" />
+                                                    </Box>
+                                                    <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
+                                                        <FormLabel id="demo-radio-buttons-group-label">Hospital Name</FormLabel>
+
+                                                        <TextField value="civil hospital" disabled />
+                                                    </Box>
+                                                </Stack>
+                                                <Stack
+                                                    sx={{
+                                                        paddingTop: '1rem',
+                                                        display: 'flex',
+                                                        flexDirection: 'row',
+                                                        justifyContent: 'space-between',
+                                                        gap: '3rem'
+                                                    }}
+                                                >
+                                                    <Box sx={{ width: '50%' }}>
+                                                        <FormControl sx={{ display: 'flex', flexDirection: 'column' }}>
+                                                            <FormLabel id="demo-radio-buttons-group-label">Claim type</FormLabel>
+                                                            <RadioGroup
+                                                                aria-labelledby="demo-radio-buttons-group-label"
+                                                                defaultValue="Cashless"
+                                                                name="radio-buttons-group"
+                                                                sx={{ display: 'flex', flexDirection: 'row' }}
+                                                            >
+                                                                <FormControlLabel value="female" control={<Radio />} label="Cashless" />
+                                                                <FormControlLabel
+                                                                    value="male"
+                                                                    control={<Radio />}
+                                                                    label="Reimbursement Claims"
+                                                                />
+                                                            </RadioGroup>
+                                                        </FormControl>
+                                                    </Box>
+                                                    <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
+                                                        <FormLabel id="demo-radio-buttons-group-label">Hospitalization Date</FormLabel>
+
+                                                        <TextField value="20/12/2022" disabled />
+                                                    </Box>
+                                                </Stack>
+                                                <Stack sx={{ paddingTop: '1rem' }}>
+                                                    <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                                                        <FormLabel id="demo-radio-buttons-group-label">Claim Details</FormLabel>
+                                                        <TextField
+                                                            disabled
+                                                            multiline
+                                                            rows={4}
+                                                            value="Lorem Ipsum is simply dummy text of the printing and typesetting industry. "
+                                                        />
+                                                    </Box>
+                                                </Stack>
+                                                <Stack sx={{ paddingTop: '1rem' }}>
+                                                    <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                                                        <FormLabel id="demo-radio-buttons-group-label">Document</FormLabel>
+                                                        <Box
+                                                            sx={{
+                                                                display: 'flex',
+                                                                backgroundColor: 'primary',
+                                                                width: 'max-content',
+                                                                padding: '5px',
+                                                                backgroundColor: 'lightgray'
+                                                            }}
+                                                        >
+                                                            <Typography>file.png</Typography>
+                                                            <Box>
+                                                                <CloseOutlined />
+                                                            </Box>
+                                                        </Box>
+                                                    </Box>
+                                                </Stack>
+                                            </Box>
+                                        </React.Fragment>
+                                    ) : null}
+                                </Typography>
+
+                                <Box sx={{ display: 'flex', flexDirection: 'row', pt: '2rem' }}>
+                                    <Button size="large" variant="outlined" disabled={activeStep === 0} onClick={handleBack}>
                                         Back
                                     </Button>
                                     <Box sx={{ flex: '1 1 auto' }} />
 
-                                    <Button sx={{ color: 'black', backgroundColor: 'lightgray' }} onClick={handleNext}>
+                                    <Button size="large" variant="contained" color="primary" onClick={handleNext}>
                                         {activeStep === steps.length - 1 ? 'Save' : 'Next'}
                                     </Button>
                                 </Box>
