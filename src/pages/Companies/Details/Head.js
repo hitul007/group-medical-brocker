@@ -1,3 +1,4 @@
+import * as React from 'react';
 import {
     Avatar,
     Box,
@@ -22,8 +23,9 @@ import {
     Radio,
     FormLabel
 } from '@mui/material';
-import * as React from 'react';
-
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { PlusOutlined, DeleteOutlined, EditOutlined, EllipsisOutlined, TeamOutlined, CloseOutlined } from '@ant-design/icons';
 
 function Head() {
@@ -47,9 +49,10 @@ function Head() {
     const NotaskhandleClose = () => {
         setState((prevState) => ({ ...prevState, open: false }));
     };
-
+    const [value, setValue] = React.useState(null);
     const open = Boolean(anchorEl);
     const id = open ? 'simple-popover' : undefined;
+
     return (
         <Stack direction="row" justifyContent="space-between">
             <Stack direction="row" spacing={2}>
@@ -76,6 +79,8 @@ function Head() {
                     onClose={NotaskhandleClose}
                     aria-labelledby="alert-dialog-title"
                     aria-describedby="alert-dialog-description"
+                    fullWidth={true}
+                    maxWidth="md"
                 >
                     <Box>
                         <DialogTitle
@@ -92,9 +97,85 @@ function Head() {
                             flexDirection: 'column',
                             alignItems: 'center',
                             gap: '1rem',
-                            marginBottom: '3rem'
+                            marginBottom: '1rem'
                         }}
-                    ></DialogContent>
+                    >
+                        <Box sx={{ width: '100%' }}>
+                            <Stack sx={{ paddingTop: '1rem', display: 'flex', flexDirection: 'row', gap: '3rem' }}>
+                                <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
+                                    <FormLabel id="demo-radio-buttons-group-label">First Name</FormLabel>
+                                    <TextField />
+                                </Box>
+                                <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
+                                    <FormLabel id="demo-radio-buttons-group-label">Last Name</FormLabel>
+
+                                    <TextField />
+                                </Box>
+                            </Stack>
+                            <Stack
+                                sx={{
+                                    paddingTop: '1rem',
+                                    display: 'flex',
+                                    flexDirection: 'row',
+                                    justifyContent: 'space-between',
+                                    gap: '3rem'
+                                }}
+                            >
+                                <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
+                                    <FormLabel id="demo-radio-buttons-group-label">Date Of Birth</FormLabel>
+                                    <LocalizationProvider dateAdapter={AdapterDayjs}>
+                                        <DatePicker
+                                            value={value}
+                                            onChange={(newValue) => {
+                                                setValue(newValue);
+                                            }}
+                                            renderInput={(params) => <TextField {...params} />}
+                                        />
+                                    </LocalizationProvider>
+                                </Box>
+                                <Box sx={{ width: '50%' }}>
+                                    <FormControl sx={{ display: 'flex', flexDirection: 'column' }}>
+                                        <FormLabel id="demo-radio-buttons-group-label">Gender</FormLabel>
+                                        <RadioGroup
+                                            aria-labelledby="demo-radio-buttons-group-label"
+                                            defaultValue="Male"
+                                            name="radio-buttons-group"
+                                            sx={{ display: 'flex', flexDirection: 'row' }}
+                                        >
+                                            <FormControlLabel value="female" control={<Radio />} label="Male" />
+                                            <FormControlLabel value="male" control={<Radio />} label="Female" />
+                                            <FormControlLabel value="male" control={<Radio />} label="Other" />
+                                        </RadioGroup>
+                                    </FormControl>
+                                </Box>
+                            </Stack>
+                            <Stack sx={{ paddingTop: '1rem', display: 'flex', flexDirection: 'row', gap: '3rem' }}>
+                                <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
+                                    <FormLabel id="demo-radio-buttons-group-label">Health Id</FormLabel>
+                                    <TextField />
+                                </Box>
+                                <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
+                                    <FormLabel id="demo-radio-buttons-group-label">Contact No</FormLabel>
+
+                                    <TextField />
+                                </Box>
+                            </Stack>
+                            <Stack sx={{ paddingTop: '1rem', display: 'flex', flexDirection: 'row', gap: '3rem' }}>
+                                <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
+                                    <FormLabel id="demo-radio-buttons-group-label">Date Of Joining</FormLabel>
+                                    <TextField />
+                                </Box>
+                                <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
+                                    <FormLabel id="demo-radio-buttons-group-label">Email</FormLabel>
+
+                                    <TextField />
+                                </Box>
+                            </Stack>
+                            <Stack sx={{ display: 'flex', alignItems: 'end', paddingTop: '3rem' }}>
+                                <Button sx={{ backgroundColor: 'primary', color: 'black' }}>Create</Button>
+                            </Stack>
+                        </Box>
+                    </DialogContent>
                 </Dialog>
                 <Popover
                     id={id}
