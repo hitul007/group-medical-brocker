@@ -2,33 +2,34 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 // material-ui
-import { useTheme } from '@mui/material/styles';
+import FirstPageIcon from '@mui/icons-material/FirstPage';
+import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
+import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
+import LastPageIcon from '@mui/icons-material/LastPage';
 import {
     Box,
-    Button,
+    IconButton,
     InputAdornment,
     Stack,
     Table,
     TableBody,
     TableCell,
     TableContainer,
+    TableFooter,
     TableHead,
+    TablePagination,
     TableRow,
     TextField,
     Typography,
-    TableFooter,
-    TablePagination,
-    IconButton
+    Button
 } from '@mui/material';
-import FirstPageIcon from '@mui/icons-material/FirstPage';
-import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
-import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
-import LastPageIcon from '@mui/icons-material/LastPage';
+import { useTheme } from '@mui/material/styles';
 
 import { FilterOutlined, SearchOutlined, PlusOutlined } from '@ant-design/icons';
 // project import
 
 import Dot from 'components/@extended/Dot';
+import ClaimsFilter from 'components/ClaimsFilter';
 import MainCard from 'components/MainCard';
 import Claimdialog from 'pages/Claims/Claimsdialog';
 function TablePaginationActions(props) {
@@ -179,9 +180,7 @@ export default function Allclaims() {
             <Stack sx={{ mt: 2, mb: 3 }} direction="row" justifyContent="space-between" spacing={2}>
                 <Typography variant="h3"> Total claims 5000</Typography>
                 <Stack direction="row" justifyContent="flex-end" spacing={2}>
-                    <Button sx={{ maxWidth: '100px' }} variant="outlined" startIcon={<FilterOutlined />}>
-                        Filter
-                    </Button>
+                    <ClaimsFilter />
                     <TextField
                         id="outlined-basic"
                         placeholder="Search name or health Id"
