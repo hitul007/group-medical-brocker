@@ -1,33 +1,33 @@
-import * as React from 'react';
 import PropTypes from 'prop-types';
+import * as React from 'react';
 
 // material-ui
-import { useTheme } from '@mui/material/styles';
+import FirstPageIcon from '@mui/icons-material/FirstPage';
+import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
+import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
+import LastPageIcon from '@mui/icons-material/LastPage';
 import {
     Box,
-    Button,
+    IconButton,
     InputAdornment,
     Stack,
     Table,
     TableBody,
     TableCell,
     TableContainer,
+    TableFooter,
     TableHead,
+    TablePagination,
     TableRow,
     TextField,
-    Typography,
-    TableFooter,
-    TablePagination,
-    IconButton
+    Typography
 } from '@mui/material';
-import FirstPageIcon from '@mui/icons-material/FirstPage';
-import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
-import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
-import LastPageIcon from '@mui/icons-material/LastPage';
+import { useTheme } from '@mui/material/styles';
 
-import { FilterOutlined, SearchOutlined } from '@ant-design/icons';
+import { SearchOutlined } from '@ant-design/icons';
 // project import
 import Dot from 'components/@extended/Dot';
+import ClaimsFilter from 'components/ClaimsFilter';
 import MainCard from 'components/MainCard';
 function TablePaginationActions(props) {
     const theme = useTheme();
@@ -146,9 +146,7 @@ export default function Claims() {
     return (
         <>
             <Stack direction="row" justifyContent="flex-end" spacing={2} sx={{ mt: 2, mb: 3 }}>
-                <Button sx={{ maxWidth: '100px' }} variant="outlined" startIcon={<FilterOutlined />}>
-                    Filter
-                </Button>
+                <ClaimsFilter />
                 <TextField
                     id="outlined-basic"
                     placeholder="Search name or health Id"
