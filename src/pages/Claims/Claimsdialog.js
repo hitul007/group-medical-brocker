@@ -176,13 +176,16 @@ const Claimdialog = () => {
                             </React.Fragment>
                         ) : (
                             <React.Fragment>
-                                {/*    <Box>
+                                <Typography sx={{ mt: 2, mb: 1 }}>
+                                {activeStep === 0 ? ( 
+                                <React.Fragment>
+                                <Box>
                                     <Stack sx={{ paddingTop: '1rem', display: 'flex', flexDirection: 'row', gap: '3rem' }}>
-                                        <Box sx={{ display: 'flex', flexDirection: 'column', '& .MuiTextField-root': { width: '40ch' } }}>
+                                        <Box sx={{ display: 'flex', flexDirection: 'column',  }}>
                                             <FormLabel id="demo-radio-buttons-group-label">Full Name</FormLabel>
                                             <TextField width="100%" />
                                         </Box>
-                                        <Box sx={{ display: 'flex', flexDirection: 'column', '& .MuiTextField-root': { width: '40ch' } }}>
+                                        <Box sx={{ display: 'flex', flexDirection: 'column',  }}>
                                             <FormLabel id="demo-radio-buttons-group-label">Hospital Name</FormLabel>
 
                                             <TextField />
@@ -205,7 +208,7 @@ const Claimdialog = () => {
                                                 </RadioGroup>
                                             </FormControl>
                                         </Box>
-                                        <Box sx={{ display: 'flex', flexDirection: 'column', '& .MuiTextField-root': { width: '40ch' } }}>
+                                        <Box sx={{ display: 'flex', flexDirection: 'column',  }}>
                                             <FormLabel id="demo-radio-buttons-group-label">Hospitalization Date</FormLabel>
                                             <LocalizationProvider dateAdapter={AdapterDayjs}>
                                                 <DatePicker
@@ -224,7 +227,14 @@ const Claimdialog = () => {
                                             <TextField multiline rows={4} />
                                         </Box>
                                     </Stack>
-                                                </Box>*/}
+                                </Box>
+                                </React.Fragment> 
+                                ) : null 
+                                }
+                                </Typography>
+                                <Typography sx={{ mt: 2, mb: 1 }}> 
+                                {activeStep === 1 ? ( 
+                                <React.Fragment>
                                 <Box>
                                     <Stack sx={{ paddingTop: '1rem' }}>
                                         <div {...getRootProps({ style })}>
@@ -236,13 +246,21 @@ const Claimdialog = () => {
                                         <Typography>{files}</Typography>
                                     </Stack>
                                 </Box>
-                                {/*  <Box>
+                                </React.Fragment>
+                                ) : null 
+                                }
+                                </Typography>
+
+                                <Typography sx={{ mt: 2, mb: 1 }}>
+                                {activeStep === 2 ? ( 
+                                <React.Fragment>
+                                <Box>
                                     <Stack sx={{ paddingTop: '1rem', display: 'flex', flexDirection: 'row', gap: '3rem' }}>
-                                        <Box sx={{ display: 'flex', flexDirection: 'column', '& .MuiTextField-root': { width: '40ch' } }}>
+                                        <Box sx={{ display: 'flex', flexDirection: 'column',  }}>
                                             <FormLabel id="demo-radio-buttons-group-label">Full Name</FormLabel>
                                             <TextField disabled={true} value="Rajvee Joshi" />
                                         </Box>
-                                        <Box sx={{ display: 'flex', flexDirection: 'column', '& .MuiTextField-root': { width: '40ch' } }}>
+                                        <Box sx={{ display: 'flex', flexDirection: 'column',  }}>
                                             <FormLabel id="demo-radio-buttons-group-label">Hospital Name</FormLabel>
 
                                             <TextField disabled />
@@ -253,7 +271,7 @@ const Claimdialog = () => {
                                     >
                                         <Box>
                                             <FormControl
-                                                sx={{ display: 'flex', flexDirection: 'column', '& .MuiTextField-root': { width: '40ch' } }}
+                                                sx={{ display: 'flex', flexDirection: 'column',  }}
                                             >
                                                 <FormLabel id="demo-radio-buttons-group-label">Claim type</FormLabel>
                                                 <RadioGroup
@@ -267,7 +285,7 @@ const Claimdialog = () => {
                                                 </RadioGroup>
                                             </FormControl>
                                         </Box>
-                                        <Box sx={{ display: 'flex', flexDirection: 'column', '& .MuiTextField-root': { width: '40ch' } }}>
+                                        <Box sx={{ display: 'flex', flexDirection: 'column',  }}>
                                             <FormLabel id="demo-radio-buttons-group-label">Hospitalization Date</FormLabel>
 
                                             <TextField disabled />
@@ -297,7 +315,12 @@ const Claimdialog = () => {
                                             </Box>
                                         </Box>
                                     </Stack>
-                                            </Box>*/}
+                                </Box>
+                                </React.Fragment>
+                                ) : null 
+                                }
+                                </Typography>
+                                            
                                 <Box sx={{ display: 'flex', flexDirection: 'row', pt: '5rem' }}>
                                     <Button
                                         variant="outlined"
