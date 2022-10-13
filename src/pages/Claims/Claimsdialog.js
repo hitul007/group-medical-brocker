@@ -70,7 +70,8 @@ const Claimdialog = () => {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        padding: '20px',
+        padding: '30px',
+
         borderWidth: 2,
         borderRadius: 2,
         borderColor: '#eeeeee',
@@ -79,7 +80,7 @@ const Claimdialog = () => {
         color: '#bdbdbd',
         outline: 'none',
         transition: 'border .24s ease-in-out',
-        borderRadius: 4
+        borderRadius: 10
     };
 
     const focusedStyle = {
@@ -115,14 +116,6 @@ const Claimdialog = () => {
                 onClose={NotaskhandleClose}
                 aria-labelledby="alert-dialog-title"
                 aria-describedby="alert-dialog-description"
-                sx={{
-                    '& .MuiDialog-container': {
-                        '& .MuiPaper-root': {
-                            width: '70%',
-                            maxWidth: 'xl' // Set your width here
-                        }
-                    }
-                }}
             >
                 <Box>
                     <DialogTitle id="alert-dialog-title" sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
@@ -140,7 +133,7 @@ const Claimdialog = () => {
                     }}
                 >
                     <Box>
-                        <Stepper activeStep={activeStep}>
+                        <Stepper sx={{ width: '100%' }} activeStep={activeStep}>
                             {steps.map((label, index) => {
                                 const stepProps = {};
                                 const labelProps = {};
@@ -176,13 +169,13 @@ const Claimdialog = () => {
                             </React.Fragment>
                         ) : (
                             <React.Fragment>
-                                {/*    <Box>
-                                    <Stack sx={{ paddingTop: '1rem', display: 'flex', flexDirection: 'row', gap: '3rem' }}>
-                                        <Box sx={{ display: 'flex', flexDirection: 'column', '& .MuiTextField-root': { width: '40ch' } }}>
+                                {/*  <Box sx={{ padding: '2rem' }}>
+                                    <Stack sx={{ paddingTop: '1rem', display: 'flex', flexDirection: 'row', gap: '3.5rem' }}>
+                                        <Box sx={{ display: 'flex', flexDirection: 'column', '& .MuiTextField-root': { width: '30ch' } }}>
                                             <FormLabel id="demo-radio-buttons-group-label">Full Name</FormLabel>
-                                            <TextField width="100%" />
+                                            <TextField />
                                         </Box>
-                                        <Box sx={{ display: 'flex', flexDirection: 'column', '& .MuiTextField-root': { width: '40ch' } }}>
+                                        <Box sx={{ display: 'flex', flexDirection: 'column', '& .MuiTextField-root': { width: '30ch' } }}>
                                             <FormLabel id="demo-radio-buttons-group-label">Hospital Name</FormLabel>
 
                                             <TextField />
@@ -205,7 +198,7 @@ const Claimdialog = () => {
                                                 </RadioGroup>
                                             </FormControl>
                                         </Box>
-                                        <Box sx={{ display: 'flex', flexDirection: 'column', '& .MuiTextField-root': { width: '40ch' } }}>
+                                        <Box sx={{ display: 'flex', flexDirection: 'column', '& .MuiTextField-root': { width: '30ch' } }}>
                                             <FormLabel id="demo-radio-buttons-group-label">Hospitalization Date</FormLabel>
                                             <LocalizationProvider dateAdapter={AdapterDayjs}>
                                                 <DatePicker
@@ -225,10 +218,11 @@ const Claimdialog = () => {
                                         </Box>
                                     </Stack>
                                                 </Box>*/}
-                                <Box>
+                                <Box sx={{ padding: '2rem' }}>
                                     <Stack sx={{ paddingTop: '1rem' }}>
                                         <div {...getRootProps({ style })}>
                                             <TextField {...getInputProps()} />
+
                                             <Typography>+ Upload Document</Typography>
                                             <Typography>.jpeg,.Png,.Pdf</Typography>
                                         </div>

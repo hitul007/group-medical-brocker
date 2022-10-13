@@ -11,13 +11,16 @@ import Head from './Head';
 import Overview from './Overview';
 import Employees from './Employees';
 import Claims from './Claims';
-
+import Claimdialog from 'pages/Claims/Claimsdialog';
+import { useLocation } from 'react-router-dom';
 function Details() {
+    const location = useLocation();
     const [value, setValue] = React.useState('1');
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
+
     return (
         <>
             <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 2 }}>
@@ -27,7 +30,7 @@ function Details() {
                     </Link>
                     <Typography color="text.primary">Digiqt Technolabs</Typography>
                 </Breadcrumbs>
-                <Button variant="outlined" startIcon={<PlusOutlined />}>
+                <Button variant="outlined" startIcon={<PlusOutlined />} onClick={<Claimdialog />}>
                     Add Claims
                 </Button>
             </Box>
