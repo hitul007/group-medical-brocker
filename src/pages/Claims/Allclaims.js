@@ -16,12 +16,13 @@ import {
     Typography
 } from '@mui/material';
 
-import { FilterOutlined, SearchOutlined } from '@ant-design/icons';
+import { FilterOutlined, SearchOutlined, PlusOutlined } from '@ant-design/icons';
 // third-party
 
 // project import
 import Dot from 'components/@extended/Dot';
 import MainCard from 'components/MainCard';
+import Claimdialog from 'pages/Claims/Claimsdialog';
 
 function createData(climeNo, name, healthid, comname, Climeamount, hosName, date, carbs) {
     return { climeNo, name, healthid, comname, Climeamount, hosName, date, carbs };
@@ -210,8 +211,13 @@ export default function Allclaims() {
     const [order] = useState('asc');
     const [orderBy] = useState('climeNo');
     const [selected] = useState([]);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     const isSelected = (climeNo) => selected.indexOf(climeNo) !== -1;
+
+    const handleClickOpen = () => {
+        setIsModalOpen(true);
+      };
 
     return (
         <>
@@ -234,6 +240,10 @@ export default function Allclaims() {
                         }}
                         sx={{ maxWidth: '250px' }}
                     />
+                <Button variant="outlined" startIcon={<PlusOutlined />} onClick={() => handleClickOpen()}>
+                    Add Claims
+                </Button>
+                <Claimdialog modalOpen={isModalOpen} setModalOpen={setIsModalOpen}></Claimdialog>
                 </Stack>
             </Stack>
             <MainCard contentSX={{ p: 1 }}>
