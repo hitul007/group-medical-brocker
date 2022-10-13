@@ -23,6 +23,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { useDropzone } from 'react-dropzone';
+
 const Claimdialog = () => {
     const [state, setState] = React.useState({
         open: false
@@ -116,6 +117,8 @@ const Claimdialog = () => {
                 onClose={NotaskhandleClose}
                 aria-labelledby="alert-dialog-title"
                 aria-describedby="alert-dialog-description"
+                fullWidth={true}
+                maxWidth="lg"
             >
                 <Box>
                     <DialogTitle id="alert-dialog-title" sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
@@ -132,8 +135,8 @@ const Claimdialog = () => {
                         marginBottom: '3rem'
                     }}
                 >
-                    <Box>
-                        <Stepper sx={{ width: '100%' }} activeStep={activeStep}>
+                    <Box sx={{ width: '100%' }}>
+                        <Stepper activeStep={activeStep}>
                             {steps.map((label, index) => {
                                 const stepProps = {};
                                 const labelProps = {};
@@ -169,22 +172,28 @@ const Claimdialog = () => {
                             </React.Fragment>
                         ) : (
                             <React.Fragment>
-                                {/*  <Box sx={{ padding: '2rem' }}>
-                                    <Stack sx={{ paddingTop: '1rem', display: 'flex', flexDirection: 'row', gap: '3.5rem' }}>
-                                        <Box sx={{ display: 'flex', flexDirection: 'column', '& .MuiTextField-root': { width: '30ch' } }}>
+                                {/* <Box sx={{ padding: '2rem' }}>
+                                    <Stack sx={{ paddingTop: '1rem', display: 'flex', flexDirection: 'row', gap: '2rem' }}>
+                                        <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
                                             <FormLabel id="demo-radio-buttons-group-label">Full Name</FormLabel>
                                             <TextField />
                                         </Box>
-                                        <Box sx={{ display: 'flex', flexDirection: 'column', '& .MuiTextField-root': { width: '30ch' } }}>
+                                        <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
                                             <FormLabel id="demo-radio-buttons-group-label">Hospital Name</FormLabel>
 
                                             <TextField />
                                         </Box>
                                     </Stack>
                                     <Stack
-                                        sx={{ paddingTop: '1rem', display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}
+                                        sx={{
+                                            paddingTop: '1rem',
+                                            display: 'flex',
+                                            flexDirection: 'row',
+                                            justifyContent: 'space-between',
+                                            gap: '2rem'
+                                        }}
                                     >
-                                        <Box>
+                                        <Box sx={{ width: '50%' }}>
                                             <FormControl sx={{ display: 'flex', flexDirection: 'column' }}>
                                                 <FormLabel id="demo-radio-buttons-group-label">Claim type</FormLabel>
                                                 <RadioGroup
@@ -198,7 +207,7 @@ const Claimdialog = () => {
                                                 </RadioGroup>
                                             </FormControl>
                                         </Box>
-                                        <Box sx={{ display: 'flex', flexDirection: 'column', '& .MuiTextField-root': { width: '30ch' } }}>
+                                        <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
                                             <FormLabel id="demo-radio-buttons-group-label">Hospitalization Date</FormLabel>
                                             <LocalizationProvider dateAdapter={AdapterDayjs}>
                                                 <DatePicker
@@ -218,7 +227,7 @@ const Claimdialog = () => {
                                         </Box>
                                     </Stack>
                                                 </Box>*/}
-                                <Box sx={{ padding: '2rem' }}>
+                                {/*   <Box sx={{ padding: '2rem' }}>
                                     <Stack sx={{ paddingTop: '1rem' }}>
                                         <div {...getRootProps({ style })}>
                                             <TextField {...getInputProps()} />
@@ -229,26 +238,30 @@ const Claimdialog = () => {
 
                                         <Typography>{files}</Typography>
                                     </Stack>
-                                </Box>
-                                {/*  <Box>
-                                    <Stack sx={{ paddingTop: '1rem', display: 'flex', flexDirection: 'row', gap: '3rem' }}>
-                                        <Box sx={{ display: 'flex', flexDirection: 'column', '& .MuiTextField-root': { width: '40ch' } }}>
+                                </Box>*/}
+                                <Box>
+                                    <Stack sx={{ paddingTop: '1rem', display: 'flex', flexDirection: 'row', gap: '2rem' }}>
+                                        <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
                                             <FormLabel id="demo-radio-buttons-group-label">Full Name</FormLabel>
                                             <TextField disabled={true} value="Rajvee Joshi" />
                                         </Box>
-                                        <Box sx={{ display: 'flex', flexDirection: 'column', '& .MuiTextField-root': { width: '40ch' } }}>
+                                        <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
                                             <FormLabel id="demo-radio-buttons-group-label">Hospital Name</FormLabel>
 
                                             <TextField disabled />
                                         </Box>
                                     </Stack>
                                     <Stack
-                                        sx={{ paddingTop: '1rem', display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}
+                                        sx={{
+                                            paddingTop: '1rem',
+                                            display: 'flex',
+                                            flexDirection: 'row',
+                                            justifyContent: 'space-between',
+                                            gap: '2rem'
+                                        }}
                                     >
-                                        <Box>
-                                            <FormControl
-                                                sx={{ display: 'flex', flexDirection: 'column', '& .MuiTextField-root': { width: '40ch' } }}
-                                            >
+                                        <Box sx={{ width: '50%' }}>
+                                            <FormControl sx={{ display: 'flex', flexDirection: 'column' }}>
                                                 <FormLabel id="demo-radio-buttons-group-label">Claim type</FormLabel>
                                                 <RadioGroup
                                                     aria-labelledby="demo-radio-buttons-group-label"
@@ -261,7 +274,7 @@ const Claimdialog = () => {
                                                 </RadioGroup>
                                             </FormControl>
                                         </Box>
-                                        <Box sx={{ display: 'flex', flexDirection: 'column', '& .MuiTextField-root': { width: '40ch' } }}>
+                                        <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
                                             <FormLabel id="demo-radio-buttons-group-label">Hospitalization Date</FormLabel>
 
                                             <TextField disabled />
@@ -291,7 +304,7 @@ const Claimdialog = () => {
                                             </Box>
                                         </Box>
                                     </Stack>
-                                            </Box>*/}
+                                </Box>
                                 <Box sx={{ display: 'flex', flexDirection: 'row', pt: '5rem' }}>
                                     <Button
                                         variant="outlined"

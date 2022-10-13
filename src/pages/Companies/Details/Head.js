@@ -11,11 +11,20 @@ import {
     Popover,
     Stack,
     Typography,
-    Button
+    Button,
+    Dialog,
+    DialogContent,
+    DialogTitle,
+    TextField,
+    FormControl,
+    FormControlLabel,
+    RadioGroup,
+    Radio,
+    FormLabel
 } from '@mui/material';
 import * as React from 'react';
 
-import { PlusOutlined, DeleteOutlined, EditOutlined, EllipsisOutlined, TeamOutlined } from '@ant-design/icons';
+import { PlusOutlined, DeleteOutlined, EditOutlined, EllipsisOutlined, TeamOutlined, CloseOutlined } from '@ant-design/icons';
 
 function Head() {
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -26,6 +35,17 @@ function Head() {
 
     const handleClose = () => {
         setAnchorEl(null);
+    };
+    const [state, setState] = React.useState({
+        open: false
+    });
+
+    const NotaskClickOpen = () => {
+        setState((prevState) => ({ ...prevState, open: true }));
+    };
+
+    const NotaskhandleClose = () => {
+        setState((prevState) => ({ ...prevState, open: false }));
     };
 
     const open = Boolean(anchorEl);
@@ -45,13 +65,37 @@ function Head() {
                 </Box>
             </Stack>
             <Box>
-                <Button variant="contained" startIcon={<PlusOutlined />} sx={{ mr: 2 }}>
+                <Button variant="contained" startIcon={<PlusOutlined />} sx={{ mr: 2 }} onClick={NotaskClickOpen}>
                     Employee
                 </Button>
                 <IconButton aria-label="delete" onClick={handleClick} sx={{ transform: 'rotate(90deg)' }}>
                     <EllipsisOutlined />
                 </IconButton>
-
+                <Dialog
+                    open={state.open}
+                    onClose={NotaskhandleClose}
+                    aria-labelledby="alert-dialog-title"
+                    aria-describedby="alert-dialog-description"
+                >
+                    <Box>
+                        <DialogTitle
+                            id="alert-dialog-title"
+                            sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}
+                        >
+                            <Typography sx={{ fontWeight: '900', fontSize: '20px' }}> New Employee</Typography>
+                            <CloseOutlined onClick={NotaskhandleClose} />
+                        </DialogTitle>
+                    </Box>
+                    <DialogContent
+                        sx={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignItems: 'center',
+                            gap: '1rem',
+                            marginBottom: '3rem'
+                        }}
+                    ></DialogContent>
+                </Dialog>
                 <Popover
                     id={id}
                     open={open}
