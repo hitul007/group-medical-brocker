@@ -15,6 +15,7 @@ import {
     TextField,
     Typography
 } from '@mui/material';
+import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import Stepper from '@mui/material/Stepper';
@@ -23,6 +24,8 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { useDropzone } from 'react-dropzone';
 import success from '../../assets/images/icons/successfully.svg';
+
+import InputAdornment from '@mui/material/InputAdornment';
 
 const Claimdialog = ({ modalOpen, setModalOpen }) => {
     const steps = ['Basic Information', 'Claim Document', 'Quick Review'];
@@ -166,13 +169,23 @@ const Claimdialog = ({ modalOpen, setModalOpen }) => {
                                             <Box>
                                                 <Stack sx={{ paddingTop: '1rem', display: 'flex', flexDirection: 'row', gap: '3rem' }}>
                                                     <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
-                                                        <FormLabel id="demo-radio-buttons-group-label">First Name</FormLabel>
+                                                        <FormLabel id="demo-radio-buttons-group-label">Full Name</FormLabel>
                                                         <TextField />
                                                     </Box>
                                                     <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
-                                                        <FormLabel id="demo-radio-buttons-group-label">Last Name</FormLabel>
+                                                        <FormLabel id="demo-radio-buttons-group-label">Amount </FormLabel>
 
-                                                        <TextField />
+                                                        <TextField
+                                                            id="input-with-icon-textfield"
+                                                            InputProps={{
+                                                                startAdornment: (
+                                                                    <InputAdornment position="start">
+                                                                        <CurrencyRupeeIcon />
+                                                                    </InputAdornment>
+                                                                )
+                                                            }}
+                                                            variant="outlined"
+                                                        />
                                                     </Box>
                                                 </Stack>
                                                 <Stack sx={{ paddingTop: '1rem', display: 'flex', flexDirection: 'row', gap: '3rem' }}>
@@ -264,13 +277,25 @@ const Claimdialog = ({ modalOpen, setModalOpen }) => {
                                             <Box>
                                                 <Stack sx={{ paddingTop: '1rem', display: 'flex', flexDirection: 'row', gap: '3rem' }}>
                                                     <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
-                                                        <FormLabel id="demo-radio-buttons-group-label">First Name</FormLabel>
+                                                        <FormLabel id="demo-radio-buttons-group-label">Full Name</FormLabel>
                                                         <TextField disabled={true} value="Rajvee Joshi" />
                                                     </Box>
                                                     <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
-                                                        <FormLabel id="demo-radio-buttons-group-label">Last Name</FormLabel>
+                                                        <FormLabel id="demo-radio-buttons-group-label">Amount</FormLabel>
 
-                                                        <TextField value="civil hospital" disabled />
+                                                        <TextField
+                                                            id="input-with-icon-textfield"
+                                                            InputProps={{
+                                                                startAdornment: (
+                                                                    <InputAdornment position="start">
+                                                                        <CurrencyRupeeIcon />
+                                                                    </InputAdornment>
+                                                                )
+                                                            }}
+                                                            variant="outlined"
+                                                            value="10,000"
+                                                            disabled
+                                                        />
                                                     </Box>
                                                 </Stack>
                                                 <Stack sx={{ paddingTop: '1rem', display: 'flex', flexDirection: 'row', gap: '3rem' }}>
