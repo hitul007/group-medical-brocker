@@ -24,9 +24,9 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { useDropzone } from 'react-dropzone';
 import success from '../../assets/images/icons/successfully.svg';
-
+import DialogActions from '@mui/material/DialogActions';
 import InputAdornment from '@mui/material/InputAdornment';
-
+import IconButton from '@mui/material/IconButton';
 const Claimdialog = ({ modalOpen, setModalOpen }) => {
     const steps = ['Basic Information', 'Claim Document', 'Quick Review'];
 
@@ -112,8 +112,10 @@ const Claimdialog = ({ modalOpen, setModalOpen }) => {
             >
                 <Box>
                     <DialogTitle id="alert-dialog-title" sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
-                        <Typography sx={{ fontWeight: '900', fontSize: '20px' }}> New Claim</Typography>
-                        <CloseOutlined onClick={handleClose} />
+                        <Typography variant="h3"> New Claim</Typography>
+                        <IconButton>
+                            <CloseOutlined onClick={handleClose} />
+                        </IconButton>
                     </DialogTitle>
                 </Box>
                 <DialogContent
@@ -156,7 +158,7 @@ const Claimdialog = ({ modalOpen, setModalOpen }) => {
                                     }}
                                 >
                                     <img src={success} alt=" " />
-                                    <Typography sx={{ textalign: 'center', fontWeight: '900', fontSize: '40px' }}>
+                                    <Typography variant="h2" sx={{ textalign: 'center' }}>
                                         Claim Successfully Sended.
                                     </Typography>
                                 </Box>
@@ -361,13 +363,17 @@ const Claimdialog = ({ modalOpen, setModalOpen }) => {
                                                                 display: 'flex',
                                                                 backgroundColor: 'primary',
                                                                 width: 'max-content',
-                                                                padding: '5px',
+                                                                padding: '2px',
                                                                 backgroundColor: 'lightgray'
                                                             }}
                                                         >
-                                                            <Typography>file.png</Typography>
+                                                            <Typography paddingTop="5px" variant="h5">
+                                                                file.png
+                                                            </Typography>
                                                             <Box>
-                                                                <CloseOutlined />
+                                                                <IconButton>
+                                                                    <CloseOutlined />
+                                                                </IconButton>
                                                             </Box>
                                                         </Box>
                                                     </Box>
@@ -376,17 +382,25 @@ const Claimdialog = ({ modalOpen, setModalOpen }) => {
                                         </React.Fragment>
                                     ) : null}
                                 </Typography>
+                                <DialogActions>
+                                    <Box
+                                        sx={{
+                                            display: 'flex',
+                                            flexDirection: 'row',
 
-                                <Box sx={{ display: 'flex', flexDirection: 'row', pt: '2rem' }}>
-                                    <Button size="large" variant="outlined" disabled={activeStep === 0} onClick={handleBack}>
-                                        Back
-                                    </Button>
-                                    <Box sx={{ flex: '1 1 auto' }} />
+                                            justifyContent: 'space-between',
+                                            width: '100%'
+                                        }}
+                                    >
+                                        <Button size="large" variant="outlined" disabled={activeStep === 0} onClick={handleBack}>
+                                            Back
+                                        </Button>
 
-                                    <Button size="large" variant="contained" color="primary" onClick={handleNext}>
-                                        {activeStep === steps.length - 1 ? 'Save' : 'Next'}
-                                    </Button>
-                                </Box>
+                                        <Button size="large" variant="contained" color="primary" onClick={handleNext}>
+                                            {activeStep === steps.length - 1 ? 'Save' : 'Next'}
+                                        </Button>
+                                    </Box>
+                                </DialogActions>
                             </React.Fragment>
                         )}
                     </Box>

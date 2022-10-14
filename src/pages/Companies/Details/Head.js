@@ -27,6 +27,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { PlusOutlined, DeleteOutlined, EditOutlined, EllipsisOutlined, TeamOutlined, CloseOutlined } from '@ant-design/icons';
+import DialogActions from '@mui/material/DialogActions';
 
 function Head() {
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -87,8 +88,10 @@ function Head() {
                             id="alert-dialog-title"
                             sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}
                         >
-                            <Typography sx={{ fontWeight: '900', fontSize: '20px' }}> New Employee</Typography>
-                            <CloseOutlined onClick={NotaskhandleClose} />
+                            <Typography variant="h3"> New Employee</Typography>
+                            <IconButton>
+                                <CloseOutlined onClick={NotaskhandleClose} />
+                            </IconButton>
                         </DialogTitle>
                     </Box>
                     <DialogContent
@@ -96,12 +99,11 @@ function Head() {
                             display: 'flex',
                             flexDirection: 'column',
                             alignItems: 'center',
-                            gap: '1rem',
-                            marginBottom: '1rem'
+                            gap: '1rem'
                         }}
                     >
                         <Box sx={{ width: '100%' }}>
-                            <Stack sx={{ paddingTop: '1rem', display: 'flex', flexDirection: 'row', gap: '3rem' }}>
+                            <Stack sx={{ display: 'flex', flexDirection: 'row', gap: '3rem' }}>
                                 <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
                                     <FormLabel id="demo-radio-buttons-group-label">First Name</FormLabel>
                                     <TextField />
@@ -171,13 +173,20 @@ function Head() {
                                     <TextField />
                                 </Box>
                             </Stack>
-                            <Stack sx={{ display: 'flex', alignItems: 'end', paddingTop: '3rem' }}>
-                                <Button color="primary" variant="contained" size="large">
-                                    Create
-                                </Button>
-                            </Stack>
                         </Box>
                     </DialogContent>
+                    <DialogActions>
+                        <Box
+                            sx={{
+                                display: 'flex',
+                                alignItems: 'end'
+                            }}
+                        >
+                            <Button color="primary" variant="contained" size="large">
+                                Create
+                            </Button>
+                        </Box>
+                    </DialogActions>
                 </Dialog>
                 <Popover
                     id={id}
