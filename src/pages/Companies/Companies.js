@@ -65,7 +65,7 @@ function Companies() {
         outline: 'none',
         transition: 'border .24s ease-in-out',
         borderRadius: 4,
-        width: '980px',
+        width: '100%',
         justifyContent: 'center',
         height: '100%'
     };
@@ -169,108 +169,91 @@ function Companies() {
                                     <Typography sx={{ mt: 2, mb: 1 }}>
                                         {activeStep === 0 ? (
                                             <React.Fragment>
-                                                <Box
-                                                    sx={{
-                                                        paddingTop: '1rem',
-                                                        justifyContent: 'center',
-                                                        alignItems: 'center',
-                                                        display: 'flex',
-                                                        height: '300px',
-                                                        flexDirection: 'column'
-                                                    }}
-                                                >
-                                                    <div {...getRootProps({ style })}>
-                                                        <TextField {...getInputProps()} />
-                                                        <Typography>+ Upload Document</Typography>
-                                                    </div>
-                                                    <Typography variant="h4" sx={{ color: 'lightgray' }}>
-                                                        .jpg, .pdf, .png
-                                                    </Typography>
-                                                </Box>
+                                                <Stack justifyContent="center" alignItems="center" direction="row">
+                                                    <Stack sx={{ paddingTop: '1rem', height: '300px', width: '700px' }}>
+                                                        <div {...getRootProps({ style })}>
+                                                            <TextField {...getInputProps()} />
+                                                            <Typography>+ Upload Document</Typography>
+                                                            <Typography>.jpeg,.Png,.Pdf</Typography>
+                                                        </div>
+
+                                                        <Typography>{files}</Typography>
+                                                    </Stack>
+                                                </Stack>
                                             </React.Fragment>
                                         ) : null}
                                     </Typography>
                                     <Typography sx={{ mt: 2, mb: 1 }}>
                                         {activeStep === 1 ? (
                                             <React.Fragment>
-                                                <Box>
-                                                    <Stack sx={{ paddingTop: '1rem', display: 'flex', flexDirection: 'row', gap: '3rem' }}>
-                                                        <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
-                                                            <FormLabel id="demo-radio-buttons-group-label">Company Name</FormLabel>
+                                                {' '}
+                                                <Grid container spacing={2}>
+                                                    <Grid item xs={12} md={6}>
+                                                        <Stack>
+                                                            <FormLabel required id="demo-radio-buttons-group-label">
+                                                                Company Name
+                                                            </FormLabel>
                                                             <TextField />
-                                                        </Box>
-                                                        <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
-                                                            <FormLabel id="demo-radio-buttons-group-label">Email </FormLabel>
+                                                        </Stack>
+                                                    </Grid>
+                                                    <Grid item xs={12} md={6}>
+                                                        <Stack>
+                                                            <FormLabel required id="demo-radio-buttons-group-label">
+                                                                Email
+                                                            </FormLabel>
+                                                            <TextField />
+                                                        </Stack>
+                                                    </Grid>
 
+                                                    <Grid item xs={12} md={6}>
+                                                        <Stack>
+                                                            <FormLabel id="demo-radio-buttons-group-label">Contact to</FormLabel>
                                                             <TextField />
-                                                        </Box>
-                                                    </Stack>
-                                                    <Stack sx={{ paddingTop: '1rem', display: 'flex', flexDirection: 'row', gap: '3rem' }}>
-                                                        <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
-                                                            <FormLabel id="demo-radio-buttons-group-label">Contact No.</FormLabel>
-                                                            <TextField />
-                                                        </Box>
-                                                        <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
+                                                        </Stack>
+                                                    </Grid>
+                                                    <Grid item xs={12} md={6}>
+                                                        <Stack>
                                                             <FormLabel id="demo-radio-buttons-group-label">Address</FormLabel>
-
                                                             <TextField />
-                                                        </Box>
-                                                    </Stack>
-                                                    <Stack
-                                                        sx={{
-                                                            paddingTop: '1rem',
-                                                            display: 'flex',
-                                                            flexDirection: 'row',
-                                                            justifyContent: 'space-between',
-                                                            gap: '3rem'
-                                                        }}
-                                                    >
-                                                        <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
+                                                        </Stack>
+                                                    </Grid>
+                                                    <Grid item xs={12} md={6}>
+                                                        <Stack>
                                                             <FormLabel id="demo-radio-buttons-group-label">Website Url</FormLabel>
                                                             <TextField />
-                                                        </Box>
-                                                        <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
+                                                        </Stack>
+                                                    </Grid>
+                                                    <Grid item xs={12} md={6}>
+                                                        <Stack>
                                                             <FormLabel id="demo-radio-buttons-group-label">Director Name</FormLabel>
                                                             <TextField />
-                                                        </Box>
-                                                    </Stack>
-                                                    <Stack
-                                                        sx={{
-                                                            paddingTop: '1rem',
-                                                            display: 'flex',
-                                                            flexDirection: 'row',
-                                                            justifyContent: 'space-between',
-                                                            gap: '3rem'
-                                                        }}
-                                                    >
-                                                        <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
-                                                            <FormLabel id="demo-radio-buttons-group-label">Total Employee</FormLabel>
+                                                        </Stack>
+                                                    </Grid>
+                                                    <Grid item xs={12} md={6}>
+                                                        <Stack>
+                                                            <FormLabel id="demo-radio-buttons-group-label">Total Employees</FormLabel>
                                                             <TextField />
-                                                        </Box>
-                                                        <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
+                                                        </Stack>
+                                                    </Grid>
+                                                    <Grid item xs={12} md={6}>
+                                                        <Stack>
                                                             <FormLabel id="demo-radio-buttons-group-label">Pan No.</FormLabel>
                                                             <TextField />
-                                                        </Box>
-                                                    </Stack>
-                                                    <Stack
-                                                        sx={{
-                                                            paddingTop: '1rem',
-                                                            display: 'flex',
-                                                            flexDirection: 'row',
-                                                            justifyContent: 'space-between',
-                                                            gap: '3rem'
-                                                        }}
-                                                    >
-                                                        <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
-                                                            <FormLabel id="demo-radio-buttons-group-label">GST In</FormLabel>
+                                                        </Stack>
+                                                    </Grid>
+                                                    <Grid item xs={12} md={6}>
+                                                        <Stack>
+                                                            <FormLabel id="demo-radio-buttons-group-label">GST No.</FormLabel>
                                                             <TextField />
-                                                        </Box>
-                                                        <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
+                                                        </Stack>
+                                                    </Grid>
+                                                    <Grid item xs={12} md={6}>
+                                                        <Stack>
                                                             <FormLabel id="demo-radio-buttons-group-label">TIN</FormLabel>
                                                             <TextField />
-                                                        </Box>
-                                                    </Stack>
-                                                </Box>
+                                                        </Stack>
+                                                    </Grid>
+                                                </Grid>
                                             </React.Fragment>
                                         ) : null}
                                     </Typography>
@@ -278,13 +261,15 @@ function Companies() {
                                     <Typography sx={{ mt: 2, mb: 1 }}>
                                         {activeStep === 2 ? (
                                             <React.Fragment>
-                                                <Box>
-                                                    <Stack sx={{ paddingTop: '1rem', display: 'flex', flexDirection: 'row', gap: '3rem' }}>
-                                                        <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
+                                                <Grid container spacing={2}>
+                                                    <Grid item xs={12} md={6}>
+                                                        <Stack>
                                                             <FormLabel id="demo-radio-buttons-group-label">Policy No.</FormLabel>
                                                             <TextField />
-                                                        </Box>
-                                                        <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
+                                                        </Stack>
+                                                    </Grid>
+                                                    <Grid item xs={12} md={6}>
+                                                        <Stack>
                                                             <FormLabel id="demo-radio-buttons-group-label">Age</FormLabel>
                                                             <Select
                                                                 labelId="demo-simple-select-helper-label"
@@ -300,18 +285,11 @@ function Companies() {
                                                                 <MenuItem value={20}>Twenty</MenuItem>
                                                                 <MenuItem value={30}>Thirty</MenuItem>
                                                             </Select>
-                                                        </Box>
-                                                    </Stack>
-                                                    <Stack
-                                                        sx={{
-                                                            paddingTop: '1rem',
-                                                            display: 'flex',
-                                                            flexDirection: 'row',
-                                                            justifyContent: 'space-between',
-                                                            gap: '3rem'
-                                                        }}
-                                                    >
-                                                        <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
+                                                        </Stack>
+                                                    </Grid>
+                                                    <Grid item xs={12} md={6}>
+                                                        <Stack>
+                                                            {' '}
                                                             <FormLabel id="demo-radio-buttons-group-label">
                                                                 Select Policy start Date
                                                             </FormLabel>
@@ -324,8 +302,10 @@ function Companies() {
                                                                     renderInput={(params) => <TextField {...params} />}
                                                                 />
                                                             </LocalizationProvider>
-                                                        </Box>
-                                                        <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
+                                                        </Stack>
+                                                    </Grid>
+                                                    <Grid item xs={12} md={6}>
+                                                        <Stack>
                                                             <FormLabel id="demo-radio-buttons-group-label">
                                                                 Select Policy End Date
                                                             </FormLabel>
@@ -338,79 +318,71 @@ function Companies() {
                                                                     renderInput={(params) => <TextField {...params} />}
                                                                 />
                                                             </LocalizationProvider>
-                                                        </Box>
-                                                    </Stack>
-                                                    <Stack sx={{ paddingTop: '1rem' }}>
-                                                        <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                                                            <FormLabel id="demo-radio-buttons-group-label">Claim Details</FormLabel>
-                                                            <TextField
-                                                                disabled
-                                                                multiline
-                                                                rows={4}
-                                                                value="Lorem Ipsum is simply dummy text of the printing and typesetting industry. "
-                                                            />
-                                                        </Box>
-                                                    </Stack>
-                                                    <Stack sx={{ paddingTop: '1rem' }}>
-                                                        <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                                                            <FormLabel id="demo-radio-buttons-group-label">Document</FormLabel>
-                                                            <Box>
-                                                                <Stack sx={{ paddingTop: '1rem' }}>
+                                                        </Stack>
+                                                    </Grid>
+                                                    <Grid item xs={12} md={12}>
+                                                        <Stack>
+                                                            <FormLabel id="demo-radio-buttons-group-label">
+                                                                Upload Policy Document
+                                                            </FormLabel>
+                                                            <Stack justifyContent="center" alignItems="center" direction="row">
+                                                                <Stack sx={{ paddingTop: '1rem', height: '300px', width: '700px' }}>
                                                                     <div {...getRootProps({ style })}>
                                                                         <TextField {...getInputProps()} />
                                                                         <Typography>+ Upload Document</Typography>
                                                                         <Typography>.jpeg,.Png,.Pdf</Typography>
                                                                     </div>
-
-                                                                    <Box
-                                                                        sx={{
-                                                                            display: 'flex',
-                                                                            backgroundColor: 'primary',
-                                                                            width: 'max-content',
-                                                                            margin: '5px',
-                                                                            backgroundColor: 'lightgray'
-                                                                        }}
-                                                                    >
-                                                                        <Typography variant="h5" padding="2px">
-                                                                            file.png
-                                                                        </Typography>
-                                                                        <Box>
-                                                                            <IconButton>
-                                                                                <CloseOutlined />
-                                                                            </IconButton>
-                                                                        </Box>
-                                                                    </Box>
                                                                 </Stack>
+                                                            </Stack>
+                                                        </Stack>
+                                                    </Grid>
+                                                    <Grid item xs={12} md={12}>
+                                                        <Box
+                                                            sx={{
+                                                                display: 'flex',
+                                                                backgroundColor: 'primary',
+                                                                width: 'max-content',
+                                                                margin: '5px',
+                                                                backgroundColor: 'lightgray'
+                                                            }}
+                                                        >
+                                                            <Typography variant="h5" padding="5px">
+                                                                file.png
+                                                            </Typography>
+                                                            <Box>
+                                                                <IconButton>
+                                                                    <CloseOutlined />
+                                                                </IconButton>
                                                             </Box>
                                                         </Box>
-                                                    </Stack>
-                                                </Box>
+                                                    </Grid>
+                                                </Grid>
                                             </React.Fragment>
                                         ) : null}
                                     </Typography>
-                                    <DialogActions>
-                                        <Box
-                                            sx={{
-                                                display: 'flex',
-                                                flexDirection: 'row',
-
-                                                justifyContent: 'space-between',
-                                                width: '100%'
-                                            }}
-                                        >
-                                            <Button size="large" variant="outlined" disabled={activeStep === 0} onClick={handleBack}>
-                                                Back
-                                            </Button>
-
-                                            <Button size="large" variant="contained" color="primary" onClick={handleNext}>
-                                                {activeStep === steps.length - 1 ? 'Save' : 'Next'}
-                                            </Button>
-                                        </Box>
-                                    </DialogActions>
                                 </React.Fragment>
                             )}
                         </Box>
                     </DialogContent>
+                    <DialogActions>
+                        <Box
+                            sx={{
+                                display: 'flex',
+                                flexDirection: 'row',
+
+                                justifyContent: 'space-between',
+                                width: '100%'
+                            }}
+                        >
+                            <Button size="large" variant="outlined" disabled={activeStep === 0} onClick={handleBack}>
+                                Back
+                            </Button>
+
+                            <Button size="large" variant="contained" color="primary" onClick={handleNext}>
+                                {activeStep === steps.length - 1 ? 'Save' : 'Next'}
+                            </Button>
+                        </Box>
+                    </DialogActions>
                 </Dialog>
             </Box>
 
