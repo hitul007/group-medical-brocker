@@ -2,6 +2,7 @@ import { Box, Button, Grid, InputAdornment, Stack, TextField, Typography } from 
 import MainCard from 'components/MainCard';
 
 import { AimOutlined, PlusOutlined, SearchOutlined, UserOutlined } from '@ant-design/icons';
+import AddHospitals from './AddHospitals';
 
 function Hospitals() {
     return (
@@ -22,9 +23,7 @@ function Hospitals() {
                         }}
                         sx={{ maxWidth: '250px' }}
                     />
-                    <Button variant="outlined" size="large" startIcon={<PlusOutlined />}>
-                        Add Hospitals
-                    </Button>
+                    <AddHospitals />
                 </Box>
             </Box>
             <Grid container rowSpacing={4.5} columnSpacing={2.75}>

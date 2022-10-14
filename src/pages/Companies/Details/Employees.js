@@ -27,6 +27,7 @@ import { SearchOutlined } from '@ant-design/icons';
 // project import
 import EmpFilter from 'components/EmpFilter';
 import MainCard from 'components/MainCard';
+import { Link } from 'react-router-dom';
 function TablePaginationActions(props) {
     const theme = useTheme();
     const { count, page, rowsPerPage, onPageChange } = props;
@@ -167,7 +168,11 @@ export default function Employees() {
                                     <TableCell component="th" scope="row" align="center">
                                         {row.no}
                                     </TableCell>
-                                    <TableCell align="center">{row.name}</TableCell>
+                                    <TableCell align="center">
+                                        <Link style={{ color: '#262626', textDecoration: 'none' }} to="/companies/employees">
+                                            {row.name}
+                                        </Link>
+                                    </TableCell>
                                     <TableCell align="center">{row.healthid}</TableCell>
                                     <TableCell align="center">{row.emailId}</TableCell>
                                     <TableCell align="center">{row.contactNo}</TableCell>
