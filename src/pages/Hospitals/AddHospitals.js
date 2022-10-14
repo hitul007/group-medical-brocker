@@ -22,14 +22,14 @@ function AddHospitals() {
             </Button>
             <Dialog maxWidth={'sm'} open={open} sx={{ width: '100%' }}>
                 <DialogTitle>
-                    <h1>hii</h1>
+                    <h1>Head</h1>
                 </DialogTitle>
                 <DialogContent>
-                    <h2>hiii hello</h2>
+                    <h2>Data</h2>
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={handleClose}>Cancel</Button>
-                    <Button onClick={handleClose}>Subscribe</Button>
+                    <Button onClick={handleClose}>save</Button>
                 </DialogActions>
             </Dialog>
         </>
