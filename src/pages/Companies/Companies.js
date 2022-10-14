@@ -1,7 +1,7 @@
-import { Box, Button, Grid, Stack, Typography } from '@mui/material';
+import { Box, Button, Grid, Stack, Typography, TextField, InputAdornment } from '@mui/material';
 import MainCard from 'components/MainCard';
 
-import { GlobalOutlined, MessageOutlined, PhoneOutlined, PlusOutlined, VerticalLeftOutlined } from '@ant-design/icons';
+import { SearchOutlined, GlobalOutlined, MessageOutlined, PhoneOutlined, PlusOutlined, VerticalLeftOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 
 function Companies() {
@@ -9,9 +9,24 @@ function Companies() {
         <>
             <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 2 }}>
                 <Typography variant="h3">Companies</Typography>
-                <Button variant="outlined" startIcon={<PlusOutlined />}>
-                    Add Companies
-                </Button>
+                <Stack direction="row" spacing={2}>
+                    <TextField
+                        id="outlined-basic"
+                        placeholder="Search company name"
+                        variant="outlined"
+                        InputProps={{
+                            endAdornment: (
+                                <InputAdornment position="start">
+                                    <SearchOutlined />
+                                </InputAdornment>
+                            )
+                        }}
+                        sx={{ maxWidth: '250px' }}
+                    />
+                    <Button variant="outlined" startIcon={<PlusOutlined />}>
+                        Add Companies
+                    </Button>
+                </Stack>
             </Box>
             <Grid container rowSpacing={4.5} columnSpacing={2.75}>
                 <Grid item xs={12} sm={12} md={3} lg={3}>

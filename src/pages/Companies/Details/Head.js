@@ -56,9 +56,11 @@ function Head() {
     return (
         <Stack direction="row" justifyContent="space-between">
             <Stack direction="row" spacing={2}>
-                <Avatar sx={{ width: 64, height: 64, borderRadius: '6px', color: '#1890ff', backgroundColor: '#e6f7ff' }}>DT</Avatar>
+                <Avatar sx={{ width: 70, height: 70, borderRadius: '6px', color: '#1890ff', backgroundColor: '#e6f7ff' }}>DT</Avatar>
                 <Box>
-                    <Typography variant="h2">Digiqt Technolabs</Typography>
+                    <Typography variant="h1" sx={{ fontWeight: '900' }}>
+                        Digiqt Technolabs
+                    </Typography>
                     <Box sx={{ display: 'flex', gap: '0.5rem', mt: 1 }}>
                         <TeamOutlined style={{ fontSize: '16px', color: '#919191' }} />
                         <Typography variant="caption" sx={{ color: '#919191' }}>

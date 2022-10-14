@@ -112,7 +112,7 @@ const Claimdialog = ({ modalOpen, setModalOpen }) => {
             >
                 <Box>
                     <DialogTitle id="alert-dialog-title" sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
-                        <Typography sx={{ fontWeight: '900', fontSize: '20px' }}> New Claim</Typography>
+                        <Typography sx={{ fontWeight: '900', fontSize: '20px' }}> New Claim </Typography>
                         <CloseOutlined onClick={handleClose} />
                     </DialogTitle>
                 </Box>

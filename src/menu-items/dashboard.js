@@ -54,7 +54,7 @@ const dashboard = {
             id: 'insurance',
             title: 'Insurance',
             type: 'item',
-            url: '/dashboard/default',
+            url: '/insurance',
             icon: icons.SafetyOutlined,
             breadcrumbs: false
         },

@@ -14,7 +14,7 @@ const HeaderContent = () => {
     return (
         <>
             <Stack sx={{ width: '100%' }} direction="row" justifyContent="end" alignItems="center" spacing={2}>
-                <Notification />
+                {/* <Notification /> */}
                 {!matchesXs && <Profile />} {matchesXs && <MobileSection />}
             </Stack>
         </>
