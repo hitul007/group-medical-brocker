@@ -40,8 +40,8 @@ function Hospitals() {
                             fullWidth
                         />
                     )}
+                    <AddHospitals />
                 </Box>
-                <AddHospitals />
             </Box>
 
             <Grid container rowSpacing={4.5} columnSpacing={2.75}>

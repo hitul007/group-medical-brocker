@@ -4,6 +4,7 @@ import { Avatar, Box, Button, Grid, List, ListItemAvatar, ListItemButton, ListIt
 // project import
 import AnalyticEcommerce from 'components/cards/statistics/AnalyticEcommerce';
 import MainCard from 'components/MainCard';
+import { Link } from 'react-router-dom';
 
 // assets
 import RecentClaims from './RecentClaims';
@@ -150,7 +151,7 @@ const DashboardDefault = () => {
                                 <ListItemText primary={<Typography variant="subtitle1">Technolabs</Typography>} secondary="50+ employees" />
                             </ListItemButton>
                         </List>
-                        <Button const variant="outlined" fullWidth>
+                        <Button component={Link} to="/broker-portal/companies" const variant="outlined" fullWidth>
                             View all
                         </Button>
                     </Stack>

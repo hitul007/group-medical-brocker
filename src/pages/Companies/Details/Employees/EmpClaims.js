@@ -30,6 +30,7 @@ import { FilterOutlined, SearchOutlined } from '@ant-design/icons';
 
 import Dot from 'components/@extended/Dot';
 import MainCard from 'components/MainCard';
+import ClaimsFilter from 'components/ClaimsFilter';
 function TablePaginationActions(props) {
     const theme = useTheme();
     const { count, page, rowsPerPage, onPageChange } = props;
@@ -142,9 +143,7 @@ export default function Allclaims() {
     return (
         <>
             <Stack sx={{ mt: 2, mb: 2 }} direction="row" justifyContent="flex-end" spacing={2}>
-                <Button sx={{ maxWidth: '100px' }} variant="outlined" startIcon={<FilterOutlined />}>
-                    Filter
-                </Button>
+                <ClaimsFilter />
                 <TextField
                     id="outlined-basic"
                     placeholder="Search hospital name"
