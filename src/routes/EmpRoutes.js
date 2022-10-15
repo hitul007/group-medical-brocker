@@ -4,13 +4,6 @@ import { lazy } from 'react';
 import Loadable from 'components/Loadable';
 import EmpLayout from 'layout/EmpLayout';
 
-import Companies from 'pages/Companies/Companies';
-import Details from 'pages/Companies/Details/Details';
-import EmployeesDetails from 'pages/Companies/Details/Employees/EmployeesDetails';
-import Allclaims from 'pages/Claims/Allclaims';
-import Hospitals from 'pages/Hospitals/Hospitals';
-import Insurance from 'pages/Insurance/Insurance';
-import Support from 'pages/Support/Support';
 // render - dashboard
 const DashboardDefault = Loadable(lazy(() => import('pages/dashboard')));
 

@@ -189,7 +189,6 @@ export default function Claims() {
                                 <TableCell align="center">Clime No</TableCell>
                                 <TableCell align="center">Employee Name</TableCell>
                                 <TableCell align="center">Health Id</TableCell>
-                                <TableCell align="center">Company Name</TableCell>
                                 <TableCell align="center">Clime Amount</TableCell>
                                 <TableCell align="center">Hospital Name</TableCell>
                                 <TableCell align="center">Hospitalized Date</TableCell>
@@ -204,7 +203,6 @@ export default function Claims() {
                                     </TableCell>
                                     <TableCell align="center">{row.name}</TableCell>
                                     <TableCell align="center">{row.healthid}</TableCell>
-                                    <TableCell align="center">{row.comname}</TableCell>
                                     <TableCell align="center">{row.Climeamount}</TableCell>
                                     <TableCell align="center">{row.hosName}</TableCell>
                                     <TableCell align="center">{row.date}</TableCell>

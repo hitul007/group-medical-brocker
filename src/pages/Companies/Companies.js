@@ -1,40 +1,40 @@
-import React, { useMemo } from 'react';
 import {
-    Box,
-    Button,
-    Grid,
-    Stack,
-    Dialog,
-    DialogContent,
-    DialogTitle,
-    Typography,
-    TextField,
-    FormLabel,
-    InputAdornment
-} from '@mui/material';
-import MainCard from 'components/MainCard';
-import {
-    SearchOutlined,
+    CloseOutlined,
     GlobalOutlined,
     MessageOutlined,
     PhoneOutlined,
     PlusOutlined,
-    VerticalLeftOutlined,
-    CloseOutlined
+    SearchOutlined,
+    VerticalLeftOutlined
 } from '@ant-design/icons';
-import { Link } from 'react-router-dom';
-import { useDropzone } from 'react-dropzone';
+import {
+    Box,
+    Button,
+    Dialog,
+    DialogContent,
+    DialogTitle,
+    FormLabel,
+    Grid,
+    InputAdornment,
+    Stack,
+    TextField,
+    Typography
+} from '@mui/material';
+import DialogActions from '@mui/material/DialogActions';
+import IconButton from '@mui/material/IconButton';
+import MenuItem from '@mui/material/MenuItem';
+import Select from '@mui/material/Select';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import Stepper from '@mui/material/Stepper';
-import MenuItem from '@mui/material/MenuItem';
-import DialogActions from '@mui/material/DialogActions';
-import success from '../../assets/images/icons/successfully.svg';
-import Select from '@mui/material/Select';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import IconButton from '@mui/material/IconButton';
+import MainCard from 'components/MainCard';
+import React, { useMemo } from 'react';
+import { useDropzone } from 'react-dropzone';
+import { Link } from 'react-router-dom';
+import success from '../../assets/images/icons/successfully.svg';
 
 function Companies() {
     const steps = ['Upload Company Logo', 'Enter Basic Information', 'Enter Insurance Details'];
