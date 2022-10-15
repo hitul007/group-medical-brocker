@@ -67,12 +67,21 @@ function Head() {
                             100 Employees
                         </Typography>
                     </Box>
+                    <Box className="d-block d-lg-none">
+                        <Button fullWidth variant="contained" startIcon={<PlusOutlined />} sx={{ mr: 2 }} onClick={NotaskClickOpen}>
+                            Employee
+                        </Button>
+                    </Box>
                 </Box>
             </Stack>
+
             <Box>
-                <Button variant="contained" startIcon={<PlusOutlined />} sx={{ mr: 2 }} onClick={NotaskClickOpen}>
-                    Employee
-                </Button>
+                <Box className="d-none">
+                    <Button variant="contained" startIcon={<PlusOutlined />} sx={{ mr: 2 }} onClick={NotaskClickOpen}>
+                        Employee
+                    </Button>
+                </Box>
+
                 <IconButton aria-label="delete" onClick={handleClick} sx={{ transform: 'rotate(90deg)' }}>
                     <EllipsisOutlined />
                 </IconButton>

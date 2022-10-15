@@ -7,9 +7,9 @@ import AddHospitals from './AddHospitals';
 function Hospitals() {
     return (
         <>
-            <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 2 }}>
+            <Box className="d-none d-lg-block d-lg-flex flex-lg-row justify-content-lg-between  mb-lg-2 mb-2">
                 <Typography variant="h3">Hospitals</Typography>
-                <Box sx={{ display: 'flex', justifyContent: 'space-between', gap: '1rem', alignItems: 'center' }}>
+                <Box sx={{ display: 'flex', justifyContent: 'around', gap: '1rem', alignItems: 'center' }}>
                     <TextField
                         id="outlined-basic"
                         placeholder="Search name or city"
@@ -22,6 +22,25 @@ function Hospitals() {
                             )
                         }}
                         sx={{ maxWidth: '250px' }}
+                    />
+                    <AddHospitals />
+                </Box>
+            </Box>
+            <Box className="d-lg-none d-flex flex-column  ">
+                <Typography variant="h3">Hospitals</Typography>
+                <Box sx={{ display: 'flex', flexDirection: 'column', gap: '1rem', mb: 2, mt: 2 }}>
+                    <TextField
+                        id="outlined-basic"
+                        placeholder="Search name or city"
+                        variant="outlined"
+                        InputProps={{
+                            endAdornment: (
+                                <InputAdornment position="start">
+                                    <SearchOutlined />
+                                </InputAdornment>
+                            )
+                        }}
+                        fullWidth
                     />
                     <AddHospitals />
                 </Box>

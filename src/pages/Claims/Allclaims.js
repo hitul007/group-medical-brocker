@@ -177,9 +177,9 @@ export default function Allclaims() {
 
     return (
         <>
-            <Stack sx={{ mt: 2, mb: 3 }} direction="row" justifyContent="space-between" spacing={2}>
+            <Stack className="d-none d-lg-block d-lg-flex flex-lg-row justify-content-lg-between  mb-lg-2 mb-2">
                 <Typography variant="h3"> Total claims 5000</Typography>
-                <Stack direction="row" justifyContent="flex-end" spacing={2}>
+                <Stack className=" d-flex flex-column flex-lg-row gap-lg-4 p-2 gap-3">
                     <ClaimsFilter />
                     <TextField
                         id="outlined-basic"
@@ -197,6 +197,30 @@ export default function Allclaims() {
                     <Button variant="outlined" startIcon={<PlusOutlined />} onClick={() => handleClickOpen()}>
                         Add Claims
                     </Button>
+                    <Claimdialog modalOpen={isModalOpen} setModalOpen={setIsModalOpen}></Claimdialog>
+                </Stack>
+            </Stack>
+            <Stack className="d-lg-none d-block d-flex flex-column justify-content-lg-between gap-2  mb-lg-2 mb-2">
+                <Typography variant="h3"> Total claims 5000</Typography>
+                <Button variant="outlined" startIcon={<PlusOutlined />} onClick={() => handleClickOpen()}>
+                    Add Claims
+                </Button>
+                <Stack className=" d-flex  flex-row  pt-2 justify-content-between">
+                    <ClaimsFilter />
+                    <TextField
+                        id="outlined-basic"
+                        placeholder="Search name or health Id"
+                        variant="outlined"
+                        InputProps={{
+                            endAdornment: (
+                                <InputAdornment position="start">
+                                    <SearchOutlined />
+                                </InputAdornment>
+                            )
+                        }}
+                        sx={{ maxWidth: '250px' }}
+                    />
+
                     <Claimdialog modalOpen={isModalOpen} setModalOpen={setIsModalOpen}></Claimdialog>
                 </Stack>
             </Stack>

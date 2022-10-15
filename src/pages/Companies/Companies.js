@@ -100,11 +100,20 @@ function Companies() {
     const [value, setValue] = React.useState(null);
     return (
         <>
-            <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 2 }}>
-                <Typography variant="h3">Companies</Typography>
-                <Button variant="outlined" startIcon={<PlusOutlined />} onClick={handleClickOpen}>
-                    Add Companies
-                </Button>
+            <Box className="d-lg-flex justify-content-lg-between mb-lg-2 mb-2">
+                <Typography variant="h3" className="m-1 ">
+                    Companies
+                </Typography>
+                <Box className="d-lg-block d-none ">
+                    <Button variant="outlined" startIcon={<PlusOutlined />} onClick={handleClickOpen}>
+                        Add Companies
+                    </Button>
+                </Box>
+                <Box className=" d-lg-none d-block pt-2 ">
+                    <Button fullWidth variant="outlined" startIcon={<PlusOutlined />} onClick={handleClickOpen}>
+                        Add Companies
+                    </Button>
+                </Box>
                 <Dialog
                     open={open}
                     onClose={handleClose}
