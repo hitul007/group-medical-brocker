@@ -1,7 +1,6 @@
-import { Box, Grid, InputAdornment, Stack, TextField, Typography } from '@mui/material';
+import { Box, Grid, Stack, Typography } from '@mui/material';
 import MainCard from 'components/MainCard';
 
-import { SearchOutlined } from '@ant-design/icons';
 import AnsAccordion from 'components/AnsAccordion ';
 import DefaultFAQ from 'components/DefaultFAQ';
 import FAQAccordion from 'components/FAQAccordion';

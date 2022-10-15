@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import { Box, Breadcrumbs, Button, Typography, Tab } from '@mui/material';
-import MainCard from 'components/MainCard';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
+import { Box, Breadcrumbs, Button, Tab, Typography } from '@mui/material';
+import MainCard from 'components/MainCard';
+import React, { useState } from 'react';
 
 import { PlusOutlined } from '@ant-design/icons';
+import Claimdialog from 'pages/Claims/Claimsdialog';
 import { Link } from 'react-router-dom';
+import Claims from './Claims';
+import Employees from './Employees';
 import Head from './Head';
 import Overview from './Overview';
-import Employees from './Employees';
-import Claims from './Claims';
-import Claimdialog from 'pages/Claims/Claimsdialog';
 function Details() {
     const [value, setValue] = React.useState('1');
     const [isModalOpen, setIsModalOpen] = useState(false);
