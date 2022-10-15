@@ -15,6 +15,7 @@ import EmpClaims from './EmpClaims';
 // import Employees from './Employees';
 // import Claims from './Claims';
 import Claimdialog from 'pages/Claims/Claimsdialog';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 function EmployeesDetails() {
     const [value, setValue] = React.useState('1');
@@ -27,6 +28,7 @@ function EmployeesDetails() {
     const handleClickOpen = () => {
         setIsModalOpen(true);
     };
+    const isDesktop = useMediaQuery('(min-width:600px)');
 
     return (
         <>
@@ -41,7 +43,7 @@ function EmployeesDetails() {
                     <Typography color="text.primary">Employees</Typography>
                 </Breadcrumbs>
                 <Button variant="outlined" startIcon={<PlusOutlined />} onClick={() => handleClickOpen()}>
-                    Add Claims
+                    {isDesktop ? 'Add Claim' : 'Add'}
                 </Button>
                 <Claimdialog modalOpen={isModalOpen} setModalOpen={setIsModalOpen}></Claimdialog>
             </Box>

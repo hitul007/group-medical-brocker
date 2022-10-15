@@ -79,17 +79,25 @@ function createData(climeNo, name, healthid, Climeamount, hosName, date, carbs) 
 }
 
 const rows = [
-    createData(1, 'Margie Cunningham', '00-1111-2222-3333', '$ 50.000', 'XYZ', '05/11/2022 to 12/11/2022', 2),
-    createData(2, 'Verna Sharp', '00-1111-2222-3333', '$ 50.000', 'XYZ', '05/11/2022 to 12/11/2022', 1),
-    createData(3, 'Tyrone Rodriguez', '00-1111-2222-3333', '$ 50.000 ', 'XYZ', '05/11/2022 to 12/11/2022', 0),
-    createData(4, 'Roxanne Rivera', '00-1111-2222-3333', '$ 50.000', 'XYZ', '05/11/2022 to 12/11/2022', 1),
-    createData(5, 'Margie Cunningham', '00-1111-2222-3333', '$ 50.000', 'XYZ', '05/11/2022 to 12/11/2022', 2),
-    createData(6, 'Verna Sharp', '00-1111-2222-3333', '$ 50.000', 'XYZ', '05/11/2022 to 12/11/2022', 1),
-    createData(7, 'Tyrone Rodriguez', '00-1111-2222-3333', '$ 50.000 ', 'XYZ', '05/11/2022 to 12/11/2022', 0),
-    createData(8, 'Roxanne Rivera', '00-1111-2222-3333', '$ 50.000', 'XYZ', '05/11/2022 to 12/11/2022', 1),
-    createData(9, 'Margie Cunningham', '00-1111-2222-3333', '$ 50.000', 'XYZ', '05/11/2022 to 12/11/2022', 2),
-    createData(10, 'Margie Cunningham', '00-1111-2222-3333', '$ 50.000', 'XYZ', '05/11/2022 to 12/11/2022', 2),
-    createData(11, 'Margie Cunningham', '00-1111-2222-3333', '$ 50.000', 'XYZ', '05/11/2022 to 12/11/2022', 2)
+    createData(1, 'Margie Cunningham', '00-1111-2222-3333', '₹10.000', 'Abbotsford Private Hospital', '05/11/2022 to 12/11/2022', 2),
+    createData(2, 'Verna Sharp', '00-1111-2222-3333', '₹20.000', 'Adelaide Clinic', '05/11/2022 to 12/11/2022', 1),
+    createData(3, 'Tyrone Rodriguez', '00-1111-2222-3333', '₹30.000 ', 'Adelaide Day Surgery Pty Ltd', '05/11/2022 to 12/11/2022', 0),
+    createData(4, 'Roxanne Rivera', '00-1111-2222-3333', '₹40.000', 'Barham Hospital', '05/11/2022 to 12/11/2022', 1),
+    createData(5, 'Margie Cunningham', '00-1111-2222-3333', '₹50.000', 'Baringa Private Hospital', '05/11/2022 to 12/11/2022', 2),
+    createData(6, 'Verna Sharp', '00-1111-2222-3333', '₹20.000', 'Cloncurry Hospital', '05/11/2022 to 12/11/2022', 1),
+    createData(7, 'Tyrone Rodriguez', '00-1111-2222-3333', '₹30.000 ', 'Eudunda Hospital', '05/11/2022 to 12/11/2022', 0),
+    createData(
+        8,
+        'Roxanne Rivera',
+        '00-1111-2222-3333',
+        '₹50.000',
+        'George Town Hospital and Community Health Centre',
+        '05/11/2022 to 12/11/2022',
+        1
+    ),
+    createData(9, 'Margie Cunningham', '00-1111-2222-3333', '₹70.000', 'Huon Eldercare', '05/11/2022 to 12/11/2022', 2),
+    createData(10, 'Margie Cunningham', '00-1111-2222-3333', '₹90.000', 'Kenmore Hospital', '05/11/2022 to 12/11/2022', 2),
+    createData(11, 'Margie Cunningham', '00-1111-2222-3333', '₹50.000', 'Lameroo District Health Service', '05/11/2022 to 12/11/2022', 2)
 ].sort((a, b) => (a.healthid < b.healthid ? -1 : 1));
 
 // custom dot
