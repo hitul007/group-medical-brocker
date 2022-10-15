@@ -3,12 +3,12 @@ import { Box, Typography } from '@mui/material';
 
 // project import
 import NavGroup from './NavGroup';
-import companyMenu from '../../../../../menu-items/companyMenu';
+import EmployeeMenu from '../../../../../menu-items/EmployeeMenu';
 
 // ==============================|| DRAWER CONTENT - NAVIGATION ||============================== //
 
 const Navigation = () => {
-    const navGroups = companyMenu.items.map((item) => {
+    const navGroups = EmployeeMenu.items.map((item) => {
         switch (item.type) {
             case 'group':
                 return <NavGroup key={item.id} item={item} />;

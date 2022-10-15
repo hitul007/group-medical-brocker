@@ -4,10 +4,10 @@ import { useRoutes } from 'react-router-dom';
 import LoginRoutes from './LoginRoutes';
 import MainRoutes from './MainRoutes';
 import CompanyRoutes from './CompanyRoutes';
-import EmpRoutes from './EmpRoutes';
+import EmployeeRoutes from './EmployeeRoutes';
 
 // ==============================|| ROUTING RENDER ||============================== //
 
 export default function ThemeRoutes() {
-    return useRoutes([MainRoutes, CompanyRoutes, EmpRoutes, LoginRoutes]);
+    return useRoutes([MainRoutes, EmployeeRoutes, CompanyRoutes, LoginRoutes]);
 }

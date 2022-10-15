@@ -1,7 +1,7 @@
 import companyData from './companyData';
 
-const companyMenu = {
+const menuItems = {
     items: [companyData]
 };
 
-export default companyMenu;
+export default menuItems;

@@ -13,7 +13,7 @@ const icons = {
 
 // ==============================|| MENU ITEMS - DASHBOARD ||============================== //
 
-const EmpData = {
+const EmployeeData = {
     id: 'group-dashboard',
     title: 'Navigation',
     type: 'group',
@@ -53,4 +53,4 @@ const EmpData = {
     ]
 };
 
-export default EmpData;
+export default EmployeeData;
