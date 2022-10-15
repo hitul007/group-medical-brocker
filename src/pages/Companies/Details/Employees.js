@@ -78,7 +78,7 @@ function createData(no, name, healthid, emailId, contactNo, claims) {
 }
 
 const rows = [
-    createData(1, 'Kamal Waller', '(12-3456-7890-1234', 'nulla.facilisis.suspendisse@google.net', ' (806) 320-4713', '0'),
+    createData(1, 'Ravi Fadadu', '(12-3456-7890-1234', 'nulla.facilisis.suspendisse@google.net', ' (806) 320-4713', '0'),
     createData(2, 'Bevis Taylor', '12-3456-7890-1234', 'nisl.sem@protonmail.couk', '(717) 336-3435', '1'),
     createData(3, '"Adrian Bass",', '12-3456-7890-1234', 'sed@icloud.edu', '(114) 832-6350', '1'),
     createData(4, 'Branden Landry"', '12-3456-7890-1234', 'quam.quis@outlook.edu', '(114) 832-6350', '0'),

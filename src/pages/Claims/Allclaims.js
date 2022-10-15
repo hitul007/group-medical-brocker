@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import React, { useState } from 'react';
 
 // material-ui
 import FirstPageIcon from '@mui/icons-material/FirstPage';
@@ -8,6 +8,7 @@ import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import LastPageIcon from '@mui/icons-material/LastPage';
 import {
     Box,
+    Button,
     IconButton,
     InputAdornment,
     Stack,
@@ -20,13 +21,12 @@ import {
     TablePagination,
     TableRow,
     TextField,
-    Typography,
-    Button
+    Typography
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
-import { FilterOutlined, SearchOutlined, PlusOutlined } from '@ant-design/icons';
+import { PlusOutlined, SearchOutlined } from '@ant-design/icons';
 // project import
 
 import Dot from 'components/@extended/Dot';
@@ -290,13 +290,8 @@ OrderStatus.propTypes = {
 export default function Allclaims() {
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
-    const [order] = useState('asc');
-    const [orderBy] = useState('climeNo');
-    const [selected] = useState([]);
-    const [isModalOpen, setIsModalOpen] = useState(false);
 
-    // Avoid a layout jump when reaching the last page with empty rows.
-    const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
