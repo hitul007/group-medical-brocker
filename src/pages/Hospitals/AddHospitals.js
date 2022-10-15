@@ -15,7 +15,7 @@ import {
     TextField,
     Typography
 } from '@mui/material';
-// import Typography from 'themes/overrides/Typography';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 function AddHospitals() {
     const [state, setState] = React.useState({
@@ -29,11 +29,11 @@ function AddHospitals() {
     const NotaskhandleClose = () => {
         setState((prevState) => ({ ...prevState, open: false }));
     };
-
+    const isDesktop = useMediaQuery('(min-width:600px)');
     return (
         <>
             <Button variant="contained" size="large" startIcon={<PlusOutlined />} onClick={NotaskClickOpen}>
-                Add Hospitals
+                {isDesktop ? 'Add New Hospitals' : 'Add'}
             </Button>
             <Dialog
                 open={state.open}

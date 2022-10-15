@@ -169,7 +169,7 @@ export default function Employees() {
                                         {row.no}
                                     </TableCell>
                                     <TableCell align="center">
-                                        <Link style={{ color: '#262626', textDecoration: 'none' }} to="/companies/employees">
+                                        <Link style={{ color: '#262626', textDecoration: 'none' }} to="/broker-portal/companies/employees">
                                             {row.name}
                                         </Link>
                                     </TableCell>

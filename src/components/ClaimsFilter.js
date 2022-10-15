@@ -1,8 +1,11 @@
 import * as React from 'react';
 import { Button, Popover, Typography, Stack, IconButton, Divider, Chip, Slider, Box } from '@mui/material';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import { FilterOutlined, CloseOutlined } from '@ant-design/icons';
 
 function ClaimsFilter() {
+    const isDesktop = useMediaQuery('(min-width:600px)');
+
     const [anchorEl, setAnchorEl] = React.useState(null);
 
     const handleClick = (event) => {

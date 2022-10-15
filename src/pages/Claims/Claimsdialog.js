@@ -28,6 +28,7 @@ import success from '../../assets/images/icons/successfully.svg';
 import DialogActions from '@mui/material/DialogActions';
 import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
+import useMediaQuery from '@mui/material/useMediaQuery';
 const Claimdialog = ({ modalOpen, setModalOpen }) => {
     const steps = ['Basic Information', 'Claim Document', 'Quick Review'];
 
@@ -101,6 +102,7 @@ const Claimdialog = ({ modalOpen, setModalOpen }) => {
         [isFocused, isDragAccept, isDragReject]
     );
     const [value, setValue] = React.useState(null);
+    const isDesktop = useMediaQuery('(min-width:600px)');
     return (
         <>
             <Dialog
@@ -124,8 +126,7 @@ const Claimdialog = ({ modalOpen, setModalOpen }) => {
                         display: 'flex',
                         flexDirection: 'column',
                         alignItems: 'center',
-                        gap: '1rem',
-                        marginBottom: '1rem'
+                        gap: '1rem'
                     }}
                 >
                     <Box sx={{ width: '100%' }}>
@@ -133,12 +134,7 @@ const Claimdialog = ({ modalOpen, setModalOpen }) => {
                             {steps.map((label, index) => {
                                 const stepProps = {};
                                 const labelProps = {};
-                                /*  if (isStepOptional(index)) {
-                                        labelProps.optional = <Typography variant="caption">Optional</Typography>;
-                                    }
-                                    if (isStepSkipped(index)) {
-                                        stepProps.completed = false;
-                                    }*/
+
                                 return (
                                     <Step key={label} {...stepProps}>
                                         <StepLabel {...labelProps}>{label}</StepLabel>
@@ -159,9 +155,15 @@ const Claimdialog = ({ modalOpen, setModalOpen }) => {
                                     }}
                                 >
                                     <img src={success} alt=" " />
-                                    <Typography variant="h2" sx={{ textalign: 'center' }}>
-                                        Claim Successfully Sended.
-                                    </Typography>
+                                    {isDesktop ? (
+                                        <Typography variant="h2" sx={{ textalign: 'center' }}>
+                                            Company Successfully Added.
+                                        </Typography>
+                                    ) : (
+                                        <Typography variant="h4" sx={{ textalign: 'center' }}>
+                                            Company Successfully Added.
+                                        </Typography>
+                                    )}
                                 </Box>
                             </React.Fragment>
                         ) : (
@@ -381,29 +383,29 @@ const Claimdialog = ({ modalOpen, setModalOpen }) => {
                                         </React.Fragment>
                                     ) : null}
                                 </Typography>
+                                <DialogActions>
+                                    <Box
+                                        sx={{
+                                            display: 'flex',
+                                            flexDirection: 'row',
+
+                                            justifyContent: 'space-between',
+                                            width: '100%'
+                                        }}
+                                    >
+                                        <Button size="large" variant="outlined" disabled={activeStep === 0} onClick={handleBack}>
+                                            Back
+                                        </Button>
+
+                                        <Button size="large" variant="contained" color="primary" onClick={handleNext}>
+                                            {activeStep === steps.length - 1 ? 'Save' : 'Next'}
+                                        </Button>
+                                    </Box>
+                                </DialogActions>
                             </React.Fragment>
                         )}
                     </Box>
                 </DialogContent>
-                <DialogActions>
-                    <Box
-                        sx={{
-                            display: 'flex',
-                            flexDirection: 'row',
-
-                            justifyContent: 'space-between',
-                            width: '100%'
-                        }}
-                    >
-                        <Button size="large" variant="outlined" disabled={activeStep === 0} onClick={handleBack}>
-                            Back
-                        </Button>
-
-                        <Button size="large" variant="contained" color="primary" onClick={handleNext}>
-                            {activeStep === steps.length - 1 ? 'Save' : 'Next'}
-                        </Button>
-                    </Box>
-                </DialogActions>
             </Dialog>
         </>
     );

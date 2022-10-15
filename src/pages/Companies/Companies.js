@@ -1,7 +1,27 @@
 import React, { useMemo } from 'react';
-import { Box, Button, Grid, Stack, Dialog, DialogContent, DialogTitle, Typography, TextField, FormLabel } from '@mui/material';
+import {
+    Box,
+    Button,
+    Grid,
+    Stack,
+    Dialog,
+    DialogContent,
+    DialogTitle,
+    Typography,
+    TextField,
+    FormLabel,
+    InputAdornment
+} from '@mui/material';
 import MainCard from 'components/MainCard';
-import { GlobalOutlined, MessageOutlined, PhoneOutlined, PlusOutlined, VerticalLeftOutlined, CloseOutlined } from '@ant-design/icons';
+import {
+    SearchOutlined,
+    GlobalOutlined,
+    MessageOutlined,
+    PhoneOutlined,
+    PlusOutlined,
+    VerticalLeftOutlined,
+    CloseOutlined
+} from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 import { useDropzone } from 'react-dropzone';
 import Step from '@mui/material/Step';
@@ -15,7 +35,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import IconButton from '@mui/material/IconButton';
-
+import useMediaQuery from '@mui/material/useMediaQuery';
 function Companies() {
     const steps = ['Upload Company Logo', 'Enter Basic Information', 'Enter Insurance Details'];
     const [open, setOpen] = React.useState(false);
@@ -98,22 +118,53 @@ function Companies() {
         setAge(event.target.value);
     };
     const [value, setValue] = React.useState(null);
+    const isDesktop = useMediaQuery('(min-width:600px)');
     return (
         <>
-            <Box className="d-lg-flex justify-content-lg-between mb-lg-2 mb-2">
+            <Box className="d-lg-flex justify-content-lg-between mb-lg-2 mb-2 ">
                 <Typography variant="h3" className="m-1 ">
                     Companies
                 </Typography>
-                <Box className="d-lg-block d-none ">
-                    <Button variant="outlined" startIcon={<PlusOutlined />} onClick={handleClickOpen}>
-                        Add Companies
-                    </Button>
+                <Box className="d-flex flex-lg-row flex-column gap-3 gap-lg-3 pt-2">
+                    {isDesktop ? (
+                        <TextField
+                            id="outlined-basic"
+                            placeholder="Search Companies"
+                            variant="outlined"
+                            InputProps={{
+                                endAdornment: (
+                                    <InputAdornment position="start">
+                                        <SearchOutlined />
+                                    </InputAdornment>
+                                )
+                            }}
+                            sx={{ maxWidth: '250px' }}
+                        />
+                    ) : (
+                        <TextField
+                            id="outlined-basic"
+                            placeholder="Search Companies"
+                            variant="outlined"
+                            InputProps={{
+                                endAdornment: (
+                                    <InputAdornment position="start">
+                                        <SearchOutlined />
+                                    </InputAdornment>
+                                )
+                            }}
+                        />
+                    )}
+                    {isDesktop ? (
+                        <Button variant="outlined" startIcon={<PlusOutlined />} onClick={handleClickOpen}>
+                            Add Companies
+                        </Button>
+                    ) : (
+                        <Button fullWidth variant="outlined" startIcon={<PlusOutlined />} onClick={handleClickOpen}>
+                            Add Companies
+                        </Button>
+                    )}
                 </Box>
-                <Box className=" d-lg-none d-block pt-2 ">
-                    <Button fullWidth variant="outlined" startIcon={<PlusOutlined />} onClick={handleClickOpen}>
-                        Add Companies
-                    </Button>
-                </Box>
+
                 <Dialog
                     open={open}
                     onClose={handleClose}
@@ -168,9 +219,15 @@ function Companies() {
                                         }}
                                     >
                                         <img src={success} alt=" " />
-                                        <Typography variant="h2" sx={{ textalign: 'center' }}>
-                                            Company Successfully Added.
-                                        </Typography>
+                                        {isDesktop ? (
+                                            <Typography variant="h2" sx={{ textalign: 'center' }}>
+                                                Company Successfully Added.
+                                            </Typography>
+                                        ) : (
+                                            <Typography variant="h4" sx={{ textalign: 'center' }}>
+                                                Company Successfully Added.
+                                            </Typography>
+                                        )}
                                     </Box>
                                 </React.Fragment>
                             ) : (
@@ -400,7 +457,7 @@ function Companies() {
                     <MainCard content>
                         <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 2 }}>
                             <Typography variant="h4">Digiqt Technolabs</Typography>
-                            <Button component={Link} to="/companies/details" variant="text" sx={{ marginRight: '-1rem' }}>
+                            <Button component={Link} to="/broker-portal/companies/details" variant="text" sx={{ marginRight: '-1rem' }}>
                                 <VerticalLeftOutlined style={{ fontSize: '25px', color: '#08c' }} />
                             </Button>
                         </Stack>

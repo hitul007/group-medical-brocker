@@ -24,6 +24,7 @@ import {
     Button
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 import { FilterOutlined, SearchOutlined, PlusOutlined } from '@ant-design/icons';
 // project import
@@ -174,7 +175,7 @@ export default function Allclaims() {
     const handleClickOpen = () => {
         setIsModalOpen(true);
     };
-
+    const isDesktop = useMediaQuery('(min-width:600px)');
     return (
         <>
             <Stack className="d-none d-lg-block d-lg-flex flex-lg-row justify-content-lg-between  mb-lg-2 mb-2">
@@ -195,7 +196,7 @@ export default function Allclaims() {
                         sx={{ maxWidth: '250px' }}
                     />
                     <Button variant="outlined" startIcon={<PlusOutlined />} onClick={() => handleClickOpen()}>
-                        Add Claims
+                        {isDesktop ? 'New Claim' : 'Claim'}
                     </Button>
                     <Claimdialog modalOpen={isModalOpen} setModalOpen={setIsModalOpen}></Claimdialog>
                 </Stack>
