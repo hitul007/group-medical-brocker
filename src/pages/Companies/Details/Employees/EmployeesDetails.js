@@ -32,10 +32,10 @@ function EmployeesDetails() {
         <>
             <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 2 }}>
                 <Breadcrumbs aria-label="breadcrumb">
-                    <Link style={{ color: '#919191', textDecoration: 'none' }} to="/companies">
+                    <Link style={{ color: '#919191', textDecoration: 'none' }} to="/broker-portal/companies">
                         Companies
                     </Link>
-                    <Link style={{ color: '#919191', textDecoration: 'none' }} to="/companies/details">
+                    <Link style={{ color: '#919191', textDecoration: 'none' }} to="/broker-portal/companies/details">
                         Digiqt Technolabs
                     </Link>
                     <Typography color="text.primary">Employees</Typography>
