@@ -3,29 +3,47 @@ import MainCard from 'components/MainCard';
 
 import { AimOutlined, PlusOutlined, SearchOutlined, UserOutlined } from '@ant-design/icons';
 import AddHospitals from './AddHospitals';
-
+import useMediaQuery from '@mui/material/useMediaQuery';
 function Hospitals() {
+    const isDesktop = useMediaQuery('(min-width:600px)');
     return (
         <>
-            <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 2 }}>
+            <Box className="d-flex flex-column d-lg-flex flex-lg-row justify-content-lg-between gap-3 mb-lg-2 mb-2">
                 <Typography variant="h3">Hospitals</Typography>
-                <Box sx={{ display: 'flex', justifyContent: 'space-between', gap: '1rem', alignItems: 'center' }}>
-                    <TextField
-                        id="outlined-basic"
-                        placeholder="Search name or city"
-                        variant="outlined"
-                        InputProps={{
-                            endAdornment: (
-                                <InputAdornment position="start">
-                                    <SearchOutlined />
-                                </InputAdornment>
-                            )
-                        }}
-                        sx={{ maxWidth: '250px' }}
-                    />
-                    <AddHospitals />
+                <Box sx={{ display: 'flex', justifyContent: 'around', gap: '1rem', alignItems: 'center' }}>
+                    {isDesktop ? (
+                        <TextField
+                            id="outlined-basic"
+                            placeholder="Search insurance"
+                            variant="outlined"
+                            InputProps={{
+                                endAdornment: (
+                                    <InputAdornment position="start">
+                                        <SearchOutlined />
+                                    </InputAdornment>
+                                )
+                            }}
+                            sx={{ maxWidth: '250px' }}
+                        />
+                    ) : (
+                        <TextField
+                            id="outlined-basic"
+                            placeholder="Search insurance"
+                            variant="outlined"
+                            InputProps={{
+                                endAdornment: (
+                                    <InputAdornment position="start">
+                                        <SearchOutlined />
+                                    </InputAdornment>
+                                )
+                            }}
+                            fullWidth
+                        />
+                    )}
                 </Box>
+                <AddHospitals />
             </Box>
+
             <Grid container rowSpacing={4.5} columnSpacing={2.75}>
                 <Grid item xs={12} sm={12} md={3} lg={3}>
                     <MainCard content>

@@ -30,6 +30,8 @@ import Stepper from '@mui/material/Stepper';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+
+import useMediaQuery from '@mui/material/useMediaQuery';
 import MainCard from 'components/MainCard';
 import React, { useMemo } from 'react';
 import { useDropzone } from 'react-dropzone';
@@ -118,28 +120,53 @@ function Companies() {
         setAge(event.target.value);
     };
     const [value, setValue] = React.useState(null);
+    const isDesktop = useMediaQuery('(min-width:600px)');
     return (
         <>
-            <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 2 }}>
-                <Typography variant="h3">Companies</Typography>
-                <Stack direction="row" spacing={2}>
-                    <TextField
-                        id="outlined-basic"
-                        placeholder="Search company name"
-                        variant="outlined"
-                        InputProps={{
-                            endAdornment: (
-                                <InputAdornment position="start">
-                                    <SearchOutlined />
-                                </InputAdornment>
-                            )
-                        }}
-                        sx={{ maxWidth: '250px' }}
-                    />
-                    <Button variant="outlined" startIcon={<PlusOutlined />} onClick={handleClickOpen}>
-                        Add Companies
-                    </Button>
-                </Stack>
+            <Box className="d-lg-flex justify-content-lg-between mb-lg-2 mb-2 ">
+                <Typography variant="h3" className="m-1 ">
+                    Companies
+                </Typography>
+                <Box className="d-flex flex-lg-row flex-column gap-3 gap-lg-3 pt-2">
+                    {isDesktop ? (
+                        <TextField
+                            id="outlined-basic"
+                            placeholder="Search Companies"
+                            variant="outlined"
+                            InputProps={{
+                                endAdornment: (
+                                    <InputAdornment position="start">
+                                        <SearchOutlined />
+                                    </InputAdornment>
+                                )
+                            }}
+                            sx={{ maxWidth: '250px' }}
+                        />
+                    ) : (
+                        <TextField
+                            id="outlined-basic"
+                            placeholder="Search Companies"
+                            variant="outlined"
+                            InputProps={{
+                                endAdornment: (
+                                    <InputAdornment position="start">
+                                        <SearchOutlined />
+                                    </InputAdornment>
+                                )
+                            }}
+                        />
+                    )}
+                    {isDesktop ? (
+                        <Button variant="outlined" startIcon={<PlusOutlined />} onClick={handleClickOpen}>
+                            Add Companies
+                        </Button>
+                    ) : (
+                        <Button fullWidth variant="outlined" startIcon={<PlusOutlined />} onClick={handleClickOpen}>
+                            Add Companies
+                        </Button>
+                    )}
+                </Box>
+
                 <Dialog
                     open={open}
                     onClose={handleClose}
@@ -194,9 +221,15 @@ function Companies() {
                                         }}
                                     >
                                         <img src={success} alt=" " />
-                                        <Typography variant="h2" sx={{ textalign: 'center' }}>
-                                            Company Successfully Added.
-                                        </Typography>
+                                        {isDesktop ? (
+                                            <Typography variant="h2" sx={{ textalign: 'center' }}>
+                                                Company Successfully Added.
+                                            </Typography>
+                                        ) : (
+                                            <Typography variant="h4" sx={{ textalign: 'center' }}>
+                                                Company Successfully Added.
+                                            </Typography>
+                                        )}
                                     </Box>
                                 </React.Fragment>
                             ) : (

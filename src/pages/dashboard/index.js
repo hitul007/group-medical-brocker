@@ -150,7 +150,7 @@ const DashboardDefault = () => {
                                 <ListItemText primary={<Typography variant="subtitle1">Technolabs</Typography>} secondary="50+ employees" />
                             </ListItemButton>
                         </List>
-                        <Button variant="outlined" fullWidth>
+                        <Button const variant="outlined" fullWidth>
                             View all
                         </Button>
                     </Stack>

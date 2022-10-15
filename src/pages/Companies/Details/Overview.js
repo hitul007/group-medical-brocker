@@ -6,42 +6,48 @@ function Overview() {
         <>
             <Typography sx={{ color: 'rgb(140, 140, 140)' }}>Insurance</Typography>
             <Box>
-                <Stack direction="row" spacing={2} sx={{ mt: 1 }}>
-                    <MainCard sx={{ width: 'max-content', pr: 5 }}>
-                        <Typography variant="h5">Health Insurance</Typography>
-                        <Typography variant="h6" sx={{ color: 'rgb(140, 140, 140)', mt: 1 }}>
-                            Policy number
-                        </Typography>
-                        <Typography variant="h3">
-                            <b>12345678910</b>
-                        </Typography>
-                        <Typography variant="h6" sx={{ color: 'rgb(140, 140, 140)', mt: 1 }}>
-                            Valid date
-                        </Typography>
-                        <Typography variant="h5">00/Oct/2022 (Sunday)</Typography>
-                        <Typography variant="h6" sx={{ color: 'rgb(140, 140, 140)', mt: 1 }}>
-                            CD balance
-                        </Typography>
-                        <Typography variant="h5">$ 11,111</Typography>
-                    </MainCard>
-                    <MainCard sx={{ width: 'max-content', pr: 5 }}>
-                        <Typography variant="h5">Health Insurance</Typography>
-                        <Typography variant="h6" sx={{ color: 'rgb(140, 140, 140)', mt: 1 }}>
-                            Policy number
-                        </Typography>
-                        <Typography variant="h3">
-                            <b>09876543211</b>
-                        </Typography>
-                        <Typography variant="h6" sx={{ color: 'rgb(140, 140, 140)', mt: 1 }}>
-                            Valid date
-                        </Typography>
-                        <Typography variant="h5">00/Oct/2022 (Sunday)</Typography>
-                        <Typography variant="h6" sx={{ color: 'rgb(140, 140, 140)', mt: 1 }}>
-                            CD balance
-                        </Typography>
-                        <Typography variant="h5">$ 11,111</Typography>
-                    </MainCard>
-                </Stack>
+                <Typography sx={{ color: 'rgb(140, 140, 140)', mt: 4, mb: 2 }}>information</Typography>
+                <Grid container spacing={2}>
+                    <Grid item xs={12} md={4}>
+                        <MainCard sx={{ pr: 5 }}>
+                            <Typography variant="h5">Health Insurance</Typography>
+                            <Typography variant="h6" sx={{ color: 'rgb(140, 140, 140)', mt: 1 }}>
+                                Policy number
+                            </Typography>
+                            <Typography variant="h3">
+                                <b>00AA15151512223</b>
+                            </Typography>
+
+                            <Typography variant="h6" sx={{ color: 'rgb(140, 140, 140)', mt: 1 }}>
+                                Valid date
+                            </Typography>
+                            <Typography variant="h5">00/Oct/2022 (Sunday)</Typography>
+                            <Typography variant="h6" sx={{ color: 'rgb(140, 140, 140)', mt: 1 }}>
+                                CD balance
+                            </Typography>
+                            <Typography variant="h5">$ 11,111</Typography>
+                        </MainCard>
+                    </Grid>
+                    <Grid item xs={12} md={4}>
+                        <MainCard sx={{ pr: 5 }}>
+                            <Typography variant="h5">Health Insurance</Typography>
+                            <Typography variant="h6" sx={{ color: 'rgb(140, 140, 140)', mt: 1 }}>
+                                Policy number
+                            </Typography>
+                            <Typography variant="h3">
+                                <b>00AA15151512223</b>
+                            </Typography>
+                            <Typography variant="h6" sx={{ color: 'rgb(140, 140, 140)', mt: 1 }}>
+                                Valid date
+                            </Typography>
+                            <Typography variant="h5">00/Oct/2022 (Sunday)</Typography>
+                            <Typography variant="h6" sx={{ color: 'rgb(140, 140, 140)', mt: 1 }}>
+                                CD balance
+                            </Typography>
+                            <Typography variant="h5">$ 11,111</Typography>
+                        </MainCard>
+                    </Grid>
+                </Grid>
 
                 <Typography sx={{ color: 'rgb(140, 140, 140)', mt: 4, mb: 2 }}>information</Typography>
                 <Grid container spacing={2}>
