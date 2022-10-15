@@ -191,8 +191,7 @@ function Companies() {
                             display: 'flex',
                             flexDirection: 'column',
                             alignItems: 'center',
-                            gap: '1rem',
-                            marginBottom: '1rem'
+                            gap: '1rem'
                         }}
                     >
                         <Box sx={{ width: '100%' }}>
@@ -222,11 +221,16 @@ function Companies() {
                                     >
                                         <img src={success} alt=" " />
                                         {isDesktop ? (
-                                            <Typography variant="h2" sx={{ textalign: 'center' }}>
+                                            <Typography
+                                                variant="h2"
+                                                sx={{
+                                                    textAlign: 'center'
+                                                }}
+                                            >
                                                 Company Successfully Added.
                                             </Typography>
                                         ) : (
-                                            <Typography variant="h4" sx={{ textalign: 'center' }}>
+                                            <Typography variant="h4" sx={{ textAlign: 'center' }}>
                                                 Company Successfully Added.
                                             </Typography>
                                         )}
@@ -428,29 +432,29 @@ function Companies() {
                                             </React.Fragment>
                                         ) : null}
                                     </Typography>
+                                    <DialogActions>
+                                        <Box
+                                            sx={{
+                                                display: 'flex',
+                                                flexDirection: 'row',
+
+                                                justifyContent: 'space-between',
+                                                width: '100%'
+                                            }}
+                                        >
+                                            <Button size="large" variant="outlined" disabled={activeStep === 0} onClick={handleBack}>
+                                                Back
+                                            </Button>
+
+                                            <Button size="large" variant="contained" color="primary" onClick={handleNext}>
+                                                {activeStep === steps.length - 1 ? 'Save' : 'Next'}
+                                            </Button>
+                                        </Box>
+                                    </DialogActions>
                                 </React.Fragment>
                             )}
                         </Box>
                     </DialogContent>
-                    <DialogActions>
-                        <Box
-                            sx={{
-                                display: 'flex',
-                                flexDirection: 'row',
-
-                                justifyContent: 'space-between',
-                                width: '100%'
-                            }}
-                        >
-                            <Button size="large" variant="outlined" disabled={activeStep === 0} onClick={handleBack}>
-                                Back
-                            </Button>
-
-                            <Button size="large" variant="contained" color="primary" onClick={handleNext}>
-                                {activeStep === steps.length - 1 ? 'Save' : 'Next'}
-                            </Button>
-                        </Box>
-                    </DialogActions>
                 </Dialog>
             </Box>
 

@@ -4,9 +4,8 @@ import MainCard from 'components/MainCard';
 function Overview() {
     return (
         <>
-            <Typography sx={{ color: 'rgb(140, 140, 140)' }}>Insurance</Typography>
+            <Typography sx={{ color: 'rgb(140, 140, 140)', mb: 2 }}>Insurance</Typography>
             <Box>
-                <Typography sx={{ color: 'rgb(140, 140, 140)', mt: 4, mb: 2 }}>information</Typography>
                 <Grid container spacing={2}>
                     <Grid item xs={12} md={4}>
                         <MainCard sx={{ pr: 5 }}>

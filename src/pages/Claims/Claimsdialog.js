@@ -156,11 +156,11 @@ const Claimdialog = ({ modalOpen, setModalOpen }) => {
                                 >
                                     <img src={success} alt=" " />
                                     {isDesktop ? (
-                                        <Typography variant="h2" sx={{ textalign: 'center' }}>
+                                        <Typography variant="h2" sx={{ textAlign: 'center' }}>
                                             Company Successfully Added.
                                         </Typography>
                                     ) : (
-                                        <Typography variant="h4" sx={{ textalign: 'center' }}>
+                                        <Typography variant="h4" sx={{ textAlign: 'center' }}>
                                             Company Successfully Added.
                                         </Typography>
                                     )}
