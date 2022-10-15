@@ -38,7 +38,7 @@ const dashboard = {
             id: 'claims',
             title: 'Claims',
             type: 'item',
-            url: '/claims',
+            url: '/broker-portal/claims',
             icon: icons.FileDoneOutlined,
             breadcrumbs: false
         },
@@ -46,7 +46,7 @@ const dashboard = {
             id: 'Hospitals',
             title: 'Hospitals',
             type: 'item',
-            url: '/hospitals',
+            url: '/broker-portal/hospitals',
             icon: icons.MedicineBoxOutlined,
             breadcrumbs: false
         },
@@ -54,7 +54,7 @@ const dashboard = {
             id: 'insurance',
             title: 'Insurance',
             type: 'item',
-            url: '/insurance',
+            url: '/broker-portal/insurance',
             icon: icons.SafetyOutlined,
             breadcrumbs: false
         },
@@ -62,7 +62,7 @@ const dashboard = {
             id: 'support',
             title: 'Support',
             type: 'item',
-            url: '/support',
+            url: '/broker-portal/support',
             icon: icons.UserOutlined,
             breadcrumbs: false
         }

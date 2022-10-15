@@ -426,7 +426,7 @@ function Companies() {
                     <MainCard content>
                         <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 2 }}>
                             <Typography variant="h4">Digiqt Technolabs</Typography>
-                            <Button component={Link} to="/companies/details" variant="text" sx={{ marginRight: '-1rem' }}>
+                            <Button component={Link} to="/broker-portal/companies/details" variant="text" sx={{ marginRight: '-1rem' }}>
                                 <VerticalLeftOutlined style={{ fontSize: '25px', color: '#08c' }} />
                             </Button>
                         </Stack>
