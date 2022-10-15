@@ -34,15 +34,6 @@ const MainRoutes = {
             path: '/broker-portal',
             element: <DashboardDefault />
         },
-        {
-            path: 'dashboard',
-            children: [
-                {
-                    path: 'default',
-                    element: <DashboardDefault />
-                }
-            ]
-        },
         //new pages routes
         {
             path: 'companies',

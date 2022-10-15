@@ -22,8 +22,32 @@ const EmpData = {
             id: 'dashboard',
             title: 'Dashboard',
             type: 'item',
-            url: '/aaaa',
+            url: '/employee-portal',
             icon: icons.AppstoreOutlined,
+            breadcrumbs: false
+        },
+        {
+            id: 'Hospitals',
+            title: 'Hospitals',
+            type: 'item',
+            url: '/employee-portal/hospitals',
+            icon: icons.MedicineBoxOutlined,
+            breadcrumbs: false
+        },
+        {
+            id: 'insurance',
+            title: 'Insurance',
+            type: 'item',
+            url: '/employee-portal/insurance',
+            icon: icons.SafetyOutlined,
+            breadcrumbs: false
+        },
+        {
+            id: 'support',
+            title: 'Support',
+            type: 'item',
+            url: '/employee-portal/support',
+            icon: icons.UserOutlined,
             breadcrumbs: false
         }
     ]
