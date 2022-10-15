@@ -13,7 +13,8 @@ import {
     RadioGroup,
     Stack,
     TextField,
-    Typography
+    Typography,
+    Grid
 } from '@mui/material';
 import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
 import Step from '@mui/material/Step';
@@ -24,9 +25,9 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { useDropzone } from 'react-dropzone';
 import success from '../../assets/images/icons/successfully.svg';
-
+import DialogActions from '@mui/material/DialogActions';
 import InputAdornment from '@mui/material/InputAdornment';
-
+import IconButton from '@mui/material/IconButton';
 const Claimdialog = ({ modalOpen, setModalOpen }) => {
     const steps = ['Basic Information', 'Claim Document', 'Quick Review'];
 
@@ -73,7 +74,7 @@ const Claimdialog = ({ modalOpen, setModalOpen }) => {
         outline: 'none',
         transition: 'border .24s ease-in-out',
         borderRadius: 4,
-        width: '700px',
+        width: '100%',
         justifyContent: 'center',
         height: '100%'
     };
@@ -112,8 +113,10 @@ const Claimdialog = ({ modalOpen, setModalOpen }) => {
             >
                 <Box>
                     <DialogTitle id="alert-dialog-title" sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
-                        <Typography sx={{ fontWeight: '900', fontSize: '20px' }}> New Claim </Typography>
-                        <CloseOutlined onClick={handleClose} />
+                        <Typography variant="h3"> New Claim</Typography>
+                        <IconButton>
+                            <CloseOutlined onClick={handleClose} />
+                        </IconButton>
                     </DialogTitle>
                 </Box>
                 <DialogContent
@@ -121,8 +124,8 @@ const Claimdialog = ({ modalOpen, setModalOpen }) => {
                         display: 'flex',
                         flexDirection: 'column',
                         alignItems: 'center',
-                        gap: '1rem',
-                        marginBottom: '1rem'
+                        gap: '1rem'
+                        // marginBottom: '1rem'
                     }}
                 >
                     <Box sx={{ width: '100%' }}>
@@ -156,7 +159,7 @@ const Claimdialog = ({ modalOpen, setModalOpen }) => {
                                     }}
                                 >
                                     <img src={success} alt=" " />
-                                    <Typography sx={{ textalign: 'center', fontWeight: '900', fontSize: '40px' }}>
+                                    <Typography variant="h2" sx={{ textalign: 'center' }}>
                                         Claim Successfully Sended.
                                     </Typography>
                                 </Box>
@@ -167,53 +170,53 @@ const Claimdialog = ({ modalOpen, setModalOpen }) => {
                                     {activeStep === 0 ? (
                                         <React.Fragment>
                                             <Box>
-                                                <Stack sx={{ paddingTop: '1rem', display: 'flex', flexDirection: 'row', gap: '3rem' }}>
-                                                    <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
-                                                        <FormLabel id="demo-radio-buttons-group-label">Full Name</FormLabel>
-                                                        <TextField />
-                                                    </Box>
-                                                    <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
-                                                        <FormLabel id="demo-radio-buttons-group-label">Amount </FormLabel>
+                                                {' '}
+                                                <Grid container spacing={2}>
+                                                    <Grid item xs={12} md={6}>
+                                                        <Stack>
+                                                            <FormLabel required id="demo-radio-buttons-group-label">
+                                                                Full Name
+                                                            </FormLabel>
+                                                            <TextField />
+                                                        </Stack>
+                                                    </Grid>
+                                                    <Grid item xs={12} md={6}>
+                                                        <Stack>
+                                                            <FormLabel id="demo-radio-buttons-group-label">Amount</FormLabel>
+                                                            <TextField
+                                                                InputProps={{
+                                                                    startAdornment: (
+                                                                        <InputAdornment position="start">
+                                                                            <CurrencyRupeeIcon />
+                                                                        </InputAdornment>
+                                                                    )
+                                                                }}
+                                                                variant="outlined"
+                                                            />
+                                                        </Stack>
+                                                    </Grid>
 
-                                                        <TextField
-                                                            id="input-with-icon-textfield"
-                                                            InputProps={{
-                                                                startAdornment: (
-                                                                    <InputAdornment position="start">
-                                                                        <CurrencyRupeeIcon />
-                                                                    </InputAdornment>
-                                                                )
-                                                            }}
-                                                            variant="outlined"
-                                                        />
-                                                    </Box>
-                                                </Stack>
-                                                <Stack sx={{ paddingTop: '1rem', display: 'flex', flexDirection: 'row', gap: '3rem' }}>
-                                                    <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
-                                                        <FormLabel id="demo-radio-buttons-group-label">Insurance Id</FormLabel>
-                                                        <TextField />
-                                                    </Box>
-                                                    <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
-                                                        <FormLabel id="demo-radio-buttons-group-label">Hospital Name</FormLabel>
+                                                    <Grid item xs={12} md={6}>
+                                                        <Stack>
+                                                            <FormLabel id="demo-radio-buttons-group-label">Hospital Name</FormLabel>
+                                                            <TextField />
+                                                        </Stack>
+                                                    </Grid>
+                                                    <Grid item xs={12} md={6}>
+                                                        <Stack>
+                                                            <FormLabel required id="demo-radio-buttons-group-label">
+                                                                Insurance ID
+                                                            </FormLabel>
+                                                            <TextField />
+                                                        </Stack>
+                                                    </Grid>
 
-                                                        <TextField />
-                                                    </Box>
-                                                </Stack>
-                                                <Stack
-                                                    sx={{
-                                                        paddingTop: '1rem',
-                                                        display: 'flex',
-                                                        flexDirection: 'row',
-                                                        justifyContent: 'space-between',
-                                                        gap: '3rem'
-                                                    }}
-                                                >
-                                                    <Box sx={{ width: '50%' }}>
-                                                        <FormControl sx={{ display: 'flex', flexDirection: 'column' }}>
-                                                            <FormLabel id="demo-radio-buttons-group-label">Claim type</FormLabel>
+                                                    <Grid item xs={12} md={6}>
+                                                        <Stack>
+                                                            <FormLabel id="demo-radio-buttons-group-label">Gender</FormLabel>
                                                             <RadioGroup
                                                                 aria-labelledby="demo-radio-buttons-group-label"
-                                                                defaultValue="Cashless"
+                                                                defaultValue="Male"
                                                                 name="radio-buttons-group"
                                                                 sx={{ display: 'flex', flexDirection: 'row' }}
                                                             >
@@ -224,27 +227,32 @@ const Claimdialog = ({ modalOpen, setModalOpen }) => {
                                                                     label="Reimbursement Claims"
                                                                 />
                                                             </RadioGroup>
-                                                        </FormControl>
-                                                    </Box>
-                                                    <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
-                                                        <FormLabel id="demo-radio-buttons-group-label">Hospitalization Date</FormLabel>
-                                                        <LocalizationProvider dateAdapter={AdapterDayjs}>
-                                                            <DatePicker
-                                                                value={value}
-                                                                onChange={(newValue) => {
-                                                                    setValue(newValue);
-                                                                }}
-                                                                renderInput={(params) => <TextField {...params} />}
-                                                            />
-                                                        </LocalizationProvider>
-                                                    </Box>
-                                                </Stack>
-                                                <Stack sx={{ paddingTop: '1rem' }}>
-                                                    <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                                                        <FormLabel id="demo-radio-buttons-group-label">Claim Details</FormLabel>
-                                                        <TextField multiline rows={4} />
-                                                    </Box>
-                                                </Stack>
+                                                        </Stack>
+                                                    </Grid>
+
+                                                    <Grid item xs={12} md={6}>
+                                                        <Stack>
+                                                            <FormLabel id="demo-radio-buttons-group-label">Hospitalization Date</FormLabel>
+                                                            <LocalizationProvider dateAdapter={AdapterDayjs}>
+                                                                <DatePicker
+                                                                    value={value}
+                                                                    onChange={(newValue) => {
+                                                                        setValue(newValue);
+                                                                    }}
+                                                                    renderInput={(params) => <TextField {...params} />}
+                                                                />
+                                                            </LocalizationProvider>
+                                                        </Stack>
+                                                    </Grid>
+                                                    <Grid item xs={12} md={12}>
+                                                        <Stack>
+                                                            <FormLabel required id="demo-radio-buttons-group-label">
+                                                                Claims Details
+                                                            </FormLabel>
+                                                            <TextField multiline rows={4} />
+                                                        </Stack>
+                                                    </Grid>
+                                                </Grid>
                                             </Box>
                                         </React.Fragment>
                                     ) : null}
@@ -252,12 +260,8 @@ const Claimdialog = ({ modalOpen, setModalOpen }) => {
                                 <Typography sx={{ mt: 2, mb: 1 }}>
                                     {activeStep === 1 ? (
                                         <React.Fragment>
-                                            <Box>
-                                                <Stack
-                                                    justifyContent="center"
-                                                    alignItems="center"
-                                                    sx={{ paddingTop: '1rem', height: '300px' }}
-                                                >
+                                            <Stack justifyContent="center" alignItems="center" direction="row">
+                                                <Stack sx={{ paddingTop: '1rem', height: '300px', width: '700px' }}>
                                                     <div {...getRootProps({ style })}>
                                                         <TextField {...getInputProps()} />
                                                         <Typography>+ Upload Document</Typography>
@@ -266,7 +270,7 @@ const Claimdialog = ({ modalOpen, setModalOpen }) => {
 
                                                     <Typography>{files}</Typography>
                                                 </Stack>
-                                            </Box>
+                                            </Stack>
                                         </React.Fragment>
                                     ) : null}
                                 </Typography>
@@ -275,55 +279,53 @@ const Claimdialog = ({ modalOpen, setModalOpen }) => {
                                     {activeStep === 2 ? (
                                         <React.Fragment>
                                             <Box>
-                                                <Stack sx={{ paddingTop: '1rem', display: 'flex', flexDirection: 'row', gap: '3rem' }}>
-                                                    <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
-                                                        <FormLabel id="demo-radio-buttons-group-label">Full Name</FormLabel>
-                                                        <TextField disabled={true} value="Rajvee Joshi" />
-                                                    </Box>
-                                                    <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
-                                                        <FormLabel id="demo-radio-buttons-group-label">Amount</FormLabel>
+                                                <Grid container spacing={2}>
+                                                    <Grid item xs={12} md={6}>
+                                                        <Stack>
+                                                            <FormLabel required id="demo-radio-buttons-group-label">
+                                                                Full Name
+                                                            </FormLabel>
+                                                            <TextField disabled />
+                                                        </Stack>
+                                                    </Grid>
+                                                    <Grid item xs={12} md={6}>
+                                                        <Stack>
+                                                            <FormLabel id="demo-radio-buttons-group-label">Amount</FormLabel>
+                                                            <TextField
+                                                                InputProps={{
+                                                                    startAdornment: (
+                                                                        <InputAdornment position="start">
+                                                                            <CurrencyRupeeIcon />
+                                                                        </InputAdornment>
+                                                                    )
+                                                                }}
+                                                                variant="outlined"
+                                                                disabled
+                                                            />
+                                                        </Stack>
+                                                    </Grid>
 
-                                                        <TextField
-                                                            id="input-with-icon-textfield"
-                                                            InputProps={{
-                                                                startAdornment: (
-                                                                    <InputAdornment position="start">
-                                                                        <CurrencyRupeeIcon />
-                                                                    </InputAdornment>
-                                                                )
-                                                            }}
-                                                            variant="outlined"
-                                                            value="10,000"
-                                                            disabled
-                                                        />
-                                                    </Box>
-                                                </Stack>
-                                                <Stack sx={{ paddingTop: '1rem', display: 'flex', flexDirection: 'row', gap: '3rem' }}>
-                                                    <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
-                                                        <FormLabel id="demo-radio-buttons-group-label">Insurance Id</FormLabel>
-                                                        <TextField disabled={true} value="Rajvee Joshi" />
-                                                    </Box>
-                                                    <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
-                                                        <FormLabel id="demo-radio-buttons-group-label">Hospital Name</FormLabel>
+                                                    <Grid item xs={12} md={6}>
+                                                        <Stack>
+                                                            <FormLabel id="demo-radio-buttons-group-label">Hospital Name</FormLabel>
+                                                            <TextField disabled />
+                                                        </Stack>
+                                                    </Grid>
+                                                    <Grid item xs={12} md={6}>
+                                                        <Stack>
+                                                            <FormLabel required id="demo-radio-buttons-group-label">
+                                                                Insurance ID
+                                                            </FormLabel>
+                                                            <TextField disabled />
+                                                        </Stack>
+                                                    </Grid>
 
-                                                        <TextField value="civil hospital" disabled />
-                                                    </Box>
-                                                </Stack>
-                                                <Stack
-                                                    sx={{
-                                                        paddingTop: '1rem',
-                                                        display: 'flex',
-                                                        flexDirection: 'row',
-                                                        justifyContent: 'space-between',
-                                                        gap: '3rem'
-                                                    }}
-                                                >
-                                                    <Box sx={{ width: '50%' }}>
-                                                        <FormControl sx={{ display: 'flex', flexDirection: 'column' }}>
-                                                            <FormLabel id="demo-radio-buttons-group-label">Claim type</FormLabel>
+                                                    <Grid item xs={12} md={6}>
+                                                        <Stack>
+                                                            <FormLabel id="demo-radio-buttons-group-label">Gender</FormLabel>
                                                             <RadioGroup
                                                                 aria-labelledby="demo-radio-buttons-group-label"
-                                                                defaultValue="Cashless"
+                                                                defaultValue="Male"
                                                                 name="radio-buttons-group"
                                                                 sx={{ display: 'flex', flexDirection: 'row' }}
                                                             >
@@ -334,59 +336,70 @@ const Claimdialog = ({ modalOpen, setModalOpen }) => {
                                                                     label="Reimbursement Claims"
                                                                 />
                                                             </RadioGroup>
-                                                        </FormControl>
-                                                    </Box>
-                                                    <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
-                                                        <FormLabel id="demo-radio-buttons-group-label">Hospitalization Date</FormLabel>
+                                                        </Stack>
+                                                    </Grid>
 
-                                                        <TextField value="20/12/2022" disabled />
-                                                    </Box>
-                                                </Stack>
-                                                <Stack sx={{ paddingTop: '1rem' }}>
-                                                    <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                                                        <FormLabel id="demo-radio-buttons-group-label">Claim Details</FormLabel>
-                                                        <TextField
-                                                            disabled
-                                                            multiline
-                                                            rows={4}
-                                                            value="Lorem Ipsum is simply dummy text of the printing and typesetting industry. "
-                                                        />
-                                                    </Box>
-                                                </Stack>
-                                                <Stack sx={{ paddingTop: '1rem' }}>
-                                                    <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                                                        <FormLabel id="demo-radio-buttons-group-label">Document</FormLabel>
-                                                        <Box
-                                                            sx={{
-                                                                display: 'flex',
-                                                                backgroundColor: 'primary',
-                                                                width: 'max-content',
-                                                                padding: '5px',
-                                                                backgroundColor: 'lightgray'
-                                                            }}
-                                                        >
-                                                            <Typography>file.png</Typography>
-                                                            <Box>
-                                                                <CloseOutlined />
+                                                    <Grid item xs={12} md={6}>
+                                                        <Stack>
+                                                            <FormLabel id="demo-radio-buttons-group-label">Hospitalization Date</FormLabel>
+                                                            <TextField disabled />
+                                                        </Stack>
+                                                    </Grid>
+                                                    <Grid item xs={12} md={12}>
+                                                        <Stack>
+                                                            <FormLabel required id="demo-radio-buttons-group-label">
+                                                                Claims Details
+                                                            </FormLabel>
+                                                            <TextField disabled multiline rows={4} />
+                                                        </Stack>
+                                                    </Grid>
+                                                    <Grid item xs={12} md={12}>
+                                                        <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                                                            <FormLabel id="demo-radio-buttons-group-label">Document</FormLabel>
+                                                            <Box
+                                                                sx={{
+                                                                    display: 'flex',
+                                                                    backgroundColor: 'primary',
+                                                                    width: 'max-content',
+                                                                    padding: '2px',
+                                                                    backgroundColor: 'lightgray'
+                                                                }}
+                                                            >
+                                                                <Typography paddingTop="5px" variant="h5">
+                                                                    file.png
+                                                                </Typography>
+                                                                <Box>
+                                                                    <IconButton>
+                                                                        <CloseOutlined />
+                                                                    </IconButton>
+                                                                </Box>
                                                             </Box>
                                                         </Box>
-                                                    </Box>
-                                                </Stack>
+                                                    </Grid>
+                                                </Grid>
                                             </Box>
                                         </React.Fragment>
                                     ) : null}
                                 </Typography>
+                                <DialogActions>
+                                    <Box
+                                        sx={{
+                                            display: 'flex',
+                                            flexDirection: 'row',
 
-                                <Box sx={{ display: 'flex', flexDirection: 'row', pt: '2rem' }}>
-                                    <Button size="large" variant="outlined" disabled={activeStep === 0} onClick={handleBack}>
-                                        Back
-                                    </Button>
-                                    <Box sx={{ flex: '1 1 auto' }} />
+                                            justifyContent: 'space-between',
+                                            width: '100%'
+                                        }}
+                                    >
+                                        <Button size="large" variant="outlined" disabled={activeStep === 0} onClick={handleBack}>
+                                            Back
+                                        </Button>
 
-                                    <Button size="large" variant="contained" color="primary" onClick={handleNext}>
-                                        {activeStep === steps.length - 1 ? 'Save' : 'Next'}
-                                    </Button>
-                                </Box>
+                                        <Button size="large" variant="contained" color="primary" onClick={handleNext}>
+                                            {activeStep === steps.length - 1 ? 'Save' : 'Next'}
+                                        </Button>
+                                    </Box>
+                                </DialogActions>
                             </React.Fragment>
                         )}
                     </Box>

@@ -201,7 +201,7 @@ export default function Allclaims() {
                     <Claimdialog modalOpen={isModalOpen} setModalOpen={setIsModalOpen}></Claimdialog>
                 </Stack>
             </Stack>
-            <MainCard contentSX={{ p: 1 }}>
+            <MainCard content>
                 <TableContainer
                     sx={{
                         width: '100%',

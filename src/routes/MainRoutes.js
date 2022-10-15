@@ -9,6 +9,7 @@ import EmployeesDetails from 'pages/Companies/Details/Employees/EmployeesDetails
 import Allclaims from 'pages/Claims/Allclaims';
 import Hospitals from 'pages/Hospitals/Hospitals';
 import Insurance from 'pages/Insurance/Insurance';
+import Support from 'pages/Support/Support';
 
 // render - dashboard
 const DashboardDefault = Loadable(lazy(() => import('pages/dashboard')));
@@ -95,6 +96,10 @@ const MainRoutes = {
         {
             path: 'insurance',
             element: <Insurance />
+        },
+        {
+            path: 'support',
+            element: <Support />
         }
     ]
 };

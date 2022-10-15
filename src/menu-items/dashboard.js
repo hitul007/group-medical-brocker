@@ -62,7 +62,7 @@ const dashboard = {
             id: 'support',
             title: 'Support',
             type: 'item',
-            url: '/dashboard/default',
+            url: '/support',
             icon: icons.UserOutlined,
             breadcrumbs: false
         }
