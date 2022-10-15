@@ -15,7 +15,7 @@ import {
 import * as React from 'react';
 
 import { DeleteOutlined, EditOutlined, EllipsisOutlined, PlusSquareOutlined } from '@ant-design/icons';
-
+import useMediaQuery from '@mui/material/useMediaQuery';
 function EmpHead() {
     const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -29,12 +29,25 @@ function EmpHead() {
 
     const open = Boolean(anchorEl);
     const id = open ? 'simple-popover' : undefined;
+    const isDesktop = useMediaQuery('(min-width:600px)');
     return (
         <Stack direction="row" justifyContent="space-between">
             <Stack direction="row" spacing={2}>
-                <Avatar sx={{ width: 64, height: 64, borderRadius: '6px', color: '#1890ff', backgroundColor: '#e6f7ff' }}>RF</Avatar>
+                {isDesktop ? (
+                    <Avatar sx={{ width: 70, height: 70, borderRadius: '6px', color: '#1890ff', backgroundColor: '#e6f7ff' }}>RF</Avatar>
+                ) : (
+                    <Avatar sx={{ width: 50, height: 50, borderRadius: '6px', color: '#1890ff', backgroundColor: '#e6f7ff' }}>RF</Avatar>
+                )}
                 <Box>
-                    <Typography variant="h2">Ravi Fadadu</Typography>
+                    {isDesktop ? (
+                        <Typography variant="h1" sx={{ fontWeight: '900' }}>
+                            Ravi Faddu
+                        </Typography>
+                    ) : (
+                        <Typography variant="h4" sx={{ fontWeight: '900' }}>
+                            Ravi Faddu
+                        </Typography>
+                    )}
                     <Box sx={{ display: 'flex', gap: '0.5rem', mt: 1 }}>
                         <PlusSquareOutlined style={{ fontSize: '16px', color: '#919191' }} />
                         <Typography variant="caption" sx={{ color: '#919191' }}>

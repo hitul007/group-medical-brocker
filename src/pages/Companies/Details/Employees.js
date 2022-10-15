@@ -78,20 +78,20 @@ function createData(no, name, healthid, emailId, contactNo, claims) {
 }
 
 const rows = [
-    createData(1, 'Ravi Fadadu', '12-3456-7890-1234', 'ravi@digiqt.com', '+91 97123 66941', '0'),
-    createData(2, 'Ravi Fadadu', '12-3456-7890-1234', 'ravi@digiqt.com', '+91 97123 66941', '1'),
-    createData(3, 'Ravi Fadadu', '12-3456-7890-1234', 'ravi@digiqt.com', '+91 97123 66941', '1'),
-    createData(4, 'Ravi Fadadu', '12-3456-7890-1234', 'ravi@digiqt.com', '+91 97123 66941', '0'),
-    createData(5, 'Ravi Fadadu', '12-3456-7890-1234', 'ravi@digiqt.com', '+91 97123 66941', '0'),
-    createData(6, 'Ravi Fadadu', '12-3456-7890-1234', 'ravi@digiqt.com', '+91 97123 66941', '1'),
-    createData(7, 'Ravi Fadadu', '12-3456-7890-1234', 'ravi@digiqt.com', '+91 97123 66941', '3'),
-    createData(8, 'Ravi Fadadu', '12-3456-7890-1234', 'ravi@digiqt.com', '+91 97123 66941', '5'),
-    createData(9, 'Ravi Fadadu', '12-3456-7890-1234', 'ravi@digiqt.com', '+91 97123 66941', '0'),
-    createData(10, 'Ravi Fadadu', '12-3456-7890-1234', 'ravi@digiqt.com', '+91 97123 66941', '0'),
-    createData(11, 'Ravi Fadadu', '12-3456-7890-1234', 'ravi@digiqt.com', '+91 97123 66941', '0'),
-    createData(12, 'Ravi Fadadu', '12-3456-7890-1234', 'ravi@digiqt.com', '+91 97123 66941', '10'),
-    createData(13, 'Ravi Fadadu', '12-3456-7890-1234', 'ravi@digiqt.com', '+91 97123 66941', '8'),
-    createData(14, 'Ravi Fadadu', '12-3456-7890-1234', 'ravi@digiqt.com', '+91 97123 66941', '3')
+    createData(1, 'Kamal Waller', '(12-3456-7890-1234', 'nulla.facilisis.suspendisse@google.net', ' (806) 320-4713', '0'),
+    createData(2, 'Bevis Taylor', '12-3456-7890-1234', 'nisl.sem@protonmail.couk', '(717) 336-3435', '1'),
+    createData(3, '"Adrian Bass",', '12-3456-7890-1234', 'sed@icloud.edu', '(114) 832-6350', '1'),
+    createData(4, 'Branden Landry"', '12-3456-7890-1234', 'quam.quis@outlook.edu', '(114) 832-6350', '0'),
+    createData(5, 'August Walters', '12-3456-7890-1234', 'orci.phasellus.dapibus@yahoo.edu', '(940) 421-6267', '0'),
+    createData(6, 'Frances Davis', '12-3456-7890-1234', 'tincidunt@hotmail.couk', '(844) 776-6828', '1'),
+    createData(7, 'Sacha Sanford', '12-3456-7890-1234', 'vel.nisl@outlook.couk', '(793) 853-4686', '3'),
+    createData(8, 'Jennifer Mann', '12-3456-7890-1234', 'eu.dui@hotmail.com', '1-163-632-3744', '5'),
+    createData(9, 'Ray Pickett', '12-3456-7890-1234', 'quis@icloud.com', '(268) 351-9146', '0'),
+    createData(10, 'Tana Turner', '12-3456-7890-1234', 'ipsum@google.org', '(407) 340-4945', '0'),
+    createData(11, 'Jason Beard', '12-3456-7890-1234', 'est@icloud.net', '(519) 444-4132', '0'),
+    createData(12, 'Kiayada Burgess', '12-3456-7890-1234', 'vel.nisl.quisque@aol.edu', '1-592-392-2587', '10'),
+    createData(13, 'Jermaine Olsen', '12-3456-7890-1234', 'dictum@protonmail.com', '(273) 749-2637', '8'),
+    createData(14, 'Azalia Haney', '12-3456-7890-1234', 'lorem.ut@hotmail.couk', '(685) 761-2824', '3')
 ].sort((a, b) => (a.healthid < b.healthid ? -1 : 1));
 
 //main com==================================================================================
