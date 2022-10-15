@@ -3,6 +3,7 @@ import { lazy } from 'react';
 // project import
 import Loadable from 'components/Loadable';
 import MainLayout from 'layout/MainLayout';
+
 import Companies from 'pages/Companies/Companies';
 import Details from 'pages/Companies/Details/Details';
 import EmployeesDetails from 'pages/Companies/Details/Employees/EmployeesDetails';
@@ -26,16 +27,12 @@ const Claimsdialog = Loadable(lazy(() => import('../pages/Claims/Claimsdialog'))
 // ==============================|| MAIN ROUTING ||============================== //
 
 const MainRoutes = {
-    path: '/',
+    path: '/broker-portal',
     element: <MainLayout />,
     children: [
         {
-            path: '/',
+            path: '/broker-portal',
             element: <DashboardDefault />
-        },
-        {
-            path: 'color',
-            element: <Color />
         },
         {
             path: 'dashboard',
@@ -45,22 +42,6 @@ const MainRoutes = {
                     element: <DashboardDefault />
                 }
             ]
-        },
-        {
-            path: 'sample-page',
-            element: <SamplePage />
-        },
-        {
-            path: 'shadow',
-            element: <Shadow />
-        },
-        {
-            path: 'typography',
-            element: <Typography />
-        },
-        {
-            path: 'icons/ant',
-            element: <AntIcons />
         },
         //new pages routes
         {

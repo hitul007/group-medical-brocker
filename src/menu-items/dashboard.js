@@ -22,7 +22,7 @@ const dashboard = {
             id: 'dashboard',
             title: 'Dashboard',
             type: 'item',
-            url: '/dashboard/default',
+            url: '/broker-portal',
             icon: icons.AppstoreOutlined,
             breadcrumbs: false
         },
@@ -30,7 +30,7 @@ const dashboard = {
             id: 'companies',
             title: 'Companies',
             type: 'item',
-            url: '/companies',
+            url: '/broker-portal/companies',
             icon: icons.ShopOutlined,
             breadcrumbs: false
         },
