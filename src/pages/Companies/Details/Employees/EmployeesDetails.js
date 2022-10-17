@@ -1,7 +1,7 @@
 // material-ui
+import React, { useState } from 'react';
 import { Box, Breadcrumbs, Button, Typography, Tab } from '@mui/material';
 import MainCard from 'components/MainCard';
-import * as React from 'react';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
@@ -14,29 +14,38 @@ import EmpClaims from './EmpClaims';
 // import Overview from './Overview';
 // import Employees from './Employees';
 // import Claims from './Claims';
+import Claimdialog from 'pages/Claims/Claimsdialog';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 function EmployeesDetails() {
     const [value, setValue] = React.useState('1');
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
 
+    const handleClickOpen = () => {
+        setIsModalOpen(true);
+    };
+    const isDesktop = useMediaQuery('(min-width:600px)');
+
     return (
         <>
             <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 2 }}>
                 <Breadcrumbs aria-label="breadcrumb">
-                    <Link style={{ color: '#919191', textDecoration: 'none' }} to="/companies">
+                    <Link style={{ color: '#919191', textDecoration: 'none' }} to="/broker-portal/companies">
                         Companies
                     </Link>
-                    <Link style={{ color: '#919191', textDecoration: 'none' }} to="/companies/details">
+                    <Link style={{ color: '#919191', textDecoration: 'none' }} to="/broker-portal/companies/details">
                         Digiqt Technolabs
                     </Link>
                     <Typography color="text.primary">Employees</Typography>
                 </Breadcrumbs>
-                <Button variant="outlined" startIcon={<PlusOutlined />}>
-                    Add Claims
+                <Button variant="outlined" startIcon={<PlusOutlined />} onClick={() => handleClickOpen()}>
+                    {isDesktop ? 'Add Claim' : 'Add'}
                 </Button>
+                <Claimdialog modalOpen={isModalOpen} setModalOpen={setIsModalOpen}></Claimdialog>
             </Box>
             <Box>
                 <MainCard contentSX={{ p: 2.75 }}>

@@ -22,7 +22,7 @@ const dashboard = {
             id: 'dashboard',
             title: 'Dashboard',
             type: 'item',
-            url: '/dashboard/default',
+            url: '/broker-portal',
             icon: icons.AppstoreOutlined,
             breadcrumbs: false
         },
@@ -30,7 +30,7 @@ const dashboard = {
             id: 'companies',
             title: 'Companies',
             type: 'item',
-            url: '/companies',
+            url: '/broker-portal/companies',
             icon: icons.ShopOutlined,
             breadcrumbs: false
         },
@@ -38,7 +38,7 @@ const dashboard = {
             id: 'claims',
             title: 'Claims',
             type: 'item',
-            url: '/claims',
+            url: '/broker-portal/claims',
             icon: icons.FileDoneOutlined,
             breadcrumbs: false
         },
@@ -46,7 +46,7 @@ const dashboard = {
             id: 'Hospitals',
             title: 'Hospitals',
             type: 'item',
-            url: '/hospitals',
+            url: '/broker-portal/hospitals',
             icon: icons.MedicineBoxOutlined,
             breadcrumbs: false
         },
@@ -54,7 +54,7 @@ const dashboard = {
             id: 'insurance',
             title: 'Insurance',
             type: 'item',
-            url: '/dashboard/default',
+            url: '/broker-portal/insurance',
             icon: icons.SafetyOutlined,
             breadcrumbs: false
         },
@@ -62,7 +62,7 @@ const dashboard = {
             id: 'support',
             title: 'Support',
             type: 'item',
-            url: '/dashboard/default',
+            url: '/broker-portal/support',
             icon: icons.UserOutlined,
             breadcrumbs: false
         }

@@ -1,142 +1,117 @@
 import PropTypes from 'prop-types';
-import { useState } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
+import * as React from 'react';
 
 // material-ui
-import { Button, InputAdornment, Stack, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField } from '@mui/material';
+import FirstPageIcon from '@mui/icons-material/FirstPage';
+import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
+import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
+import LastPageIcon from '@mui/icons-material/LastPage';
+import {
+    Box,
+    IconButton,
+    InputAdornment,
+    Stack,
+    Table,
+    TableBody,
+    TableCell,
+    TableContainer,
+    TableFooter,
+    TableHead,
+    TablePagination,
+    TableRow,
+    TextField
+} from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 
-import { FilterOutlined, SearchOutlined } from '@ant-design/icons';
+import { SearchOutlined } from '@ant-design/icons';
+// project import
+import EmpFilter from 'components/EmpFilter';
+import MainCard from 'components/MainCard';
+import { Link } from 'react-router-dom';
+function TablePaginationActions(props) {
+    const theme = useTheme();
+    const { count, page, rowsPerPage, onPageChange } = props;
 
-function createData(no, name, healthId, emailId, contactNo, claims) {
-    return { no, name, healthId, emailId, contactNo, claims };
-}
+    const handleFirstPageButtonClick = (event) => {
+        onPageChange(event, 0);
+    };
 
-const rows = [
-    createData(1, 'Ravi Fadadu', '12-3456-7890-1234', 'ravi@digiqt.com', '+91 97123 66941', '0'),
-    createData(2, 'Ravi Fadadu', '12-3456-7890-1234', 'ravi@digiqt.com', '+91 97123 66941', '1'),
-    createData(3, 'Ravi Fadadu', '12-3456-7890-1234', 'ravi@digiqt.com', '+91 97123 66941', '1'),
-    createData(4, 'Ravi Fadadu', '12-3456-7890-1234', 'ravi@digiqt.com', '+91 97123 66941', '0'),
-    createData(5, 'Ravi Fadadu', '12-3456-7890-1234', 'ravi@digiqt.com', '+91 97123 66941', '0'),
-    createData(6, 'Ravi Fadadu', '12-3456-7890-1234', 'ravi@digiqt.com', '+91 97123 66941', '1'),
-    createData(7, 'Ravi Fadadu', '12-3456-7890-1234', 'ravi@digiqt.com', '+91 97123 66941', '3'),
-    createData(8, 'Ravi Fadadu', '12-3456-7890-1234', 'ravi@digiqt.com', '+91 97123 66941', '5'),
-    createData(9, 'Ravi Fadadu', '12-3456-7890-1234', 'ravi@digiqt.com', '+91 97123 66941', '0'),
-    createData(10, 'Ravi Fadadu', '12-3456-7890-1234', 'ravi@digiqt.com', '+91 97123 66941', '0'),
-    createData(11, 'Ravi Fadadu', '12-3456-7890-1234', 'ravi@digiqt.com', '+91 97123 66941', '0'),
-    createData(12, 'Ravi Fadadu', '12-3456-7890-1234', 'ravi@digiqt.com', '+91 97123 66941', '10'),
-    createData(13, 'Ravi Fadadu', '12-3456-7890-1234', 'ravi@digiqt.com', '+91 97123 66941', '8'),
-    createData(14, 'Ravi Fadadu', '12-3456-7890-1234', 'ravi@digiqt.com', '+91 97123 66941', '3')
-];
+    const handleBackButtonClick = (event) => {
+        onPageChange(event, page - 1);
+    };
 
-function descendingComparator(a, b, orderBy) {
-    if (b[orderBy] < a[orderBy]) {
-        return -1;
-    }
-    if (b[orderBy] > a[orderBy]) {
-        return 1;
-    }
-    return 0;
-}
+    const handleNextButtonClick = (event) => {
+        onPageChange(event, page + 1);
+    };
 
-function getComparator(order, orderBy) {
-    return order === 'desc' ? (a, b) => descendingComparator(a, b, orderBy) : (a, b) => -descendingComparator(a, b, orderBy);
-}
+    const handleLastPageButtonClick = (event) => {
+        onPageChange(event, Math.max(0, Math.ceil(count / rowsPerPage) - 1));
+    };
 
-function stableSort(array, comparator) {
-    const stabilizedThis = array.map((el, index) => [el, index]);
-    stabilizedThis.sort((a, b) => {
-        const order = comparator(a[0], b[0]);
-        if (order !== 0) {
-            return order;
-        }
-        return a[1] - b[1];
-    });
-    return stabilizedThis.map((el) => el[0]);
-}
-
-// ==============================|| ORDER TABLE - HEADER CELL ||============================== //
-
-const headCells = [
-    {
-        id: 'no',
-        align: 'center',
-        disablePadding: false,
-        label: 'Clime No.'
-    },
-    {
-        id: 'name',
-        align: 'center',
-        disablePadding: false,
-        label: 'Name'
-    },
-    {
-        id: 'healthId',
-        align: 'center',
-        disablePadding: false,
-        label: 'Health Id'
-    },
-    {
-        id: 'emailId',
-        align: 'center',
-        disablePadding: false,
-        label: 'Email Id'
-    },
-    {
-        id: 'contactNo',
-        align: 'center',
-        disablePadding: false,
-        label: 'Contact No'
-    },
-    {
-        id: 'claims',
-        align: 'center',
-        disablePadding: false,
-        label: 'Claims'
-    }
-];
-
-// ==============================|| ORDER TABLE - HEADER ||============================== //
-
-function RecentClaims({ order, orderBy }) {
     return (
-        <TableHead>
-            <TableRow>
-                {headCells.map((headCell) => (
-                    <TableCell
-                        key={headCell.id}
-                        align={headCell.align}
-                        padding={headCell.disablePadding ? 'none' : 'normal'}
-                        sortDirection={orderBy === headCell.id ? order : false}
-                        sx={{ textAlign: 'center' }}
-                    >
-                        {headCell.label}
-                    </TableCell>
-                ))}
-            </TableRow>
-        </TableHead>
+        <Box sx={{ flexShrink: 0, ml: 2.5 }}>
+            <IconButton onClick={handleFirstPageButtonClick} disabled={page === 0} aria-label="first page">
+                {theme.direction === 'rtl' ? <LastPageIcon /> : <FirstPageIcon />}
+            </IconButton>
+            <IconButton onClick={handleBackButtonClick} disabled={page === 0} aria-label="previous page">
+                {theme.direction === 'rtl' ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
+            </IconButton>
+            <IconButton onClick={handleNextButtonClick} disabled={page >= Math.ceil(count / rowsPerPage) - 1} aria-label="next page">
+                {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
+            </IconButton>
+            <IconButton onClick={handleLastPageButtonClick} disabled={page >= Math.ceil(count / rowsPerPage) - 1} aria-label="last page">
+                {theme.direction === 'rtl' ? <FirstPageIcon /> : <LastPageIcon />}
+            </IconButton>
+        </Box>
     );
 }
 
-RecentClaims.propTypes = {
-    order: PropTypes.string,
-    orderBy: PropTypes.string
+TablePaginationActions.propTypes = {
+    count: PropTypes.number.isRequired,
+    onPageChange: PropTypes.func.isRequired,
+    page: PropTypes.number.isRequired,
+    rowsPerPage: PropTypes.number.isRequired
 };
 
-// ==============================|| ORDER TABLE ||============================== //
+function createData(no, name, healthid, emailId, contactNo, claims) {
+    return { no, name, healthid, emailId, contactNo, claims };
+}
 
+const rows = [
+    createData(1, 'Ravi Fadadu', '(12-3456-7890-1234', 'nulla.facilisis.suspendisse@google.net', ' (806) 320-4713', '0'),
+    createData(2, 'Bevis Taylor', '12-3456-7890-1234', 'nisl.sem@protonmail.couk', '(717) 336-3435', '1'),
+    createData(3, '"Adrian Bass",', '12-3456-7890-1234', 'sed@icloud.edu', '(114) 832-6350', '1'),
+    createData(4, 'Branden Landry"', '12-3456-7890-1234', 'quam.quis@outlook.edu', '(114) 832-6350', '0'),
+    createData(5, 'August Walters', '12-3456-7890-1234', 'orci.phasellus.dapibus@yahoo.edu', '(940) 421-6267', '0'),
+    createData(6, 'Frances Davis', '12-3456-7890-1234', 'tincidunt@hotmail.couk', '(844) 776-6828', '1'),
+    createData(7, 'Sacha Sanford', '12-3456-7890-1234', 'vel.nisl@outlook.couk', '(793) 853-4686', '3'),
+    createData(8, 'Jennifer Mann', '12-3456-7890-1234', 'eu.dui@hotmail.com', '1-163-632-3744', '5'),
+    createData(9, 'Ray Pickett', '12-3456-7890-1234', 'quis@icloud.com', '(268) 351-9146', '0'),
+    createData(10, 'Tana Turner', '12-3456-7890-1234', 'ipsum@google.org', '(407) 340-4945', '0'),
+    createData(11, 'Jason Beard', '12-3456-7890-1234', 'est@icloud.net', '(519) 444-4132', '0'),
+    createData(12, 'Kiayada Burgess', '12-3456-7890-1234', 'vel.nisl.quisque@aol.edu', '1-592-392-2587', '10'),
+    createData(13, 'Jermaine Olsen', '12-3456-7890-1234', 'dictum@protonmail.com', '(273) 749-2637', '8'),
+    createData(14, 'Azalia Haney', '12-3456-7890-1234', 'lorem.ut@hotmail.couk', '(685) 761-2824', '3')
+].sort((a, b) => (a.healthid < b.healthid ? -1 : 1));
+
+//main com==================================================================================
 export default function Employees() {
-    const [order] = useState('asc');
-    const [orderBy] = useState('climeNo');
-    const [selected] = useState([]);
+    const [page, setPage] = React.useState(0);
+    const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
-    const isSelected = (climeNo) => selected.indexOf(climeNo) !== -1;
+    const handleChangePage = (event, newPage) => {
+        setPage(newPage);
+    };
+
+    const handleChangeRowsPerPage = (event) => {
+        setRowsPerPage(parseInt(event.target.value, 10));
+        setPage(0);
+    };
 
     return (
         <>
-            <Stack sx={{ mt: 2, mb: 1 }} direction="row" justifyContent="flex-end" spacing={2}>
-                <Button sx={{ maxWidth: '100px' }} variant="outlined" startIcon={<FilterOutlined />}>
-                    Filter
-                </Button>
+            <Stack direction="row" justifyContent="flex-end" spacing={2} sx={{ mt: 2, mb: 3 }}>
+                <EmpFilter />
                 <TextField
                     id="outlined-basic"
                     placeholder="Search name or health Id"
@@ -151,69 +126,80 @@ export default function Employees() {
                     sx={{ maxWidth: '250px' }}
                 />
             </Stack>
-            <TableContainer
-                sx={{
-                    width: '100%',
-                    overflowX: 'auto',
-                    position: 'relative',
-                    display: 'block',
-                    maxWidth: '100%',
-                    '& td, & th': { whiteSpace: 'nowrap' }
-                }}
-            >
-                <Table
-                    aria-labelledby="tableTitle"
+
+            <MainCard contentSX={{ p: 1 }}>
+                <TableContainer
                     sx={{
-                        '& .MuiTableCell-root:first-child': {
-                            pl: 2
-                        },
-                        '& .MuiTableCell-root:last-child': {
-                            pr: 3
-                        }
+                        width: '100%',
+                        overflowX: 'auto',
+                        position: 'relative',
+                        display: 'block',
+                        maxWidth: '100%',
+                        '& td, & th': { whiteSpace: 'nowrap' }
                     }}
                 >
-                    <RecentClaims order={order} orderBy={orderBy} />
-                    <TableBody>
-                        {stableSort(rows, getComparator(order, orderBy)).map((row, index) => {
-                            const isItemSelected = isSelected(row.climeNo);
-                            const labelId = `enhanced-table-checkbox-${index}`;
-
-                            return (
-                                <TableRow
-                                    hover
-                                    role="checkbox"
-                                    sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                                    aria-checked={isItemSelected}
-                                    tabIndex={-1}
-                                    key={row.climeNo}
-                                    selected={isItemSelected}
-                                >
-                                    <TableCell component="th" id={labelId} scope="row" align="center" sx={{ color: '#919191' }}>
+                    <Table
+                        aria-labelledby="tableTitle"
+                        sx={{
+                            '& .MuiTableCell-root:first-child': {
+                                pl: 2
+                            },
+                            '& .MuiTableCell-root:last-child': {
+                                pr: 3
+                            }
+                        }}
+                    >
+                        <TableHead stickyHeader>
+                            <TableRow>
+                                <TableCell align="center">No</TableCell>
+                                <TableCell align="center">Employee Name</TableCell>
+                                <TableCell align="center">Health Id</TableCell>
+                                <TableCell align="center">Email Id</TableCell>
+                                <TableCell align="center">Contact No.</TableCell>
+                                <TableCell align="center">Claims</TableCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            {(rowsPerPage > 0 ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage) : rows).map((row) => (
+                                <TableRow key={row.no}>
+                                    <TableCell component="th" scope="row" align="center">
                                         {row.no}
                                     </TableCell>
                                     <TableCell align="center">
-                                        <RouterLink to="/companies/employees" style={{ color: '#919191', textDecoration: 'none' }}>
+                                        <Link style={{ color: '#262626', textDecoration: 'none' }} to="/broker-portal/companies/employees">
                                             {row.name}
-                                        </RouterLink>
+                                        </Link>
                                     </TableCell>
-                                    <TableCell sx={{ color: '#919191' }} align="center">
-                                        {row.healthId}
-                                    </TableCell>
-                                    <TableCell sx={{ color: '#919191' }} align="center">
-                                        {row.emailId}
-                                    </TableCell>
-                                    <TableCell sx={{ color: '#919191' }} align="center">
-                                        {row.contactNo}
-                                    </TableCell>
-                                    <TableCell sx={{ color: '#919191' }} align="center">
-                                        {row.claims}
-                                    </TableCell>
+                                    <TableCell align="center">{row.healthid}</TableCell>
+                                    <TableCell align="center">{row.emailId}</TableCell>
+                                    <TableCell align="center">{row.contactNo}</TableCell>
+                                    <TableCell align="center">{row.claims}</TableCell>
                                 </TableRow>
-                            );
-                        })}
-                    </TableBody>
-                </Table>
-            </TableContainer>
+                            ))}
+                        </TableBody>
+                        <TableFooter>
+                            <TableRow>
+                                <TablePagination
+                                    rowsPerPageOptions={[10, 20, 25, { label: 'All', value: -1 }]}
+                                    colSpan={8}
+                                    count={rows.length}
+                                    rowsPerPage={rowsPerPage}
+                                    page={page}
+                                    SelectProps={{
+                                        inputProps: {
+                                            'aria-label': 'rows per page'
+                                        },
+                                        native: true
+                                    }}
+                                    onPageChange={handleChangePage}
+                                    onRowsPerPageChange={handleChangeRowsPerPage}
+                                    ActionsComponent={TablePaginationActions}
+                                />
+                            </TableRow>
+                        </TableFooter>
+                    </Table>
+                </TableContainer>
+            </MainCard>
         </>
     );
 }
