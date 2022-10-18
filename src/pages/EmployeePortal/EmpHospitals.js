@@ -44,7 +44,7 @@ function EmpHospitals() {
 
             <Grid container rowSpacing={4.5} columnSpacing={2.75}>
                 <Grid item xs={12} sm={12} md={3} lg={3}>
-                    <MainCard content>
+                    <MainCard content sx={{ height: '180px' }}>
                         <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 2 }}>
                             <Typography variant="h4">Digiqt Hospital</Typography>
                             <Button
@@ -80,9 +80,9 @@ function EmpHospitals() {
                     </MainCard>
                 </Grid>
                 <Grid item xs={12} sm={12} md={3} lg={3}>
-                    <MainCard content>
+                    <MainCard content sx={{ height: '180px' }}>
                         <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 2 }}>
-                            <Typography variant="h4">Hospital Name</Typography>
+                            <Typography variant="h4">Karratha Health Campus</Typography>
                             <Button
                                 component="a"
                                 href="https://www.google.co.in/maps/@22.4168315,71.319437,7z"
@@ -116,9 +116,9 @@ function EmpHospitals() {
                     </MainCard>
                 </Grid>
                 <Grid item xs={12} sm={12} md={3} lg={3}>
-                    <MainCard content>
+                    <MainCard content sx={{ height: '180px' }}>
                         <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 2 }}>
-                            <Typography variant="h4">Hospital Name</Typography>
+                            <Typography variant="h4">Shrinath Clinic</Typography>
                             <Button
                                 component="a"
                                 href="https://www.google.co.in/maps/@22.4168315,71.319437,7z"
@@ -152,9 +152,9 @@ function EmpHospitals() {
                     </MainCard>
                 </Grid>
                 <Grid item xs={12} sm={12} md={3} lg={3}>
-                    <MainCard content>
+                    <MainCard content sx={{ height: '180px' }}>
                         <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 2 }}>
-                            <Typography variant="h4">Hospital Name</Typography>
+                            <Typography variant="h4">M Cure hospital</Typography>
                             <Button
                                 component="a"
                                 href="https://www.google.co.in/maps/@22.4168315,71.319437,7z"
@@ -188,9 +188,9 @@ function EmpHospitals() {
                     </MainCard>
                 </Grid>
                 <Grid item xs={12} sm={12} md={3} lg={3}>
-                    <MainCard content>
+                    <MainCard content sx={{ height: '180px' }}>
                         <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 2 }}>
-                            <Typography variant="h4">Hospital Name</Typography>
+                            <Typography variant="h4">Holy Spirit Private Hospital</Typography>
                             <Button
                                 component="a"
                                 href="https://www.google.co.in/maps/@22.4168315,71.319437,7z"
@@ -224,9 +224,9 @@ function EmpHospitals() {
                     </MainCard>
                 </Grid>
                 <Grid item xs={12} sm={12} md={3} lg={3}>
-                    <MainCard content>
+                    <MainCard content sx={{ height: '180px' }}>
                         <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 2 }}>
-                            <Typography variant="h4">Hospital Name</Typography>
+                            <Typography variant="h4">Shashvat Hospital</Typography>
                             <Button
                                 component="a"
                                 href="https://www.google.co.in/maps/@22.4168315,71.319437,7z"
@@ -260,9 +260,9 @@ function EmpHospitals() {
                     </MainCard>
                 </Grid>
                 <Grid item xs={12} sm={12} md={3} lg={3}>
-                    <MainCard content>
+                    <MainCard content sx={{ height: '180px' }}>
                         <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 2 }}>
-                            <Typography variant="h4">Hospital Name</Typography>
+                            <Typography variant="h4">Pragati Clinic</Typography>
                             <Button
                                 component="a"
                                 href="https://www.google.co.in/maps/@22.4168315,71.319437,7z"
@@ -296,9 +296,9 @@ function EmpHospitals() {
                     </MainCard>
                 </Grid>
                 <Grid item xs={12} sm={12} md={3} lg={3}>
-                    <MainCard content>
+                    <MainCard content sx={{ height: '180px' }}>
                         <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 2 }}>
-                            <Typography variant="h4">Hospital Name</Typography>
+                            <Typography variant="h4">Civil Hospital</Typography>
                             <Button
                                 component="a"
                                 href="https://www.google.co.in/maps/@22.4168315,71.319437,7z"
@@ -332,9 +332,9 @@ function EmpHospitals() {
                     </MainCard>
                 </Grid>
                 <Grid item xs={12} sm={12} md={3} lg={3}>
-                    <MainCard content>
+                    <MainCard content sx={{ height: '180px' }}>
                         <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 2 }}>
-                            <Typography variant="h4">Hospital Name</Typography>
+                            <Typography variant="h4">Aashirwad Hospital</Typography>
                             <Button
                                 component="a"
                                 href="https://www.google.co.in/maps/@22.4168315,71.319437,7z"
@@ -368,9 +368,9 @@ function EmpHospitals() {
                     </MainCard>
                 </Grid>
                 <Grid item xs={12} sm={12} md={3} lg={3}>
-                    <MainCard content>
+                    <MainCard content sx={{ height: '180px' }}>
                         <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 2 }}>
-                            <Typography variant="h4">Hospital Name</Typography>
+                            <Typography variant="h4">Aashirwad Hospital</Typography>
                             <Button
                                 component="a"
                                 href="https://www.google.co.in/maps/@22.4168315,71.319437,7z"
@@ -404,9 +404,9 @@ function EmpHospitals() {
                     </MainCard>
                 </Grid>
                 <Grid item xs={12} sm={12} md={3} lg={3}>
-                    <MainCard content>
+                    <MainCard content sx={{ height: '180px' }}>
                         <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 2 }}>
-                            <Typography variant="h4">Hospital Name</Typography>
+                            <Typography variant="h4">Aashirwad Hospital</Typography>
                             <Button
                                 component="a"
                                 href="https://www.google.co.in/maps/@22.4168315,71.319437,7z"
