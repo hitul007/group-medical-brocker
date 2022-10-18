@@ -6,7 +6,7 @@ import MainCard from 'components/MainCard';
 import React, { useState } from 'react';
 
 import { PlusOutlined } from '@ant-design/icons';
-import Claimdialog from 'pages/Claims/Claimsdialog';
+
 import useMediaQuery from '@mui/material/useMediaQuery';
 import Claims from './Claims';
 import Employees from './Employees';
@@ -27,17 +27,6 @@ function CompanyDashboard() {
 
     return (
         <>
-            <Box sx={{ display: 'flex', justifyContent: 'end', mb: 2 }}>
-                <Button
-                    variant="outlined"
-                    fullWidth={isDesktop ? '' : 'true'}
-                    startIcon={<PlusOutlined />}
-                    onClick={() => handleClickOpen()}
-                >
-                    Add Claims
-                </Button>
-                <Claimdialog modalOpen={isModalOpen} setModalOpen={setIsModalOpen}></Claimdialog>
-            </Box>
             <Box>
                 <MainCard contentSX={{ p: 2.75 }}>
                     <Head />

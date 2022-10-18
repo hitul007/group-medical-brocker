@@ -1,11 +1,24 @@
 import PropTypes from 'prop-types';
 import { useRef } from 'react';
-
+import React, { useState } from 'react';
 // material-ui
-import { Avatar, Box, ButtonBase, Stack, Typography } from '@mui/material';
+import {
+    Avatar,
+    Box,
+    ButtonBase,
+    Stack,
+    Typography,
+    List,
+    ListItem,
+    ListItemButton,
+    ListItemIcon,
+    ListItemText,
+    Popover,
+    Divider
+} from '@mui/material';
 
 // project import
-
+import { EditOutlined, LogoutOutlined } from '@ant-design/icons';
 // assets
 import avatar1 from 'assets/images/users/avatar-1.png';
 
@@ -60,6 +73,18 @@ const Profile = () => {
     // };
 
     const iconBackColorOpen = 'grey.300';
+    const [anchorEl, setAnchorEl] = React.useState(null);
+
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
+
+    const open = Boolean(anchorEl);
+    const id = open ? 'simple-popover' : undefined;
 
     return (
         <Box sx={{ flexShrink: 0, ml: 0.75 }}>
@@ -76,10 +101,45 @@ const Profile = () => {
                 aria-haspopup="true"
                 // onClick={handleToggle}
             >
-                <Stack direction="row" spacing={2} alignItems="center" sx={{ p: 0.5 }}>
+                <Stack direction="row" spacing={2} alignItems="center" sx={{ p: 0.5 }} onClick={handleClick}>
                     <Avatar alt="profile user" src={avatar1} sx={{ width: 32, height: 32 }} />
                     <Typography variant="subtitle1">John Doe</Typography>
                 </Stack>
+                <Popover
+                    id={id}
+                    open={open}
+                    anchorEl={anchorEl}
+                    onClose={handleClose}
+                    anchorOrigin={{
+                        vertical: 'bottom',
+                        horizontal: 'left'
+                    }}
+                    sx={{
+                        '.MuiPopover-paper': {
+                            width: '150px'
+                        }
+                    }}
+                >
+                    <List>
+                        <ListItem disablePadding>
+                            <ListItemButton>
+                                <ListItemIcon>
+                                    <EditOutlined />
+                                </ListItemIcon>
+                                <ListItemText primary="Edit profile" />
+                            </ListItemButton>
+                        </ListItem>
+                        <Divider />
+                        <ListItem disablePadding>
+                            <ListItemButton component="a" href="#simple-list">
+                                <ListItemIcon>
+                                    <LogoutOutlined />
+                                </ListItemIcon>
+                                <ListItemText primary="Logout" />
+                            </ListItemButton>
+                        </ListItem>
+                    </List>
+                </Popover>
             </ButtonBase>
             {/* <Popper
                 placement="bottom-end"

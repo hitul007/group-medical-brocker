@@ -215,7 +215,7 @@ const Claimdialog = ({ modalOpen, setModalOpen }) => {
 
                                                     <Grid item xs={12} md={6}>
                                                         <Stack>
-                                                            <FormLabel id="demo-radio-buttons-group-label">Gender</FormLabel>
+                                                            <FormLabel id="demo-radio-buttons-group-label">Claim Type</FormLabel>
                                                             <RadioGroup
                                                                 aria-labelledby="demo-radio-buttons-group-label"
                                                                 defaultValue="Male"
@@ -324,7 +324,7 @@ const Claimdialog = ({ modalOpen, setModalOpen }) => {
 
                                                     <Grid item xs={12} md={6}>
                                                         <Stack>
-                                                            <FormLabel id="demo-radio-buttons-group-label">Gender</FormLabel>
+                                                            <FormLabel id="demo-radio-buttons-group-label">Claim Type</FormLabel>
                                                             <RadioGroup
                                                                 aria-labelledby="demo-radio-buttons-group-label"
                                                                 defaultValue="Male"
