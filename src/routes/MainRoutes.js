@@ -11,6 +11,7 @@ import EmployeesDetails from 'pages/Companies/Details/Employees/EmployeesDetails
 import Hospitals from 'pages/Hospitals/Hospitals';
 import Insurance from 'pages/Insurance/Insurance';
 import Support from 'pages/Support/Support';
+import ClaimDetails from 'pages/Claims/ClaimDetails';
 
 // render - dashboard
 const DashboardDefault = Loadable(lazy(() => import('pages/dashboard')));
@@ -64,6 +65,10 @@ const MainRoutes = {
         {
             path: 'support',
             element: <Support />
+        },
+        {
+            path: 'claim-detail',
+            element: <ClaimDetails />
         }
     ]
 };

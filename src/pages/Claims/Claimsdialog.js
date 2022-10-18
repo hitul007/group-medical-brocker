@@ -184,14 +184,10 @@ const Claimdialog = ({ modalOpen, setModalOpen }) => {
                                                     </Grid>
                                                     <Grid item xs={12} md={6}>
                                                         <Stack>
-                                                            <FormLabel id="demo-radio-buttons-group-label">Amount</FormLabel>
+                                                            <FormLabel id="demo-radio-buttons-group-label">Claim amount</FormLabel>
                                                             <TextField
                                                                 InputProps={{
-                                                                    startAdornment: (
-                                                                        <InputAdornment position="start">
-                                                                            <CurrencyRupeeIcon />
-                                                                        </InputAdornment>
-                                                                    )
+                                                                    startAdornment: <InputAdornment position="start">₹</InputAdornment>
                                                                 }}
                                                                 variant="outlined"
                                                             />
@@ -207,7 +203,7 @@ const Claimdialog = ({ modalOpen, setModalOpen }) => {
                                                     <Grid item xs={12} md={6}>
                                                         <Stack>
                                                             <FormLabel required id="demo-radio-buttons-group-label">
-                                                                Insurance ID
+                                                                Policy No.
                                                             </FormLabel>
                                                             <TextField />
                                                         </Stack>
@@ -292,14 +288,10 @@ const Claimdialog = ({ modalOpen, setModalOpen }) => {
                                                     </Grid>
                                                     <Grid item xs={12} md={6}>
                                                         <Stack>
-                                                            <FormLabel id="demo-radio-buttons-group-label">Amount</FormLabel>
+                                                            <FormLabel id="demo-radio-buttons-group-label">Claim amount</FormLabel>
                                                             <TextField
                                                                 InputProps={{
-                                                                    startAdornment: (
-                                                                        <InputAdornment position="start">
-                                                                            <CurrencyRupeeIcon />
-                                                                        </InputAdornment>
-                                                                    )
+                                                                    startAdornment: <InputAdornment position="start">₹</InputAdornment>
                                                                 }}
                                                                 variant="outlined"
                                                                 disabled
@@ -316,7 +308,7 @@ const Claimdialog = ({ modalOpen, setModalOpen }) => {
                                                     <Grid item xs={12} md={6}>
                                                         <Stack>
                                                             <FormLabel required id="demo-radio-buttons-group-label">
-                                                                Insurance ID
+                                                                Policy No.
                                                             </FormLabel>
                                                             <TextField disabled />
                                                         </Stack>
