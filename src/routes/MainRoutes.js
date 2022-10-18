@@ -52,7 +52,16 @@ const MainRoutes = {
         },
         {
             path: 'claims',
-            element: <Allclaims />
+            children: [
+                {
+                    path: '',
+                    element: <Allclaims />
+                },
+                {
+                    path: 'claim-detail',
+                    element: <ClaimDetails />
+                }
+            ]
         },
         {
             path: 'hospitals',
@@ -65,10 +74,6 @@ const MainRoutes = {
         {
             path: 'support',
             element: <Support />
-        },
-        {
-            path: 'claim-detail',
-            element: <ClaimDetails />
         }
     ]
 };

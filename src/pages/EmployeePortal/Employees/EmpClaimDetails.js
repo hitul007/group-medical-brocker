@@ -20,9 +20,9 @@ import {
 import useMediaQuery from '@mui/material/useMediaQuery';
 import MainCard from 'components/MainCard';
 import EditIcon from '@mui/icons-material/Edit';
-import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import { Link } from 'react-router-dom';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
@@ -65,7 +65,7 @@ OrderStatus.propTypes = {
     status: PropTypes.number
 };
 
-function ClaimDetails() {
+function EmpClaimDetails() {
     const [value, setValue] = React.useState(null);
 
     const isDesktop = useMediaQuery('(min-width:600px)');
@@ -122,7 +122,7 @@ function ClaimDetails() {
                 <MainCard>
                     <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 4 }}>
                         <Stack direction="row" justifyContent="flex-end" alignItems="center" spacing={2}>
-                            <IconButton component={Link} to="/broker-portal/claims" color="secondary" aria-label="delete">
+                            <IconButton component={Link} to="/employee-portal" color="secondary" aria-label="delete">
                                 <KeyboardArrowLeftIcon />
                             </IconButton>
                             <Typography variant="h3" className="m-1">
@@ -260,4 +260,4 @@ function ClaimDetails() {
     );
 }
 
-export default ClaimDetails;
+export default EmpClaimDetails;

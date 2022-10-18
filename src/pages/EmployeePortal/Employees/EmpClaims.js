@@ -31,6 +31,7 @@ import { FilterOutlined, SearchOutlined } from '@ant-design/icons';
 import Dot from 'components/@extended/Dot';
 import MainCard from 'components/MainCard';
 import ClaimsFilter from 'components/ClaimsFilter';
+import { Link } from 'react-router-dom';
 function TablePaginationActions(props) {
     const theme = useTheme();
     const { count, page, rowsPerPage, onPageChange } = props;
@@ -192,10 +193,14 @@ export default function Allclaims() {
                         </TableHead>
                         <TableBody>
                             {(rowsPerPage > 0 ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage) : rows).map((row) => (
-                                <TableRow key={row.climeNo}>
-                                    <TableCell component="th" scope="row" align="center">
-                                        {row.climeNo}
+                                <TableRow key={row.climeNo} align="center">
+                                    <TableCell align="center">
+                                        {' '}
+                                        <Link to="/employee-portal/claim-detail" style={{ color: '#262626', textDecoration: 'none' }}>
+                                            {row.climeNo}
+                                        </Link>
                                     </TableCell>
+
                                     <TableCell align="center">{row.healthid}</TableCell>
                                     <TableCell align="center">{row.Climeamount}</TableCell>
                                     <TableCell align="center">{row.hosName}</TableCell>

@@ -65,7 +65,7 @@ OrderStatus.propTypes = {
     status: PropTypes.number
 };
 
-function ClaimDetails() {
+function ComClaimDetails() {
     const [value, setValue] = React.useState(null);
 
     const isDesktop = useMediaQuery('(min-width:600px)');
@@ -122,7 +122,7 @@ function ClaimDetails() {
                 <MainCard>
                     <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 4 }}>
                         <Stack direction="row" justifyContent="flex-end" alignItems="center" spacing={2}>
-                            <IconButton component={Link} to="/broker-portal/claims" color="secondary" aria-label="delete">
+                            <IconButton component={Link} to="/company-portal" color="secondary" aria-label="delete">
                                 <KeyboardArrowLeftIcon />
                             </IconButton>
                             <Typography variant="h3" className="m-1">
@@ -260,4 +260,4 @@ function ClaimDetails() {
     );
 }
 
-export default ClaimDetails;
+export default ComClaimDetails;

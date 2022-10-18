@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 // material-ui
-import { Box, Link, Stack, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
+import { Box, Stack, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
 
 // third-party
 
@@ -204,10 +204,8 @@ export default function OrderTable() {
                                     key={row.climeNo}
                                     selected={isItemSelected}
                                 >
-                                    <TableCell component="th" id={labelId} scope="row" align="left">
-                                        <Link color="secondary" component={RouterLink} to="">
-                                            {row.climeNo}
-                                        </Link>
+                                    <TableCell align="center" component="th" id={labelId} scope="row">
+                                        {row.climeNo}
                                     </TableCell>
                                     <TableCell align="center">{row.name}</TableCell>
                                     <TableCell align="center">{row.date}</TableCell>
@@ -216,7 +214,7 @@ export default function OrderTable() {
                                         <OrderStatus status={row.carbs} />
                                     </TableCell>
                                     <TableCell align="center">
-                                        <Link>{row.action}</Link>
+                                        <Link to="/broker-portal/claims/claim-detail">{row.action}</Link>
                                     </TableCell>
                                 </TableRow>
                             );

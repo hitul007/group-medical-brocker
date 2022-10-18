@@ -157,11 +157,11 @@ const Claimdialog = ({ modalOpen, setModalOpen }) => {
                                     <img src={success} alt=" " />
                                     {isDesktop ? (
                                         <Typography variant="h2" sx={{ textAlign: 'center' }}>
-                                            Company Successfully Added.
+                                            Claim sended successfully
                                         </Typography>
                                     ) : (
                                         <Typography variant="h4" sx={{ textAlign: 'center' }}>
-                                            Company Successfully Added.
+                                            Claim sended successfully
                                         </Typography>
                                     )}
                                 </Box>
