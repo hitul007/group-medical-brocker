@@ -22,7 +22,9 @@ import {
     RadioGroup,
     Radio,
     FormLabel,
-    Grid
+    Grid,
+    Snackbar,
+    Alert
 } from '@mui/material';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
@@ -60,6 +62,20 @@ function Head() {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const handleClickOpen = () => {
         setIsModalOpen(true);
+    };
+
+    const [snack, setsnack] = React.useState(false);
+
+    const handleSnackClick = () => {
+        setsnack(true);
+    };
+
+    const handleSnackClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+
+        setsnack(false);
     };
     return (
         <>
@@ -227,9 +243,19 @@ function Head() {
                                     alignItems: 'end'
                                 }}
                             >
-                                <Button color="primary" variant="contained" size="large">
+                                <Button color="primary" variant="contained" size="large" onClick={handleSnackClick}>
                                     Create
                                 </Button>
+                                <Snackbar
+                                    open={snack}
+                                    autoHideDuration={6000}
+                                    onClose={handleSnackClose}
+                                    anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+                                >
+                                    <Alert onClose={handleSnackClose} severity="success" sx={{ width: '100%' }}>
+                                        Employee create successfully !
+                                    </Alert>
+                                </Snackbar>
                             </Box>
                         </DialogActions>
                     </Dialog>

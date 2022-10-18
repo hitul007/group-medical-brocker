@@ -120,17 +120,28 @@ function ClaimDetails() {
         <>
             <Box sx={{ mt: 2 }}>
                 <MainCard>
-                    <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 4 }}>
+                    <Stack
+                        direction={isDesktop ? 'row' : 'column'}
+                        justifyContent="space-between"
+                        alignItems={isDesktop ? 'center' : 'start'}
+                        sx={{ mb: 4 }}
+                    >
                         <Stack direction="row" justifyContent="flex-end" alignItems="center" spacing={2}>
-                            <IconButton component={Link} to="/broker-portal/claims" color="secondary" aria-label="delete">
+                            <IconButton component={Link} to="/company-portal" color="secondary" aria-label="delete">
                                 <KeyboardArrowLeftIcon />
                             </IconButton>
                             <Typography variant="h3" className="m-1">
                                 Claim Details
                             </Typography>
                         </Stack>
-                        <Stack direction="row" justifyContent="flex-end" alignItems="center" spacing={2}>
-                            <Button variant="outlined" startIcon={<EditIcon />}>
+                        <Stack
+                            direction="row"
+                            justifyContent="flex-end"
+                            alignItems="center"
+                            spacing={2}
+                            sx={{ width: isDesktop ? '' : '100%' }}
+                        >
+                            <Button variant="outlined" fullWidth={isDesktop ? '' : true} startIcon={<EditIcon />}>
                                 Edit
                             </Button>
                             <IconButton color="secondary" component="label">
