@@ -42,10 +42,6 @@ function EmployeesDetails() {
                     </Link>
                     <Typography color="text.primary">Employees</Typography>
                 </Breadcrumbs>
-                <Button variant="outlined" startIcon={<PlusOutlined />} onClick={() => handleClickOpen()}>
-                    {isDesktop ? 'Add Claim' : 'Add'}
-                </Button>
-                <Claimdialog modalOpen={isModalOpen} setModalOpen={setIsModalOpen}></Claimdialog>
             </Box>
             <Box>
                 <MainCard contentSX={{ p: 2.75 }}>
