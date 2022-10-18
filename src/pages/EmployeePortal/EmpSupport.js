@@ -4,6 +4,8 @@ import MainCard from 'components/MainCard';
 import SendIcon from '@mui/icons-material/Send';
 import DefaultFAQ from 'components/DefaultFAQ';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import PendingAns from 'components/Company/PendingAns';
+import AnsFAQ from 'components/Company/AnsFAQ';
 
 function EmpSupport() {
     const isDesktop = useMediaQuery('(min-width:600px)');
@@ -83,6 +85,31 @@ function EmpSupport() {
                             <DefaultFAQ
                                 qn="Information for Press and Media"
                                 ans="Yes, sure. You can change the default currency (Swiss Francs/CHF) to any other currency by scrolling down to the bottom of each page or change it here (please note that the currency will switch back to Swiss Francs/CHF in the checkout due to billing reasons."
+                            />
+                        </Stack>
+                    </MainCard>
+                </Grid>
+                <Grid item md={6} sx={12}>
+                    <MainCard>
+                        <Typography variant="h5">Pending to reply</Typography>
+                        <Stack direction="column" spacing={2} sx={{ mt: 2 }}>
+                            <PendingAns
+                                title="What does LOREM mean?"
+                                time="3 min ago"
+                                qn="‘Lorem ipsum dolor sit amet, consectetur adipisici elit…’ "
+                            />
+                        </Stack>
+                    </MainCard>
+                </Grid>
+                <Grid item md={6} sx={12}>
+                    <MainCard>
+                        <Typography variant="h5">answered</Typography>
+                        <Stack direction="column" spacing={2} sx={{ mt: 2 }}>
+                            <AnsFAQ
+                                title="What does LOREM mean?"
+                                time="10 day ago"
+                                qn="‘Lorem ipsum dolor sit amet, consectetur adipisici elit…’ "
+                                ans="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
                             />
                         </Stack>
                     </MainCard>
