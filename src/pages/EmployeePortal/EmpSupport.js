@@ -28,24 +28,44 @@ function EmpSupport() {
             <Grid container rowSpacing={3} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
                 <Grid item xs={12} md={12}>
                     <MainCard>
-                        <Stack sx={{ width: '{isDesktop ? 50% : 100%}', margin: 'auto', mb: 5 }}>
-                            <Stack direction="row" justifyContent="space-between" spacing={2} sx={{ mt: 2 }}>
-                                <TextField fullWidth placeholder="Type your quotation here..." />
+                        <Stack
+                            direction={isDesktop ? 'row' : 'column'}
+                            justifyContent="space-between"
+                            spacing={2}
+                            sx={{ margin: 'auto', mb: 5 }}
+                        >
+                            {isDesktop ? (
+                                <TextField sx={{ width: '45%' }} placeholder="Title" />
+                            ) : (
+                                <TextField fullWidth placeholder="Title" />
+                            )}
+                            {isDesktop ? (
+                                <TextField sx={{ width: '45%' }} placeholder="Description" />
+                            ) : (
+                                <TextField fullWidth placeholder="Description" />
+                            )}
+                            {isDesktop ? (
                                 <Button variant="contained" endIcon={<SendIcon />} onClick={handleClick}>
                                     Send
                                 </Button>
-                                <Snackbar
-                                    open={open}
-                                    autoHideDuration={6000}
-                                    onClose={handleClose}
-                                    anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-                                >
-                                    <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
-                                        Quotation Send successfully !
-                                    </Alert>
-                                </Snackbar>
-                            </Stack>
+                            ) : (
+                                <Button fullWidth variant="contained" endIcon={<SendIcon />} onClick={handleClick}>
+                                    Send
+                                </Button>
+                            )}
+
+                            <Snackbar
+                                open={open}
+                                autoHideDuration={6000}
+                                onClose={handleClose}
+                                anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+                            >
+                                <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+                                    Quotation Send successfully !
+                                </Alert>
+                            </Snackbar>
                         </Stack>
+
                         <Typography variant="h5">FAQ</Typography>
                         <Stack direction="column" spacing={2} sx={{ mt: 2 }}>
                             <DefaultFAQ

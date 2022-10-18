@@ -492,7 +492,7 @@ function Companies() {
                 <Grid item xs={12} sm={12} md={3} lg={3}>
                     <MainCard content>
                         <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 2 }}>
-                            <Typography variant="h4">Company Name </Typography>
+                            <Typography variant="h4">Reliance Industries Ltd. </Typography>
                             <Button component={Link} to="/companies/details" variant="text" sx={{ marginRight: '-1rem' }}>
                                 <VerticalLeftOutlined style={{ fontSize: '25px', color: '#08c' }} />
                             </Button>
@@ -501,13 +501,43 @@ function Companies() {
                             <Box sx={{ display: 'flex', gap: '0.5rem' }}>
                                 <PhoneOutlined style={{ fontSize: '16px', color: '#ddd' }} />
                                 <Typography variant="caption" sx={{ color: '#919191' }}>
-                                    +91 97123 00000
+                                    +91 9898523298
                                 </Typography>
                             </Box>
                             <Box sx={{ display: 'flex', gap: '0.5rem' }}>
                                 <MessageOutlined style={{ fontSize: '16px', color: '#ddd' }} />
                                 <Typography variant="caption" sx={{ color: '#919191' }}>
-                                    hr@digiqt.com
+                                    reliance@outlook.com
+                                </Typography>
+                            </Box>
+                            <Box sx={{ display: 'flex', gap: '0.5rem' }}>
+                                <GlobalOutlined style={{ fontSize: '16px', color: '#ddd' }} />
+                                <Typography variant="caption">
+                                    <Link style={{ color: '#919191', textDecoration: 'none' }}>www.ril.com</Link>
+                                </Typography>
+                            </Box>
+                        </Stack>
+                    </MainCard>
+                </Grid>
+                <Grid item xs={12} sm={12} md={3} lg={3}>
+                    <MainCard content>
+                        <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 2 }}>
+                            <Typography variant="h4"> Infosys </Typography>
+                            <Button component={Link} to="/companies/details" variant="text" sx={{ marginRight: '-1rem' }}>
+                                <VerticalLeftOutlined style={{ fontSize: '25px', color: '#08c' }} />
+                            </Button>
+                        </Stack>
+                        <Stack direction="column" spacing={1}>
+                            <Box sx={{ display: 'flex', gap: '0.5rem' }}>
+                                <PhoneOutlined style={{ fontSize: '16px', color: '#ddd' }} />
+                                <Typography variant="caption" sx={{ color: '#919191' }}>
+                                    +91 8785455663
+                                </Typography>
+                            </Box>
+                            <Box sx={{ display: 'flex', gap: '0.5rem' }}>
+                                <MessageOutlined style={{ fontSize: '16px', color: '#ddd' }} />
+                                <Typography variant="caption" sx={{ color: '#919191' }}>
+                                    Infosys@gmail.com
                                 </Typography>
                             </Box>
                             <Box sx={{ display: 'flex', gap: '0.5rem' }}>
@@ -522,7 +552,7 @@ function Companies() {
                 <Grid item xs={12} sm={12} md={3} lg={3}>
                     <MainCard content>
                         <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 2 }}>
-                            <Typography variant="h4">Company Name </Typography>
+                            <Typography variant="h4">Geojit Financial Services </Typography>
                             <Button component={Link} to="/companies/details" variant="text" sx={{ marginRight: '-1rem' }}>
                                 <VerticalLeftOutlined style={{ fontSize: '25px', color: '#08c' }} />
                             </Button>
@@ -531,19 +561,19 @@ function Companies() {
                             <Box sx={{ display: 'flex', gap: '0.5rem' }}>
                                 <PhoneOutlined style={{ fontSize: '16px', color: '#ddd' }} />
                                 <Typography variant="caption" sx={{ color: '#919191' }}>
-                                    +91 97123 00000
+                                    +91 9875456321
                                 </Typography>
                             </Box>
                             <Box sx={{ display: 'flex', gap: '0.5rem' }}>
                                 <MessageOutlined style={{ fontSize: '16px', color: '#ddd' }} />
                                 <Typography variant="caption" sx={{ color: '#919191' }}>
-                                    hr@digiqt.com
+                                    geojit@yahoo.com
                                 </Typography>
                             </Box>
                             <Box sx={{ display: 'flex', gap: '0.5rem' }}>
                                 <GlobalOutlined style={{ fontSize: '16px', color: '#ddd' }} />
                                 <Typography variant="caption">
-                                    <Link style={{ color: '#919191', textDecoration: 'none' }}>www.digiqt.com</Link>
+                                    <Link style={{ color: '#919191', textDecoration: 'none' }}>www.geojit.com</Link>
                                 </Typography>
                             </Box>
                         </Stack>
@@ -552,7 +582,7 @@ function Companies() {
                 <Grid item xs={12} sm={12} md={3} lg={3}>
                     <MainCard content>
                         <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 2 }}>
-                            <Typography variant="h4">Company Name </Typography>
+                            <Typography variant="h4">Indian Express Limited</Typography>
                             <Button component={Link} to="/companies/details" variant="text" sx={{ marginRight: '-1rem' }}>
                                 <VerticalLeftOutlined style={{ fontSize: '25px', color: '#08c' }} />
                             </Button>
@@ -561,19 +591,19 @@ function Companies() {
                             <Box sx={{ display: 'flex', gap: '0.5rem' }}>
                                 <PhoneOutlined style={{ fontSize: '16px', color: '#ddd' }} />
                                 <Typography variant="caption" sx={{ color: '#919191' }}>
-                                    +91 97123 00000
+                                    +91 9745652365
                                 </Typography>
                             </Box>
                             <Box sx={{ display: 'flex', gap: '0.5rem' }}>
                                 <MessageOutlined style={{ fontSize: '16px', color: '#ddd' }} />
                                 <Typography variant="caption" sx={{ color: '#919191' }}>
-                                    hr@digiqt.com
+                                    indianexpress@outlook.com
                                 </Typography>
                             </Box>
                             <Box sx={{ display: 'flex', gap: '0.5rem' }}>
                                 <GlobalOutlined style={{ fontSize: '16px', color: '#ddd' }} />
                                 <Typography variant="caption">
-                                    <Link style={{ color: '#919191', textDecoration: 'none' }}>www.digiqt.com</Link>
+                                    <Link style={{ color: '#919191', textDecoration: 'none' }}>www.indianexpress.com</Link>
                                 </Typography>
                             </Box>
                         </Stack>
@@ -582,7 +612,7 @@ function Companies() {
                 <Grid item xs={12} sm={12} md={3} lg={3}>
                     <MainCard content>
                         <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 2 }}>
-                            <Typography variant="h4">Company Name </Typography>
+                            <Typography variant="h4">Wartsila India Ltd </Typography>
                             <Button component={Link} to="/companies/details" variant="text" sx={{ marginRight: '-1rem' }}>
                                 <VerticalLeftOutlined style={{ fontSize: '25px', color: '#08c' }} />
                             </Button>
@@ -591,19 +621,19 @@ function Companies() {
                             <Box sx={{ display: 'flex', gap: '0.5rem' }}>
                                 <PhoneOutlined style={{ fontSize: '16px', color: '#ddd' }} />
                                 <Typography variant="caption" sx={{ color: '#919191' }}>
-                                    +91 97123 00000
+                                    +918545632124
                                 </Typography>
                             </Box>
                             <Box sx={{ display: 'flex', gap: '0.5rem' }}>
                                 <MessageOutlined style={{ fontSize: '16px', color: '#ddd' }} />
                                 <Typography variant="caption" sx={{ color: '#919191' }}>
-                                    hr@digiqt.com
+                                    wartsila@gmail.com
                                 </Typography>
                             </Box>
                             <Box sx={{ display: 'flex', gap: '0.5rem' }}>
                                 <GlobalOutlined style={{ fontSize: '16px', color: '#ddd' }} />
                                 <Typography variant="caption">
-                                    <Link style={{ color: '#919191', textDecoration: 'none' }}>www.digiqt.com</Link>
+                                    <Link style={{ color: '#919191', textDecoration: 'none' }}>www.wartsila.com</Link>
                                 </Typography>
                             </Box>
                         </Stack>
@@ -612,7 +642,7 @@ function Companies() {
                 <Grid item xs={12} sm={12} md={3} lg={3}>
                     <MainCard content>
                         <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 2 }}>
-                            <Typography variant="h4">Company Name </Typography>
+                            <Typography variant="h4">Bharat Biotech </Typography>
                             <Button component={Link} to="/companies/details" variant="text" sx={{ marginRight: '-1rem' }}>
                                 <VerticalLeftOutlined style={{ fontSize: '25px', color: '#08c' }} />
                             </Button>
@@ -621,49 +651,19 @@ function Companies() {
                             <Box sx={{ display: 'flex', gap: '0.5rem' }}>
                                 <PhoneOutlined style={{ fontSize: '16px', color: '#ddd' }} />
                                 <Typography variant="caption" sx={{ color: '#919191' }}>
-                                    +91 97123 00000
+                                    +91 7854213696
                                 </Typography>
                             </Box>
                             <Box sx={{ display: 'flex', gap: '0.5rem' }}>
                                 <MessageOutlined style={{ fontSize: '16px', color: '#ddd' }} />
                                 <Typography variant="caption" sx={{ color: '#919191' }}>
-                                    hr@digiqt.com
+                                    bharatbiotesh@outlook.com
                                 </Typography>
                             </Box>
                             <Box sx={{ display: 'flex', gap: '0.5rem' }}>
                                 <GlobalOutlined style={{ fontSize: '16px', color: '#ddd' }} />
                                 <Typography variant="caption">
-                                    <Link style={{ color: '#919191', textDecoration: 'none' }}>www.digiqt.com</Link>
-                                </Typography>
-                            </Box>
-                        </Stack>
-                    </MainCard>
-                </Grid>
-                <Grid item xs={12} sm={12} md={3} lg={3}>
-                    <MainCard content>
-                        <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 2 }}>
-                            <Typography variant="h4">Company Name </Typography>
-                            <Button component={Link} to="/companies/details" variant="text" sx={{ marginRight: '-1rem' }}>
-                                <VerticalLeftOutlined style={{ fontSize: '25px', color: '#08c' }} />
-                            </Button>
-                        </Stack>
-                        <Stack direction="column" spacing={1}>
-                            <Box sx={{ display: 'flex', gap: '0.5rem' }}>
-                                <PhoneOutlined style={{ fontSize: '16px', color: '#ddd' }} />
-                                <Typography variant="caption" sx={{ color: '#919191' }}>
-                                    +91 97123 00000
-                                </Typography>
-                            </Box>
-                            <Box sx={{ display: 'flex', gap: '0.5rem' }}>
-                                <MessageOutlined style={{ fontSize: '16px', color: '#ddd' }} />
-                                <Typography variant="caption" sx={{ color: '#919191' }}>
-                                    hr@digiqt.com
-                                </Typography>
-                            </Box>
-                            <Box sx={{ display: 'flex', gap: '0.5rem' }}>
-                                <GlobalOutlined style={{ fontSize: '16px', color: '#ddd' }} />
-                                <Typography variant="caption">
-                                    <Link style={{ color: '#919191', textDecoration: 'none' }}>www.digiqt.com</Link>
+                                    <Link style={{ color: '#919191', textDecoration: 'none' }}>www.bharatbiotech.com</Link>
                                 </Typography>
                             </Box>
                         </Stack>
