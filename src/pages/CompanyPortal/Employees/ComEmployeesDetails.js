@@ -14,18 +14,12 @@ import EmpClaims from './EmpClaims';
 // import Overview from './Overview';
 // import Employees from './Employees';
 // import Claims from './Claims';
-import Claimdialog from 'pages/Claims/Claimsdialog';
 
 function ComEmployeesDetails() {
     const [value, setValue] = React.useState('1');
-    const [isModalOpen, setIsModalOpen] = useState(false);
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
-    };
-
-    const handleClickOpen = () => {
-        setIsModalOpen(true);
     };
 
     return (
@@ -37,10 +31,6 @@ function ComEmployeesDetails() {
                     </Link>
                     <Typography color="text.primary">Employees</Typography>
                 </Breadcrumbs>
-                <Button variant="outlined" startIcon={<PlusOutlined />} onClick={() => handleClickOpen()}>
-                    Add Claims
-                </Button>
-                <Claimdialog modalOpen={isModalOpen} setModalOpen={setIsModalOpen}></Claimdialog>
             </Box>
             <Box>
                 <MainCard contentSX={{ p: 2.75 }}>
