@@ -33,6 +33,7 @@ import Dot from 'components/@extended/Dot';
 import ClaimsFilter from 'components/ClaimsFilter';
 import MainCard from 'components/MainCard';
 import Claimdialog from 'pages/Claims/Claimsdialog';
+import { Link } from 'react-router-dom';
 function TablePaginationActions(props) {
     const theme = useTheme();
     const { count, page, rowsPerPage, onPageChange } = props;
@@ -395,7 +396,11 @@ export default function Allclaims() {
                                     <TableCell component="th" scope="row" align="center">
                                         {row.climeNo}
                                     </TableCell>
-                                    <TableCell align="center">{row.name}</TableCell>
+                                    <TableCell align="center" to="/broker-portal">
+                                        <Link to="/broker-portal/claims/claim-detail" style={{ color: '#262626', textDecoration: 'none' }}>
+                                            {row.name}
+                                        </Link>
+                                    </TableCell>
                                     <TableCell align="center">{row.healthid}</TableCell>
                                     <TableCell align="center">{row.comname}</TableCell>
                                     <TableCell align="center">{row.Climeamount}</TableCell>

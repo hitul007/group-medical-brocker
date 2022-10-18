@@ -29,6 +29,7 @@ import { SearchOutlined } from '@ant-design/icons';
 import Dot from 'components/@extended/Dot';
 import ClaimsFilter from 'components/ClaimsFilter';
 import MainCard from 'components/MainCard';
+import { Link } from 'react-router-dom';
 function TablePaginationActions(props) {
     const theme = useTheme();
     const { count, page, rowsPerPage, onPageChange } = props;
@@ -206,7 +207,11 @@ export default function Claims() {
                                     <TableCell component="th" scope="row" align="center">
                                         {row.climeNo}
                                     </TableCell>
-                                    <TableCell align="center">{row.name}</TableCell>
+                                    <TableCell align="center">
+                                        <Link to="/broker-portal/claims/claim-detail" style={{ color: '#262626', textDecoration: 'none' }}>
+                                            {row.name}
+                                        </Link>
+                                    </TableCell>
                                     <TableCell align="center">{row.healthid}</TableCell>
                                     <TableCell align="center">{row.Climeamount}</TableCell>
                                     <TableCell align="center">{row.hosName}</TableCell>
