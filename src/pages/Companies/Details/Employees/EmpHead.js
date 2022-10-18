@@ -64,8 +64,8 @@ function EmpHead() {
                         </Box>
                     </Box>
                 </Stack>
-                <Box className="d-flex">
-                    <Box className="d-none d-lg-block">
+                <Box className="d-flex " sx={{ gap: '2rem' }}>
+                    <Box className="d-none d-lg-block ">
                         <Button variant="contained" startIcon={<PlusOutlined />} onClick={() => handleClickOpen()}>
                             {isDesktop ? 'Add Claim' : 'Add'}
                         </Button>

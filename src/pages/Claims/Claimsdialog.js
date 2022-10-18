@@ -287,7 +287,7 @@ const Claimdialog = ({ modalOpen, setModalOpen }) => {
                                                             <FormLabel required id="demo-radio-buttons-group-label">
                                                                 Full Name
                                                             </FormLabel>
-                                                            <TextField disabled />
+                                                            <TextField value="Rajvee Joshi" disabled />
                                                         </Stack>
                                                     </Grid>
                                                     <Grid item xs={12} md={6}>
@@ -302,6 +302,7 @@ const Claimdialog = ({ modalOpen, setModalOpen }) => {
                                                                     )
                                                                 }}
                                                                 variant="outlined"
+                                                                value="10,000"
                                                                 disabled
                                                             />
                                                         </Stack>
@@ -310,7 +311,7 @@ const Claimdialog = ({ modalOpen, setModalOpen }) => {
                                                     <Grid item xs={12} md={6}>
                                                         <Stack>
                                                             <FormLabel id="demo-radio-buttons-group-label">Hospital Name</FormLabel>
-                                                            <TextField disabled />
+                                                            <TextField value="Civil Hospital" disabled />
                                                         </Stack>
                                                     </Grid>
                                                     <Grid item xs={12} md={6}>
@@ -318,7 +319,7 @@ const Claimdialog = ({ modalOpen, setModalOpen }) => {
                                                             <FormLabel required id="demo-radio-buttons-group-label">
                                                                 Insurance ID
                                                             </FormLabel>
-                                                            <TextField disabled />
+                                                            <TextField value="9821398654" disabled />
                                                         </Stack>
                                                     </Grid>
 
@@ -344,7 +345,7 @@ const Claimdialog = ({ modalOpen, setModalOpen }) => {
                                                     <Grid item xs={12} md={6}>
                                                         <Stack>
                                                             <FormLabel id="demo-radio-buttons-group-label">Hospitalization Date</FormLabel>
-                                                            <TextField disabled />
+                                                            <TextField value="10/10/2021" disabled />
                                                         </Stack>
                                                     </Grid>
                                                     <Grid item xs={12} md={12}>
@@ -352,7 +353,12 @@ const Claimdialog = ({ modalOpen, setModalOpen }) => {
                                                             <FormLabel required id="demo-radio-buttons-group-label">
                                                                 Claims Details
                                                             </FormLabel>
-                                                            <TextField disabled multiline rows={4} />
+                                                            <TextField
+                                                                value="The insurance company validates the claim (or denies the claim). I"
+                                                                disabled
+                                                                multiline
+                                                                rows={4}
+                                                            />
                                                         </Stack>
                                                     </Grid>
                                                     <Grid item xs={12} md={12}>
