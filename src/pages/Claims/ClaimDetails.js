@@ -149,7 +149,7 @@ function ClaimDetails() {
                             </IconButton>
                         </Stack>
                     </Stack>
-                    <Grid container rowSpacing={{ md: 3 }} columnSpacing={{ xs: 1, sm: 2, md: 5 }}>
+                    <Grid container rowSpacing={{ md: 3, xs: 2 }} columnSpacing={{ xs: 3, sm: 2, md: 5 }}>
                         <Grid item xs={6} md={6}>
                             <Stack direction="row" justifyContent="flex-start" alignItems="center" spacing={2} sx={{ height: '100%' }}>
                                 <Typography variant="h5">Claim No. - 9</Typography>
