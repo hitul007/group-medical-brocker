@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import {
     Avatar,
     Box,
@@ -22,7 +22,9 @@ import {
     RadioGroup,
     Radio,
     FormLabel,
-    Grid
+    Grid,
+    Snackbar,
+    Alert
 } from '@mui/material';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
@@ -30,6 +32,8 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { PlusOutlined, DeleteOutlined, EditOutlined, EllipsisOutlined, TeamOutlined, CloseOutlined } from '@ant-design/icons';
 import DialogActions from '@mui/material/DialogActions';
 import useMediaQuery from '@mui/material/useMediaQuery';
+
+import Claimdialog from 'pages/Claims/Claimsdialog';
 function Head() {
     const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -55,6 +59,24 @@ function Head() {
     const open = Boolean(anchorEl);
     const id = open ? 'simple-popover' : undefined;
     const isDesktop = useMediaQuery('(min-width:600px)');
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const handleClickOpen = () => {
+        setIsModalOpen(true);
+    };
+
+    const [snack, setsnack] = React.useState(false);
+
+    const handleSnackClick = () => {
+        setsnack(true);
+    };
+
+    const handleSnackClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+
+        setsnack(false);
+    };
     return (
         <>
             <Stack direction="row" justifyContent="space-between">
@@ -91,9 +113,13 @@ function Head() {
 
                 <Stack direction="row" spacing={1}>
                     <Box className="d-none d-lg-block">
-                        <Button variant="contained" startIcon={<PlusOutlined />} sx={{ mr: 2 }} onClick={NotaskClickOpen}>
+                        <Button variant="outlined" startIcon={<PlusOutlined />} sx={{ mr: 2 }} onClick={NotaskClickOpen}>
                             Employee
                         </Button>
+                        <Button variant="contained" startIcon={<PlusOutlined />} onClick={() => handleClickOpen()}>
+                            Add Claims
+                        </Button>
+                        <Claimdialog modalOpen={isModalOpen} setModalOpen={setIsModalOpen}></Claimdialog>
                     </Box>
 
                     <IconButton aria-label="delete" onClick={handleClick} sx={{ transform: 'rotate(90deg)' }}>
@@ -217,9 +243,19 @@ function Head() {
                                     alignItems: 'end'
                                 }}
                             >
-                                <Button color="primary" variant="contained" size="large">
+                                <Button color="primary" variant="contained" size="large" onClick={handleSnackClick}>
                                     Create
                                 </Button>
+                                <Snackbar
+                                    open={snack}
+                                    autoHideDuration={6000}
+                                    onClose={handleSnackClose}
+                                    anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+                                >
+                                    <Alert onClose={handleSnackClose} severity="success" sx={{ width: '100%' }}>
+                                        Employee create successfully !
+                                    </Alert>
+                                </Snackbar>
                             </Box>
                         </DialogActions>
                     </Dialog>
@@ -260,10 +296,14 @@ function Head() {
                     </Popover>
                 </Stack>
             </Stack>
-            <Box className="d-block d-lg-none pt-2">
-                <Button fullWidth variant="contained" startIcon={<PlusOutlined />} sx={{ mr: 2 }} onClick={NotaskClickOpen}>
+            <Box className="d-block d-lg-none pt-2 d-flex gap-2 ">
+                <Button fullWidth variant="outlined" startIcon={<PlusOutlined />} sx={{ mr: 2 }} onClick={NotaskClickOpen}>
                     Employee
                 </Button>
+                <Button fullWidth variant="contained" startIcon={<PlusOutlined />} onClick={() => handleClickOpen()}>
+                    Add Claims
+                </Button>
+                <Claimdialog modalOpen={isModalOpen} setModalOpen={setIsModalOpen}></Claimdialog>
             </Box>
         </>
     );

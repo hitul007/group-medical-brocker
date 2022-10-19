@@ -5,8 +5,6 @@ import { Box, Breadcrumbs, Button, Tab, Typography } from '@mui/material';
 import MainCard from 'components/MainCard';
 import React, { useState } from 'react';
 
-import { PlusOutlined } from '@ant-design/icons';
-import Claimdialog from 'pages/Claims/Claimsdialog';
 import { Link } from 'react-router-dom';
 import Claims from './Claims';
 import Employees from './Employees';
@@ -33,10 +31,6 @@ function Details() {
                     </Link>
                     <Typography color="text.primary">Digiqt Technolabs</Typography>
                 </Breadcrumbs>
-                <Button variant="outlined" startIcon={<PlusOutlined />} onClick={() => handleClickOpen()}>
-                    Add Claims
-                </Button>
-                <Claimdialog modalOpen={isModalOpen} setModalOpen={setIsModalOpen}></Claimdialog>
             </Box>
             <Box>
                 <MainCard contentSX={{ p: 2.75 }}>

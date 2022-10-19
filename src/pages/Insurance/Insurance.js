@@ -47,7 +47,7 @@ function Insurance() {
                 <Grid item xs={12} sm={12} md={4} lg={4}>
                     <MainCard content sx={{ height: '260px' }}>
                         <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 2 }}>
-                            <Typography variant="h3">Health Insurance Policy Online</Typography>
+                            <Typography variant="h3">Life Insurance Corporation of India</Typography>
                             <Button
                                 component="a"
                                 href="https://www.google.com/"
@@ -94,7 +94,7 @@ function Insurance() {
                 <Grid item xs={12} sm={12} md={4} lg={4}>
                     <MainCard content sx={{ height: '260px' }}>
                         <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 2 }}>
-                            <Typography variant="h3">Super Top-up Health Insurance</Typography>
+                            <Typography variant="h3">Aditya Birla Sun Life Insurance Co. Ltd.</Typography>
                             <Button
                                 component="a"
                                 href="https://www.google.com/"
@@ -141,7 +141,7 @@ function Insurance() {
                 <Grid item xs={12} sm={12} md={4} lg={4}>
                     <MainCard content sx={{ height: '260px' }}>
                         <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 2 }}>
-                            <Typography variant="h3">Arogya Sanjeevani Health Insurance</Typography>
+                            <Typography variant="h3">Kotak Mahindra Life Insurance Co. Ltd.</Typography>
                             <Button
                                 component="a"
                                 href="https://www.google.com/"
@@ -188,7 +188,7 @@ function Insurance() {
                 <Grid item xs={12} sm={12} md={4} lg={4}>
                     <MainCard content sx={{ height: '260px' }}>
                         <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 2 }}>
-                            <Typography variant="h3">MY:HEALTH SURAKSHA</Typography>
+                            <Typography variant="h3">Bajaj Allianz Life Insurance Co. Ltd.</Typography>
                             <Button
                                 component="a"
                                 href="https://www.google.com/"
@@ -226,7 +226,7 @@ function Insurance() {
                 <Grid item xs={12} sm={12} md={4} lg={4}>
                     <MainCard content sx={{ height: '260px' }}>
                         <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 2 }}>
-                            <Typography variant="h3">OPTIMA SECURE</Typography>
+                            <Typography variant="h3">Star Health and Allied Insurance</Typography>
                             <Button
                                 component="a"
                                 href="https://www.google.com/"

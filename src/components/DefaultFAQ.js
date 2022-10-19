@@ -5,7 +5,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 export default function DefaultFAQ(props) {
     return (
         <div>
-            <Accordion sx={{ backgroundColor: '#fafafb', boxShadow: 'none' }}>
+            <Accordion sx={{ backgroundColor: '#f3f3f3', boxShadow: 'none' }}>
                 <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1a-content" id="panel1a-header">
                     <Typography>{props.qn}</Typography>
                 </AccordionSummary>

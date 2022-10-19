@@ -45,7 +45,48 @@ function ComInsurance() {
                 <Grid item xs={12} sm={12} md={4} lg={4}>
                     <MainCard content sx={{ height: '260px' }}>
                         <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 2 }}>
-                            <Typography variant="h3">Health Insurance Policy Online</Typography>
+                            <Typography variant="h3">Life Insurance Corporation of India</Typography>
+                            <Button
+                                component="a"
+                                href="https://www.google.com/"
+                                target="_blank"
+                                variant="text"
+                                sx={{ marginRight: '-1rem' }}
+                            >
+                                <VerticalLeftOutlined style={{ fontSize: '25px', color: '#08c' }} />
+                            </Button>
+                        </Stack>
+
+                        <Box
+                            sx={{
+                                ul: {
+                                    px: 2,
+                                    py: 0,
+                                    color: '#919191'
+                                }
+                            }}
+                        >
+                            <ul>
+                                <li>
+                                    <Typography>Secure Benefit</Typography>
+                                </li>
+                                <li>
+                                    <Typography>Plus Benefit </Typography>
+                                </li>
+                                <li>
+                                    <Typography>Restore Benefit</Typography>
+                                </li>
+                                <li>
+                                    <Typography>Protect Benefit</Typography>
+                                </li>
+                            </ul>
+                        </Box>
+                    </MainCard>
+                </Grid>
+                <Grid item xs={12} sm={12} md={4} lg={4}>
+                    <MainCard content sx={{ height: '260px' }}>
+                        <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 2 }}>
+                            <Typography variant="h3">Aditya Birla Sun Life Insurance Co. Ltd.</Typography>
                             <Button
                                 component="a"
                                 href="https://www.google.com/"
@@ -92,7 +133,7 @@ function ComInsurance() {
                 <Grid item xs={12} sm={12} md={4} lg={4}>
                     <MainCard content sx={{ height: '260px' }}>
                         <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 2 }}>
-                            <Typography variant="h3">Super Top-up Health Insurance</Typography>
+                            <Typography variant="h3">Kotak Mahindra Life Insurance Co. Ltd.</Typography>
                             <Button
                                 component="a"
                                 href="https://www.google.com/"
@@ -139,7 +180,7 @@ function ComInsurance() {
                 <Grid item xs={12} sm={12} md={4} lg={4}>
                     <MainCard content sx={{ height: '260px' }}>
                         <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 2 }}>
-                            <Typography variant="h3">Arogya Sanjeevani Health Insurance</Typography>
+                            <Typography variant="h3">Bajaj Allianz Life Insurance Co. Ltd.</Typography>
                             <Button
                                 component="a"
                                 href="https://www.google.com/"
@@ -186,7 +227,7 @@ function ComInsurance() {
                 <Grid item xs={12} sm={12} md={4} lg={4}>
                     <MainCard content sx={{ height: '260px' }}>
                         <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 2 }}>
-                            <Typography variant="h3">MY:HEALTH SURAKSHA</Typography>
+                            <Typography variant="h3">Star Health and Allied Insurance</Typography>
                             <Button
                                 component="a"
                                 href="https://www.google.com/"
@@ -216,47 +257,6 @@ function ComInsurance() {
                                 </li>
                                 <li>
                                     <Typography>Cumulative Bonus</Typography>
-                                </li>
-                            </ul>
-                        </Box>
-                    </MainCard>
-                </Grid>
-                <Grid item xs={12} sm={12} md={4} lg={4}>
-                    <MainCard content sx={{ height: '260px' }}>
-                        <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 2 }}>
-                            <Typography variant="h3">OPTIMA SECURE</Typography>
-                            <Button
-                                component="a"
-                                href="https://www.google.com/"
-                                target="_blank"
-                                variant="text"
-                                sx={{ marginRight: '-1rem' }}
-                            >
-                                <VerticalLeftOutlined style={{ fontSize: '25px', color: '#08c' }} />
-                            </Button>
-                        </Stack>
-
-                        <Box
-                            sx={{
-                                ul: {
-                                    px: 2,
-                                    py: 0,
-                                    color: '#919191'
-                                }
-                            }}
-                        >
-                            <ul>
-                                <li>
-                                    <Typography>Secure Benefit</Typography>
-                                </li>
-                                <li>
-                                    <Typography>Plus Benefit </Typography>
-                                </li>
-                                <li>
-                                    <Typography>Restore Benefit</Typography>
-                                </li>
-                                <li>
-                                    <Typography>Protect Benefit</Typography>
                                 </li>
                             </ul>
                         </Box>

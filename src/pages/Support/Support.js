@@ -19,9 +19,24 @@ function Support() {
                     <MainCard>
                         <Typography variant="h5">Pending to revert</Typography>
                         <Stack direction="column" spacing={2} sx={{ mt: 2 }}>
-                            <FAQAccordion qn="Why do the prices in the shop sometimes change?" />
-                            <FAQAccordion qn="Do you accept orders via Phone or E-mail?" />
-                            <FAQAccordion qn="Are you on Twitter, Facebook and other social media platforms?" />
+                            <FAQAccordion
+                                profile="https://i.pravatar.cc/100?img=68"
+                                name="Gregory K. Easley"
+                                time="5 min ago"
+                                qn="Why do the prices in the shop sometimes change?"
+                            />
+                            <FAQAccordion
+                                profile="https://i.pravatar.cc/100?img=60"
+                                name="Willard D. Simmons"
+                                time="Yesterday"
+                                qn="Do you accept orders via Phone or E-mail?"
+                            />
+                            <FAQAccordion
+                                profile="https://i.pravatar.cc/100?img=64"
+                                name="David Stafford"
+                                time="02-05-2021"
+                                qn="Are you on Twitter, Facebook and other social media platforms?"
+                            />
                         </Stack>
                     </MainCard>
                 </Grid>
@@ -30,10 +45,16 @@ function Support() {
                         <Typography variant="h5">answered</Typography>
                         <Stack direction="column" spacing={2} sx={{ mt: 2 }}>
                             <AnsAccordion
+                                profile="https://i.pravatar.cc/100?img=59"
+                                name="Joseph A."
+                                time="Yesterday"
                                 qn="What does LOREM mean?"
                                 ans="‘Lorem ipsum dolor sit amet, consectetur adipisici elit…’ (complete text) is dummy text that is not meant to mean anything. It is used as a placeholder in magazine layouts, for example, in order to give an impression of the finished document. The text is intentionally unintelligible so that the viewer is not distracted by the content. "
                             />
                             <AnsAccordion
+                                profile="https://i.pravatar.cc/100?img=43"
+                                name="Constance Connor"
+                                time="3 week ago"
                                 qn="Where can in edit my address?"
                                 ans="The language is not real Latin and even the first word ‘Lorem’ does not exist. It is said that the lorem ipsum text has been common among typesetters since the 16th century. "
                             />

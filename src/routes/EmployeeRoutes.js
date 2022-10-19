@@ -2,6 +2,7 @@
 import EmployeeLayout from 'layout/EmployeeLayout';
 import EmpHospitals from 'pages/EmployeePortal/EmpHospitals';
 import EmpInsurance from 'pages/EmployeePortal/EmpInsurance';
+import EmpClaimDetails from 'pages/EmployeePortal/Employees/EmpClaimDetails';
 import EmployeesDetails from 'pages/EmployeePortal/Employees/EmployeesDetails';
 import EmpSupport from 'pages/EmployeePortal/EmpSupport';
 
@@ -26,6 +27,10 @@ const EmployeeRoutes = {
         {
             path: 'support',
             element: <EmpSupport />
+        },
+        {
+            path: 'claim-detail',
+            element: <EmpClaimDetails />
         }
     ]
 };

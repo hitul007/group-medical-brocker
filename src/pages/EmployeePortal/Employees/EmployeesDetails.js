@@ -6,14 +6,11 @@ import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 
-import { PlusOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 import EmpHead from './EmpHead';
 import Information from './Information';
 import EmpClaims from './EmpClaims';
 import useMediaQuery from '@mui/material/useMediaQuery';
-
-import Claimdialog from 'pages/Claims/Claimsdialog';
 
 function EmployeesDetails() {
     const [value, setValue] = React.useState('1');
@@ -30,17 +27,6 @@ function EmployeesDetails() {
 
     return (
         <>
-            <Box sx={{ display: 'flex', justifyContent: 'end', mb: 2 }}>
-                <Button
-                    variant="contained"
-                    fullWidth={isDesktop ? '' : 'true'}
-                    startIcon={<PlusOutlined />}
-                    onClick={() => handleClickOpen()}
-                >
-                    Add Claims
-                </Button>
-                <Claimdialog modalOpen={isModalOpen} setModalOpen={setIsModalOpen}></Claimdialog>
-            </Box>
             <Box>
                 <MainCard contentSX={{ p: 2.75 }}>
                     <EmpHead />

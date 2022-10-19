@@ -157,11 +157,11 @@ const Claimdialog = ({ modalOpen, setModalOpen }) => {
                                     <img src={success} alt=" " />
                                     {isDesktop ? (
                                         <Typography variant="h2" sx={{ textAlign: 'center' }}>
-                                            Company Successfully Added.
+                                            Claim sended successfully
                                         </Typography>
                                     ) : (
                                         <Typography variant="h4" sx={{ textAlign: 'center' }}>
-                                            Company Successfully Added.
+                                            Claim sended successfully
                                         </Typography>
                                     )}
                                 </Box>
@@ -184,14 +184,10 @@ const Claimdialog = ({ modalOpen, setModalOpen }) => {
                                                     </Grid>
                                                     <Grid item xs={12} md={6}>
                                                         <Stack>
-                                                            <FormLabel id="demo-radio-buttons-group-label">Amount</FormLabel>
+                                                            <FormLabel id="demo-radio-buttons-group-label">Claim amount</FormLabel>
                                                             <TextField
                                                                 InputProps={{
-                                                                    startAdornment: (
-                                                                        <InputAdornment position="start">
-                                                                            <CurrencyRupeeIcon />
-                                                                        </InputAdornment>
-                                                                    )
+                                                                    startAdornment: <InputAdornment position="start">₹</InputAdornment>
                                                                 }}
                                                                 variant="outlined"
                                                             />
@@ -207,7 +203,7 @@ const Claimdialog = ({ modalOpen, setModalOpen }) => {
                                                     <Grid item xs={12} md={6}>
                                                         <Stack>
                                                             <FormLabel required id="demo-radio-buttons-group-label">
-                                                                Insurance ID
+                                                                Policy No.
                                                             </FormLabel>
                                                             <TextField />
                                                         </Stack>
@@ -215,7 +211,7 @@ const Claimdialog = ({ modalOpen, setModalOpen }) => {
 
                                                     <Grid item xs={12} md={6}>
                                                         <Stack>
-                                                            <FormLabel id="demo-radio-buttons-group-label">Gender</FormLabel>
+                                                            <FormLabel id="demo-radio-buttons-group-label">Claim Type</FormLabel>
                                                             <RadioGroup
                                                                 aria-labelledby="demo-radio-buttons-group-label"
                                                                 defaultValue="Male"
@@ -287,21 +283,18 @@ const Claimdialog = ({ modalOpen, setModalOpen }) => {
                                                             <FormLabel required id="demo-radio-buttons-group-label">
                                                                 Full Name
                                                             </FormLabel>
-                                                            <TextField disabled />
+                                                            <TextField value="Rajvee Joshi" disabled />
                                                         </Stack>
                                                     </Grid>
                                                     <Grid item xs={12} md={6}>
                                                         <Stack>
-                                                            <FormLabel id="demo-radio-buttons-group-label">Amount</FormLabel>
+                                                            <FormLabel id="demo-radio-buttons-group-label">Claim amount</FormLabel>
                                                             <TextField
                                                                 InputProps={{
-                                                                    startAdornment: (
-                                                                        <InputAdornment position="start">
-                                                                            <CurrencyRupeeIcon />
-                                                                        </InputAdornment>
-                                                                    )
+                                                                    startAdornment: <InputAdornment position="start">₹</InputAdornment>
                                                                 }}
                                                                 variant="outlined"
+                                                                value="10,000"
                                                                 disabled
                                                             />
                                                         </Stack>
@@ -310,21 +303,21 @@ const Claimdialog = ({ modalOpen, setModalOpen }) => {
                                                     <Grid item xs={12} md={6}>
                                                         <Stack>
                                                             <FormLabel id="demo-radio-buttons-group-label">Hospital Name</FormLabel>
-                                                            <TextField disabled />
+                                                            <TextField value="Civil Hospital" disabled />
                                                         </Stack>
                                                     </Grid>
                                                     <Grid item xs={12} md={6}>
                                                         <Stack>
                                                             <FormLabel required id="demo-radio-buttons-group-label">
-                                                                Insurance ID
+                                                                Policy No.
                                                             </FormLabel>
-                                                            <TextField disabled />
+                                                            <TextField value="9821398654" disabled />
                                                         </Stack>
                                                     </Grid>
 
                                                     <Grid item xs={12} md={6}>
                                                         <Stack>
-                                                            <FormLabel id="demo-radio-buttons-group-label">Gender</FormLabel>
+                                                            <FormLabel id="demo-radio-buttons-group-label">Claim Type</FormLabel>
                                                             <RadioGroup
                                                                 aria-labelledby="demo-radio-buttons-group-label"
                                                                 defaultValue="Male"
@@ -344,7 +337,7 @@ const Claimdialog = ({ modalOpen, setModalOpen }) => {
                                                     <Grid item xs={12} md={6}>
                                                         <Stack>
                                                             <FormLabel id="demo-radio-buttons-group-label">Hospitalization Date</FormLabel>
-                                                            <TextField disabled />
+                                                            <TextField value="10/10/2021" disabled />
                                                         </Stack>
                                                     </Grid>
                                                     <Grid item xs={12} md={12}>
@@ -352,7 +345,12 @@ const Claimdialog = ({ modalOpen, setModalOpen }) => {
                                                             <FormLabel required id="demo-radio-buttons-group-label">
                                                                 Claims Details
                                                             </FormLabel>
-                                                            <TextField disabled multiline rows={4} />
+                                                            <TextField
+                                                                value="The insurance company validates the claim (or denies the claim). I"
+                                                                disabled
+                                                                multiline
+                                                                rows={4}
+                                                            />
                                                         </Stack>
                                                     </Grid>
                                                     <Grid item xs={12} md={12}>

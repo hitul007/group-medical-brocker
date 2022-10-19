@@ -13,7 +13,9 @@ import {
     IconButton,
     Stack,
     TextField,
-    Typography
+    Typography,
+    Snackbar,
+    Alert
 } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
@@ -30,6 +32,20 @@ function AddFAQ() {
         setState((prevState) => ({ ...prevState, open: false }));
     };
     const isDesktop = useMediaQuery('(min-width:600px)');
+
+    const [open, setOpen] = React.useState(false);
+
+    const handleClick = () => {
+        setOpen(true);
+    };
+
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+
+        setOpen(false);
+    };
     return (
         <>
             <Button variant="contained" size="large" startIcon={<PlusOutlined />} onClick={NotaskClickOpen}>
@@ -71,9 +87,19 @@ function AddFAQ() {
                     </Grid>
                 </DialogContent>
                 <DialogActions>
-                    <Button variant="contained" size="large">
+                    <Button variant="contained" size="large" onClick={handleClick}>
                         Save
                     </Button>
+                    <Snackbar
+                        open={open}
+                        autoHideDuration={6000}
+                        onClose={handleClose}
+                        anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+                    >
+                        <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+                            FAQ add successfully !
+                        </Alert>
+                    </Snackbar>
                 </DialogActions>
             </Dialog>
         </>

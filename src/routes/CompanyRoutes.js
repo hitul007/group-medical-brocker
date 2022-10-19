@@ -1,5 +1,6 @@
 // project import
 import CompanyLayout from 'layout/CompanyLayout';
+import ComClaimDetails from 'pages/CompanyPortal/ComClaimDetails';
 import ComHospitals from 'pages/CompanyPortal/ComHospitals';
 import ComInsurance from 'pages/CompanyPortal/ComInsurance';
 import CompanyDashboard from 'pages/CompanyPortal/CompanyDashboard';
@@ -28,6 +29,10 @@ const CompanyRoutes = {
                 {
                     path: 'employees',
                     element: <ComEmployeesDetails />
+                },
+                {
+                    path: 'claim-detail',
+                    element: <ComClaimDetails />
                 }
             ]
         },
