@@ -1,29 +1,21 @@
 // material-ui
-import React, { useState } from 'react';
-import { Box, Breadcrumbs, Button, Typography, Tab } from '@mui/material';
-import MainCard from 'components/MainCard';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
-
-import { Link } from 'react-router-dom';
-import EmpHead from './EmpHead';
-import Information from './Information';
+import { Box, Tab } from '@mui/material';
+import MainCard from 'components/MainCard';
+import React from 'react';
 import EmpClaims from './EmpClaims';
-import useMediaQuery from '@mui/material/useMediaQuery';
+import EmpHead from './EmpHead';
+import EmpPorEndorsement from './EmpPorEndorsement';
+import Information from './Information';
 
 function EmployeesDetails() {
     const [value, setValue] = React.useState('1');
-    const [isModalOpen, setIsModalOpen] = useState(false);
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
-
-    const handleClickOpen = () => {
-        setIsModalOpen(true);
-    };
-    const isDesktop = useMediaQuery('(min-width:600px)');
 
     return (
         <>
@@ -38,7 +30,6 @@ function EmployeesDetails() {
                                     <Tab label="Information" value="1" />
                                     <Tab label="Claims" value="2" />
                                     <Tab label="Endorsement" value="3" />
-                                    {/* <Tab label="Endorsement" value="4" /> */}
                                 </TabList>
                             </Box>
                             <TabPanel value="1">
@@ -47,7 +38,9 @@ function EmployeesDetails() {
                             <TabPanel value="2" sx={{ p: 0 }}>
                                 <EmpClaims />
                             </TabPanel>
-                            <TabPanel value="3">Endorsement</TabPanel>
+                            <TabPanel value="3">
+                                <EmpPorEndorsement />
+                            </TabPanel>
                         </TabContext>
                     </Box>
                 </MainCard>

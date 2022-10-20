@@ -1,29 +1,21 @@
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
-import { Box, Breadcrumbs, Button, Tab, Typography } from '@mui/material';
+import { Box, Tab } from '@mui/material';
 import MainCard from 'components/MainCard';
-import React, { useState } from 'react';
+import React from 'react';
 
-import { PlusOutlined } from '@ant-design/icons';
-
-import useMediaQuery from '@mui/material/useMediaQuery';
 import Claims from './Claims';
+import ComEndorsement from './ComEndorsement';
 import Employees from './Employees';
 import Head from './Head';
 import Overview from './Overview';
 function CompanyDashboard() {
     const [value, setValue] = React.useState('1');
-    const [isModalOpen, setIsModalOpen] = useState(false);
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
-
-    const handleClickOpen = () => {
-        setIsModalOpen(true);
-    };
-    const isDesktop = useMediaQuery('(min-width:600px)');
 
     return (
         <>
@@ -50,7 +42,9 @@ function CompanyDashboard() {
                             <TabPanel value="3" sx={{ p: 0 }}>
                                 <Claims />
                             </TabPanel>
-                            <TabPanel value="4">Endorsement</TabPanel>
+                            <TabPanel value="4">
+                                <ComEndorsement />
+                            </TabPanel>
                         </TabContext>
                     </Box>
                 </MainCard>
