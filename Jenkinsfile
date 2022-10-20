@@ -1,7 +1,7 @@
 pipeline {
     agent any
     
-    tools {nodejs "17.3.0"}
+    tools {nodejs "16.17.0"}
 
     environment {
         AWS_DEFAULT_REGION="ap-south-1"
