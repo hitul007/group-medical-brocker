@@ -9,10 +9,8 @@ pipeline {
     stages {
         stage('Install'){
             steps {
+                sh 'rm -rf node_modules'
                 sh 'npm install'
-                sh 'npm i @babel/preset-react '
-                sh 'npm i @babel/core'
-                sh 'npm install --save-dev @babel/preset-react'
             }
         }
         stage('Build') {
