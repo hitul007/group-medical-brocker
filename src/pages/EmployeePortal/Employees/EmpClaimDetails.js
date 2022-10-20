@@ -1,33 +1,28 @@
-import PropTypes from 'prop-types';
-import React, { useMemo } from 'react';
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import EditIcon from '@mui/icons-material/Edit';
+import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import {
     Box,
     Button,
-    Dialog,
-    DialogContent,
-    DialogTitle,
-    FormLabel,
+    FormControlLabel,
     Grid,
+    IconButton,
     InputAdornment,
+    Radio,
+    RadioGroup,
     Stack,
     TextField,
-    Typography,
-    RadioGroup,
-    FormControlLabel,
-    Radio,
-    IconButton
+    Typography
 } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import MainCard from 'components/MainCard';
-import EditIcon from '@mui/icons-material/Edit';
-import { Link } from 'react-router-dom';
-import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
-import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
-import AccountCircle from '@mui/icons-material/AccountCircle';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import MainCard from 'components/MainCard';
+import PropTypes from 'prop-types';
+import React, { useMemo } from 'react';
 import { useDropzone } from 'react-dropzone';
+import { Link } from 'react-router-dom';
 
 import Dot from 'components/@extended/Dot';
 
@@ -70,8 +65,7 @@ function EmpClaimDetails() {
 
     const isDesktop = useMediaQuery('(min-width:600px)');
 
-    const { getRootProps, getInputProps, acceptedFiles, isFocused, isDragAccept, isDragReject } = useDropzone({ noKeyboard: true });
-    const files = acceptedFiles.map((file) => <Typography key={file.path}>{file.path}</Typography>);
+    const { getRootProps, getInputProps, isFocused, isDragAccept, isDragReject } = useDropzone({ noKeyboard: true });
     const baseStyle = {
         flex: 1,
         display: 'flex',
@@ -253,7 +247,6 @@ function EmpClaimDetails() {
                                 </div>
 
                                 <Box sx={{ mt: 1.5, display: 'grid', gridTemplateColumns: isDesktop ? '1fr 1fr 1fr' : '1fr' }}>
-                                    {/* <Typography sx={{ color: '#8c8c8c' }}>{files}</Typography> */}
                                     <Typography sx={{ color: '#8c8c8c' }}>report-1.pdf</Typography>
                                     <Typography sx={{ color: '#8c8c8c' }}>Bill File-1.png</Typography>
                                     <Typography sx={{ color: '#8c8c8c' }}>Bill File-2.png</Typography>

@@ -1,16 +1,15 @@
 // material-ui
-import React, { useState } from 'react';
-import { Box, Breadcrumbs, Button, Typography, Tab } from '@mui/material';
-import MainCard from 'components/MainCard';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
+import { Box, Breadcrumbs, Tab, Typography } from '@mui/material';
+import MainCard from 'components/MainCard';
+import React from 'react';
 
-import { PlusOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
+import EmpClaims from './EmpClaims';
 import EmpHead from './EmpHead';
 import Information from './Information';
-import EmpClaims from './EmpClaims';
 // import Overview from './Overview';
 // import Employees from './Employees';
 // import Claims from './Claims';

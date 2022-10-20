@@ -3,7 +3,6 @@ import { Stack, useMediaQuery } from '@mui/material';
 
 // project import
 import MobileSection from './MobileSection';
-import Notification from './Notification';
 import Profile from './Profile';
 
 // ==============================|| HEADER - CONTENT ||============================== //

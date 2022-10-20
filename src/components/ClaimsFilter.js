@@ -1,11 +1,8 @@
+import { CloseOutlined, FilterOutlined } from '@ant-design/icons';
+import { Box, Button, Chip, Divider, IconButton, Popover, Slider, Stack, Typography } from '@mui/material';
 import * as React from 'react';
-import { Button, Popover, Typography, Stack, IconButton, Divider, Chip, Slider, Box } from '@mui/material';
-import useMediaQuery from '@mui/material/useMediaQuery';
-import { FilterOutlined, CloseOutlined } from '@ant-design/icons';
 
 function ClaimsFilter() {
-    const isDesktop = useMediaQuery('(min-width:600px)');
-
     const [anchorEl, setAnchorEl] = React.useState(null);
 
     const handleClick = (event) => {
@@ -17,11 +14,6 @@ function ClaimsFilter() {
     };
 
     const open = Boolean(anchorEl);
-    const id = open ? 'simple-popover' : undefined;
-
-    function valuetext(value) {
-        return `${value}°C`;
-    }
 
     const marks = [
         {
@@ -52,7 +44,6 @@ function ClaimsFilter() {
                 Filter
             </Button>
             <Popover
-                id={id}
                 open={open}
                 anchorEl={anchorEl}
                 onClose={handleClose}

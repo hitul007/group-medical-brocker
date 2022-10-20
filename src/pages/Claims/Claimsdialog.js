@@ -1,4 +1,3 @@
-import React, { useMemo } from 'react';
 import { CloseOutlined } from '@ant-design/icons';
 import {
     Box,
@@ -6,29 +5,28 @@ import {
     Dialog,
     DialogContent,
     DialogTitle,
-    FormControl,
     FormControlLabel,
     FormLabel,
+    Grid,
     Radio,
     RadioGroup,
     Stack,
     TextField,
-    Typography,
-    Grid
+    Typography
 } from '@mui/material';
-import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
+import DialogActions from '@mui/material/DialogActions';
+import IconButton from '@mui/material/IconButton';
+import InputAdornment from '@mui/material/InputAdornment';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import Stepper from '@mui/material/Stepper';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import React, { useMemo } from 'react';
 import { useDropzone } from 'react-dropzone';
 import success from '../../assets/images/icons/successfully.svg';
-import DialogActions from '@mui/material/DialogActions';
-import InputAdornment from '@mui/material/InputAdornment';
-import IconButton from '@mui/material/IconButton';
-import useMediaQuery from '@mui/material/useMediaQuery';
 const Claimdialog = ({ modalOpen, setModalOpen }) => {
     const steps = ['Basic Information', 'Claim Document', 'Quick Review'];
 
@@ -67,7 +65,6 @@ const Claimdialog = ({ modalOpen, setModalOpen }) => {
         alignItems: 'center',
         padding: '20px',
         borderWidth: 2,
-        borderRadius: 2,
         borderColor: '#eeeeee',
         borderStyle: 'solid',
         backgroundColor: '#fafafa',
