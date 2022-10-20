@@ -1,20 +1,19 @@
 import PropTypes from 'prop-types';
-import { useRef } from 'react';
-import React, { useState } from 'react';
+import React, { useRef } from 'react';
 // material-ui
 import {
     Avatar,
     Box,
     ButtonBase,
-    Stack,
-    Typography,
+    Divider,
     List,
     ListItem,
     ListItemButton,
     ListItemIcon,
     ListItemText,
     Popover,
-    Divider
+    Stack,
+    Typography
 } from '@mui/material';
 
 // project import

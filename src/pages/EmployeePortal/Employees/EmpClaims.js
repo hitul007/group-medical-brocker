@@ -8,7 +8,6 @@ import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import LastPageIcon from '@mui/icons-material/LastPage';
 import {
     Box,
-    Button,
     IconButton,
     InputAdornment,
     Stack,
@@ -25,12 +24,12 @@ import {
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 
-import { FilterOutlined, SearchOutlined } from '@ant-design/icons';
+import { SearchOutlined } from '@ant-design/icons';
 // project import
 
 import Dot from 'components/@extended/Dot';
-import MainCard from 'components/MainCard';
 import ClaimsFilter from 'components/ClaimsFilter';
+import MainCard from 'components/MainCard';
 import { Link } from 'react-router-dom';
 function TablePaginationActions(props) {
     const theme = useTheme();

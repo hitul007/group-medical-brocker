@@ -1,9 +1,9 @@
 import { Box, Button, Grid, InputAdornment, Stack, TextField, Typography } from '@mui/material';
 import MainCard from 'components/MainCard';
 
-import { AimOutlined, PlusOutlined, SearchOutlined, UserOutlined } from '@ant-design/icons';
-import AddHospitals from './AddHospitals';
+import { AimOutlined, SearchOutlined, UserOutlined } from '@ant-design/icons';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import AddHospitals from './AddHospitals';
 function Hospitals() {
     const isDesktop = useMediaQuery('(min-width:600px)');
     return (
