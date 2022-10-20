@@ -70,9 +70,6 @@ function ComClaimDetails() {
 
     const isDesktop = useMediaQuery('(min-width:600px)');
 
-    const handleClose = () => {
-        setModalOpen(false);
-    };
     const { getRootProps, getInputProps, acceptedFiles, isFocused, isDragAccept, isDragReject } = useDropzone({ noKeyboard: true });
     const files = acceptedFiles.map((file) => <Typography key={file.path}>{file.path}</Typography>);
     const baseStyle = {
