@@ -1,25 +1,21 @@
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
-import { Box, Breadcrumbs, Button, Tab, Typography } from '@mui/material';
+import { Box, Breadcrumbs, Tab, Typography } from '@mui/material';
 import MainCard from 'components/MainCard';
-import React, { useState } from 'react';
+import React from 'react';
 
 import { Link } from 'react-router-dom';
 import Claims from './Claims';
 import Employees from './Employees';
+import Endorsement from './Endorsement';
 import Head from './Head';
 import Overview from './Overview';
 function Details() {
     const [value, setValue] = React.useState('1');
-    const [isModalOpen, setIsModalOpen] = useState(false);
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
-    };
-
-    const handleClickOpen = () => {
-        setIsModalOpen(true);
     };
 
     return (
@@ -55,7 +51,9 @@ function Details() {
                             <TabPanel value="3" sx={{ p: 0 }}>
                                 <Claims />
                             </TabPanel>
-                            <TabPanel value="4">Endorsement</TabPanel>
+                            <TabPanel value="4">
+                                <Endorsement />
+                            </TabPanel>
                         </TabContext>
                     </Box>
                 </MainCard>

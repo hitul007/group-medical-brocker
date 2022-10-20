@@ -1,34 +1,24 @@
 // material-ui
-import React, { useState } from 'react';
-import { Box, Breadcrumbs, Button, Typography, Tab } from '@mui/material';
-import MainCard from 'components/MainCard';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
+import { Box, Breadcrumbs, Tab, Typography } from '@mui/material';
+import MainCard from 'components/MainCard';
+import React from 'react';
 
-import { PlusOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
+import EmpClaims from './EmpClaims';
 import EmpHead from './EmpHead';
 import Information from './Information';
-import EmpClaims from './EmpClaims';
-// import Overview from './Overview';
-// import Employees from './Employees';
-// import Claims from './Claims';
-import Claimdialog from 'pages/Claims/Claimsdialog';
-import useMediaQuery from '@mui/material/useMediaQuery';
+
+import EmpEndorsement from './EmpEndorsement';
 
 function EmployeesDetails() {
     const [value, setValue] = React.useState('1');
-    const [isModalOpen, setIsModalOpen] = useState(false);
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
-
-    const handleClickOpen = () => {
-        setIsModalOpen(true);
-    };
-    const isDesktop = useMediaQuery('(min-width:600px)');
 
     return (
         <>
@@ -63,7 +53,9 @@ function EmployeesDetails() {
                             <TabPanel value="2" sx={{ p: 0 }}>
                                 <EmpClaims />
                             </TabPanel>
-                            <TabPanel value="3">Endorsement</TabPanel>
+                            <TabPanel value="3">
+                                <EmpEndorsement />
+                            </TabPanel>
                         </TabContext>
                     </Box>
                 </MainCard>
