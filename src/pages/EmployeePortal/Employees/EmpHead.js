@@ -41,11 +41,11 @@ function EmpHead() {
                 <Stack direction="row" spacing={2}>
                     {isDesktop ? (
                         <Avatar sx={{ width: 70, height: 70, borderRadius: '6px', color: '#1890ff', backgroundColor: '#e6f7ff' }}>
-                            DT
+                            RF
                         </Avatar>
                     ) : (
                         <Avatar sx={{ width: 50, height: 50, borderRadius: '6px', color: '#1890ff', backgroundColor: '#e6f7ff' }}>
-                            DT
+                            RF
                         </Avatar>
                     )}
                     <Box>
