@@ -1,26 +1,20 @@
-import { Box, Grid, Stack, Typography, IconButton } from '@mui/material';
+import { Box, Grid, Stack, Typography } from '@mui/material';
 import MainCard from 'components/MainCard';
-import SaveAltIcon from '@mui/icons-material/SaveAlt';
 
 function Overview() {
     return (
         <>
             <Typography sx={{ color: 'rgb(140, 140, 140)', mb: 2 }}>Insurance</Typography>
             <Box>
-            <Grid container spacing={2}>
+                <Grid container spacing={2}>
                     <Grid item xs={12} md={4}>
-                        <MainCard>
-                            <Stack direction="row" justifyContent="space-between" alignItems="flex-start">
-                                <Typography variant="h5">Health Insurance</Typography>
-                                <IconButton color="primary">
-                                    <SaveAltIcon sx={{ fontSize: '20px' }} />
-                                </IconButton>
-                            </Stack>
+                        <MainCard sx={{ pr: 5 }}>
+                            <Typography variant="h5">Health Insurance</Typography>
                             <Typography variant="h6" sx={{ color: 'rgb(140, 140, 140)', mt: 1 }}>
                                 Policy number
                             </Typography>
                             <Typography variant="h3">
-                                <b>0015151512223</b>
+                                <b>00AA15151512223</b>
                             </Typography>
 
                             <Typography variant="h6" sx={{ color: 'rgb(140, 140, 140)', mt: 1 }}>
@@ -30,22 +24,17 @@ function Overview() {
                             <Typography variant="h6" sx={{ color: 'rgb(140, 140, 140)', mt: 1 }}>
                                 CD balance
                             </Typography>
-                            <Typography variant="h5">$ 20,685</Typography>
+                            <Typography variant="h5">$ 11,111</Typography>
                         </MainCard>
                     </Grid>
                     <Grid item xs={12} md={4}>
-                        <MainCard>
-                            <Stack direction="row" justifyContent="space-between" alignItems="flex-start">
-                                <Typography variant="h5">Health Insurance to Term Insurance</Typography>
-                                <IconButton color="primary">
-                                    <SaveAltIcon sx={{ fontSize: '20px' }} />
-                                </IconButton>
-                            </Stack>
+                        <MainCard sx={{ pr: 5 }}>
+                            <Typography variant="h5">Health Insurance</Typography>
                             <Typography variant="h6" sx={{ color: 'rgb(140, 140, 140)', mt: 1 }}>
                                 Policy number
                             </Typography>
                             <Typography variant="h3">
-                                <b>9885151416447</b>
+                                <b>00AA15151512223</b>
                             </Typography>
                             <Typography variant="h6" sx={{ color: 'rgb(140, 140, 140)', mt: 1 }}>
                                 Valid date
