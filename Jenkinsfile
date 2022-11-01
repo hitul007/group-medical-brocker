@@ -17,23 +17,23 @@ pipeline {
                 sh 'npm run build'
             }
         }
-        // stage('Deploy'){
-        //     stages{
-        //         // stage("Remove old files"){
-        //         //     steps{
-        //         //         withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'digiqt-aws-credentials', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]) {
-        //         //         sh 'aws s3 sync ./dist s3://group-medical --delete --acl public-read'
-        //         //         }
-        //         //     }
-        //         // }
-        //         stage("Copy new files to s3 bucket"){
-        //             steps{
-        //                 withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'digiqt-aws-credentials', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]) {
-        //                 sh 'aws s3 sync ./dist s3://group-medical --acl public-read'
-        //                 }
-        //             }
-        //         }
-        //     }
-        // }
+        stage('Deploy'){
+            stages{
+                stage("Remove old files"){
+                    steps{
+                        withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'digiqt-aws-credentials', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]) {
+                        sh 'aws s3 sync ./build s3://group-medical --delete --acl public-read'
+                        }
+                    }
+                }
+                stage("Copy new files to s3 bucket"){
+                    steps{
+                        withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'digiqt-aws-credentials', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]) {
+                        sh 'aws s3 sync ./build s3://group-medical --acl public-read'
+                        }
+                    }
+                }
+            }
+        }
     }
 }
